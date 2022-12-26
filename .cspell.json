@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "allowCompoundWords": true,
+  "caseSensitive": false,
+  "dictionaries": ["@flex-development/create-node-error"],
+  "dictionaryDefinitions": [
+    {
+      "name": "@flex-development/create-node-error",
+      "path": "./.dictionary.txt"
+    }
+  ],
+  "enableGlobDot": true,
+  "failFast": false,
+  "flagWords": [],
+  "ignorePaths": [
+    "**/*.snap",
+    "**/.gitignore",
+    "**/dist/",
+    ".cspell.json",
+    ".env*",
+    ".eslintignore",
+    ".git/",
+    ".husky/_/",
+    ".prettierignore",
+    ".vercel/",
+    ".vscode/settings.json",
+    ".yarn/",
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "__tests__/report.json",
+    "patches/",
+    "yarn.lock"
+  ],
+  "ignoreRegExpList": ["/from\\s+(['\"]).*\\1/"],
+  "ignoreWords": [],
+  "language": "en-US",
+  "patterns": [],
+  "readonly": true,
+  "useGitignore": true,
+  "usePnP": false,
+  "version": "0.2",
+  "words": ["fldv", "create-node-error"]
+}
