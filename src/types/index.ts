@@ -4,3 +4,4 @@
  */
 
 export type { default as MessageFn } from './fn-message'
+export type { default as NodeError } from './node-error'
