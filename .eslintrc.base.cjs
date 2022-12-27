@@ -1032,6 +1032,7 @@ const config = {
         'promise/prefer-await-to-callbacks': 0,
         'promise/valid-params': 0,
         'unicorn/consistent-destructuring': 0,
+        'unicorn/error-message': 0,
         'unicorn/explicit-length-check': 0,
         'unicorn/no-array-for-each': 0,
         'unicorn/prefer-at': 0,

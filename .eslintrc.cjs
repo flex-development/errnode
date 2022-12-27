@@ -11,7 +11,15 @@
 const config = {
   root: true,
   extends: ['./.eslintrc.base.cjs'],
-  overrides: [...require('./.eslintrc.base.cjs').overrides]
+  overrides: [
+    ...require('./.eslintrc.base.cjs').overrides,
+    {
+      files: ['src/internal/format-message.ts'],
+      rules: {
+        'unicorn/error-message': 0
+      }
+    }
+  ]
 }
 
 module.exports = config

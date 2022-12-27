@@ -31,7 +31,11 @@
     "patches/",
     "yarn.lock"
   ],
-  "ignoreRegExpList": ["/from\\s+(['\"]).*\\1/"],
+  "ignoreRegExpList": [
+    "/@flex-development\\/.*/",
+    "/from\\s+(['\"]).*\\1/",
+    "import\\(.*\\)"
+  ],
   "ignoreWords": [],
   "language": "en-US",
   "patterns": [],
@@ -39,5 +43,5 @@
   "useGitignore": true,
   "usePnP": false,
   "version": "0.2",
-  "words": ["fldv", "create-node-error"]
+  "words": ["Odfijos", "fldv"]
 }
