@@ -3,4 +3,4 @@
  * @module create-node-error
  */
 
-export {}
+export { default as determineSpecificType } from './determine-specific-type'

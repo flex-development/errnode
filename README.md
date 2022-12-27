@@ -7,7 +7,7 @@
 [![vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat&logo=vitest&logoColor=ffffff)](https://vitest.dev/)
 [![yarn](https://img.shields.io/badge/-yarn-2c8ebb?style=flat&logo=yarn&logoColor=ffffff)](https://yarnpkg.com/)
 
-Create [Node.js errors][1]
+Utilities for creating [Node.js errors][1]
 
 ## Contents
 
@@ -21,7 +21,7 @@ Create [Node.js errors][1]
 
 ## What is this?
 
-This package is a utility for creating [Node.js errors][1].
+This package provides utilities for creating [Node.js errors][1].
 
 ## When should I use this?
 

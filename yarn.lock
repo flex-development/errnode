@@ -1043,6 +1043,7 @@ __metadata:
     is-ci: "npm:3.0.1"
     jsonc-eslint-parser: "npm:2.1.0"
     lint-staged: "npm:13.1.0"
+    node-inspect-extracted: "npm:2.0.0"
     node-notifier: "npm:10.0.1"
     prettier: "npm:2.8.1"
     prettier-plugin-sh: "npm:0.12.8"
@@ -6372,6 +6373,13 @@ __metadata:
   bin:
     node-gyp: bin/node-gyp.js
   checksum: 40aca5b9b3cc5715d5407101d69826927db9a2cf140f113ac52e239a10b15fbae277844ff815c05bcaa9c9fc5256e4e23b3ce3bdace573429d929e3b5df99845
+  languageName: node
+  linkType: hard
+
+"node-inspect-extracted@npm:2.0.0":
+  version: 2.0.0
+  resolution: "node-inspect-extracted@npm:2.0.0"
+  checksum: d99c560d4687695f191d27585877893428101082d8ce1b52d79e968650b03c626cd3472f98cae98f17c98859ed0aa1e1a53954d82ba04659115ebb4e6e5565b4
   languageName: node
   linkType: hard
 

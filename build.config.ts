@@ -12,9 +12,9 @@ import pkg from './package.json' assert { type: 'json' }
  * @const {Config} config
  */
 const config: Config = defineBuildConfig({
-  platform: 'node',
+  sourcemap: true,
+  sourcesContent: false,
   target: 'node' + pkg.engines.node.replace(/^\D+/, ''),
-  treeShaking: true,
   tsconfig: 'tsconfig.build.json'
 })
 

@@ -1,6 +1,6 @@
 {
   "name": "@flex-development/create-node-error",
-  "description": "Utility for creating Node.js errors",
+  "description": "Utilities for creating Node.js errors",
   "version": "0.0.0",
   "keywords": [
     "error",
@@ -62,6 +62,9 @@
     "test:watch": "vitest",
     "typecheck": "vitest typecheck --run",
     "typecheck:watch": "vitest typecheck"
+  },
+  "dependencies": {
+    "node-inspect-extracted": "2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "17.3.0",
@@ -131,6 +134,9 @@
     "vitest-github-actions-reporter": "0.9.0",
     "yaml-eslint-parser": "1.1.0"
   },
+  "bundleDependencies": [
+    "node-inspect-extracted"
+  ],
   "resolutions": {
     "@ardatan/sync-fetch": "larsgw/sync-fetch#head=worker_threads",
     "@flex-development/tutils": "6.0.0-alpha.7",
