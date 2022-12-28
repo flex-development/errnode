@@ -1002,6 +1002,7 @@ __metadata:
     "@flex-development/tutils": "npm:6.0.0-alpha.7"
     "@graphql-eslint/eslint-plugin": "npm:3.13.0"
     "@types/chai": "npm:4.3.4"
+    "@types/chai-string": "npm:1.4.2"
     "@types/conventional-changelog": "npm:3.1.1"
     "@types/conventional-changelog-config-spec": "npm:2.1.2"
     "@types/conventional-changelog-writer": "npm:4.0.1"
@@ -1019,6 +1020,7 @@ __metadata:
     "@vitest/coverage-c8": "npm:0.26.2"
     "@vitest/ui": "npm:0.26.2"
     chai: "npm:4.3.7"
+    chai-string: "npm:1.5.0"
     conventional-changelog-cli: "npm:2.2.2"
     conventional-recommended-bump: "npm:6.1.0"
     cspell: "npm:6.18.0"
@@ -1735,6 +1737,15 @@ __metadata:
   version: 1.0.3
   resolution: "@tsconfig/node16@npm:1.0.3"
   checksum: 4280081089783dfeab00e5bc18ff55e11e8e4577d4626f34730a062c99ec4136fe6c2036e6f20ebe50b1c3e01bc29db6e2cfa9541a7b6dc99825ccbe8f7f8395
+  languageName: node
+  linkType: hard
+
+"@types/chai-string@npm:1.4.2":
+  version: 1.4.2
+  resolution: "@types/chai-string@npm:1.4.2"
+  dependencies:
+    "@types/chai": "npm:*"
+  checksum: c272b47a9ee36ec43b337ac4995f4b0d6f942b4042c464a9211efae8cebeaa07212e06ff6196d397e44c7c3996f79ba67a0d3733c2989eb55ee71c0bb2f2ca26
   languageName: node
   linkType: hard
 
@@ -2686,6 +2697,15 @@ __metadata:
   version: 7.0.1
   resolution: "camelcase@npm:7.0.1"
   checksum: 8cc1909d4219769e835180fde379b5caeff681336506f9c4474b76a7ba0fe8eda4a183b3d05c09c39a118d8a44c384cf8a93e4326c655a82d03ded87a4eea829
+  languageName: node
+  linkType: hard
+
+"chai-string@npm:1.5.0":
+  version: 1.5.0
+  resolution: "chai-string@npm:1.5.0"
+  peerDependencies:
+    chai: ^4.1.2
+  checksum: d39e07eb8311f99130c3fd404ef86bc09b4b4b4da153d61ec80875da48d06ead90fafd13692eaf3197b672679212603cd4e9dd3b9f30313d6f6fa56d40ac7517
   languageName: node
   linkType: hard
 

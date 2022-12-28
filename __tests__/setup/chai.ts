@@ -5,7 +5,15 @@
  */
 
 import chai from 'chai'
+import chaiString from 'chai-string'
 
 // configure chai
 chai.config.includeStack = true
 chai.config.truncateThreshold = 0
+
+/**
+ * initialize chai plugins.
+ *
+ * @see https://github.com/onechiporenko/chai-string
+ */
+chai.use(chaiString)

@@ -676,7 +676,7 @@ const config = {
         '@typescript-eslint/no-base-to-string': [
           2,
           {
-            ignoredTypeNames: ['RegExp']
+            ignoredTypeNames: ['Error', 'RegExp', 'URL', 'URLSearchParams']
           }
         ],
         '@typescript-eslint/no-floating-promises': [
