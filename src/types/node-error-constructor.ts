@@ -10,7 +10,7 @@ import type NodeError from './node-error'
 /**
  * Node.js error constructor type.
  *
- * @template B - Error constructor type
+ * @template B - Error base class type
  * @template M - Error message type
  * @template T - Error base type
  *
@@ -21,6 +21,8 @@ type NodeErrorConstructor<
   M extends MessageFn | string = string,
   T extends B['prototype'] = B['prototype']
 > = Overwrite<B, B> & {
+  readonly prototype: NodeError<T>
+
   new (...args: M extends MessageFn ? Parameters<M> : any[]): NodeError<T>
   (...args: M extends MessageFn ? Parameters<M> : any[]): NodeError<T>
 }
