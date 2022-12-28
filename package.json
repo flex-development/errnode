@@ -64,6 +64,7 @@
     "typecheck:watch": "vitest typecheck"
   },
   "dependencies": {
+    "@flex-development/tutils": "6.0.0-alpha.7",
     "node-inspect-extracted": "2.0.0"
   },
   "devDependencies": {
@@ -72,7 +73,6 @@
     "@commitlint/types": "17.0.0",
     "@faker-js/faker": "7.6.0",
     "@flex-development/mkbuild": "1.0.0-alpha.9",
-    "@flex-development/tutils": "6.0.0-alpha.7",
     "@graphql-eslint/eslint-plugin": "3.13.0",
     "@types/chai": "4.3.4",
     "@types/chai-string": "1.4.2",
