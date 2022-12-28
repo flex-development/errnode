@@ -463,6 +463,7 @@ const config = {
     'no-array-constructor': 0,
     'no-case-declarations': 0,
     'no-duplicate-imports': 0,
+    'no-empty': [2, { allowEmptyCatch: true }],
     'no-empty-function': 0,
     'no-ex-assign': 0,
     'no-invalid-this': 0,

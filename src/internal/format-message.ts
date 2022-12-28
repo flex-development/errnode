@@ -11,20 +11,24 @@ import { format } from 'node-inspect-extracted'
 /**
  * Formats an error message.
  *
+ * [1]: https://nodejs.org/api/util.html#utilformatformat-args
+ *
  * @see https://nodejs.org/api/util.html#utilformatformat-args
+ *
+ * @template M - Error message type
  *
  * @param {ErrorCode} code - Node.js error code
  * @param {MessageFn | string} msg - Error message or message function
- * @param {any[]} [args=[]] - `util.format` arguments if `msg` is a string, or
- * `msg` parameters if `msg` is a function
+ * @param {any[] | Parameters<M>} args - `msg` params if `msg` is a function;
+ * [`util.format`][1] arguments if `msg` is a string
  * @param {Error} [self=new Error()] - Error used as `this` argument in `msg`
  * @return {string} Formatted error message
  * @throws {Error} If `args` length is invalid
  */
-function formatMessage(
+function formatMessage<M extends MessageFn | string = MessageFn | string>(
   code: ErrorCode,
-  msg: MessageFn | string,
-  args: any[] = [],
+  msg: M,
+  args: M extends MessageFn ? Parameters<M> : any[],
   self: Error = new Error()
 ): string {
   /**

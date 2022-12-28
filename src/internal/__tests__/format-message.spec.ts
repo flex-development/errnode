@@ -48,13 +48,15 @@ describe('unit:internal/formatMessage', () => {
     const cases: Parameters<typeof testSubject>[] = [
       [
         ErrorCode.ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED,
-        'Import assertion type "%s" is unsupported'
+        'Import assertion type "%s" is unsupported',
+        []
       ],
       [
         ErrorCode.ERR_UNKNOWN_FILE_EXTENSION,
         (ext: string, path: string) => {
           return `Unknown file extension "${ext}" for ${path}`
-        }
+        },
+        []
       ]
     ]
 
