@@ -13,6 +13,7 @@ Create [Node.js errors][1]
 
 - [What is this?](#what-is-this)
 - [When should I use this?](#when-should-i-use-this)
+  - [Differences between Node.js](#differences-between-nodejs)
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
