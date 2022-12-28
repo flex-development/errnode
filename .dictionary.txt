@@ -22,6 +22,7 @@ fpnv
 gpgsign
 hmarr
 iife
+instanceof
 keyid
 larsgw
 lcov
