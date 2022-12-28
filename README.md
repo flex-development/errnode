@@ -16,6 +16,8 @@ Create [Node.js errors][1]
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
+  - [`createNodeError(code, Base, message)`](#createnodeerrorcode-base-message)
+  - [`determineSpecificType(value)`](#determinespecifictypevalue)
 - [Types](#types)
   - [Enums](#enums)
   - [Type Defintions](#type-definitions)
@@ -23,12 +25,12 @@ Create [Node.js errors][1]
 
 ## What is this?
 
-This package provides an API for creating [Node.js errors][1].
+This package provides utilities for creating [Node.js errors][1].
 
 ## When should I use this?
 
-This package is designed to help developers build [ponyfills][2] and utilities like [`mlly`][3] by providing a universal
-API for creating [Node.js errors][1].
+This package is designed to help developers build Node.js tools like [ponyfills][2], as well as more verbose utilities
+like [`mlly`][3], by providing a universal API for creating [Node.js errors][1].
 
 ### Differences between Node.js
 
@@ -280,11 +282,39 @@ err instanceof TypeError: true
 
 ## API
 
-**TODO**: Update documentation.
+This package exports the following identifiers:
+
+- [`createNodeError`](#createnodeerrorcode-base-message)
+- [`determineSpecificType`](#determinespecifictypevalue)
+
+There is no default export.
+
+### `createNodeError(code, Base, message)`
+
+Creates a Node.js error constructor.
+
+If the given error `message` is a function, constructor arguments are passed to `message`. If the `message` is a string,
+constructor arguments are passed to [`util.format`][7] instead.
+
+- `{ErrorCode}` **`code`** &mdash; Node.js error code
+- `{B extends ErrorConstructor}` **`Base`** &mdash; Error base class
+- `{M extends MessageFn | string}` **`message`** &mdash; Error message or message function
+- **Returns**: `{NodeErrorConstructor<B, M>}` `NodeError` constructor
+
+> **Source**: [`src/create-node-error.ts`](src/create-node-error.ts)
+
+### `determineSpecificType(value)`
+
+Determines the specific type of a value for type-mismatch errors.
+
+- `{unknown}` **`value`** &mdash; Value to evaluate
+- **Returns**: `{string}` Specific type of `value`
+
+> **Source**: [`src/determine-specific-type.ts`](src/determine-specific-type.ts)
 
 ## Types
 
-This package is fully typed with [TypeScript][7]. It exports the following definitions:
+This package is fully typed with [TypeScript][8]. It exports the following definitions:
 
 ### Enums
 
@@ -306,4 +336,5 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 [4]: https://nodejs.org/api/errors.html#errorstacktracelimit
 [5]: https://github.com/nodejs/node/blob/v19.3.0/lib/internal/errors.js#L484-L496
 [6]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
-[7]: https://www.typescriptlang.org
+[7]: https://nodejs.org/api/util.html#utilformatformat-args
+[8]: https://www.typescriptlang.org

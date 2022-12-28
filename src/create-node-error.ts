@@ -13,6 +13,13 @@ import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
 /**
  * Creates a Node.js error constructor.
  *
+ * If the given error `message` is a function, constructor arguments are passed
+ * to `message`. If the `message` is a string, constructor arguments are passed
+ * to [`util.format`][2] instead.
+ *
+ * [1]: {@link ./types/fn-message.ts}
+ * [2]: https://nodejs.org/api/util.html#utilformatformat-args
+ *
  * @template B - Error base class type
  * @template M - Error message type
  * @template T - Error base type

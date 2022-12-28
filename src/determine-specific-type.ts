@@ -9,7 +9,7 @@ import { inspect } from 'node-inspect-extracted'
 /**
  * Determines the specific type of a value for type-mismatch errors.
  *
- * @param {unknown} value - Value to detect type of
+ * @param {unknown} value - Value to evaluate
  * @return {string} Specific type of `value`
  */
 function determineSpecificType(value: unknown): string {
