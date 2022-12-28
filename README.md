@@ -1,6 +1,7 @@
 # errnode
 
 [![npm](https://img.shields.io/npm/v/@flex-development/errnode.svg)](https://npmjs.com/package/@flex-development/errnode)
+[![codecov](https://codecov.io/gh/flex-development/errnode/branch/main/graph/badge.svg?token=e2gnycTeI9)](https://codecov.io/gh/flex-development/errnode)
 [![license](https://img.shields.io/github/license/flex-development/errnode.svg)](LICENSE.md)
 [![conventional commits](https://img.shields.io/badge/-conventional%20commits-fe5196?logo=conventional-commits&logoColor=ffffff)](https://conventionalcommits.org/)
 [![typescript](https://img.shields.io/badge/-typescript-3178c6?logo=typescript&logoColor=ffffff)](https://typescriptlang.org/)
