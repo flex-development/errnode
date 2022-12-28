@@ -1,6 +1,6 @@
 /**
  * @file Internal - formatMessage
- * @module create-node-error/internal/formatMessage
+ * @module errnode/internal/formatMessage
  * @see https://github.com/nodejs/node/blob/v19.3.0/lib/internal/errors.js#L440-L467
  */
 

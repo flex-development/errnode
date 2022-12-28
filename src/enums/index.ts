@@ -1,6 +1,6 @@
 /**
  * @file Entry Point - Enums
- * @module create-node-error/enums
+ * @module errnode/enums
  */
 
 export { default as ErrorCode } from './error-code'

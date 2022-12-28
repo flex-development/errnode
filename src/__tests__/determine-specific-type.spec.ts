@@ -1,6 +1,6 @@
 /**
  * @file Unit Tests - determineSpecificType
- * @module create-node-error/tests/unit/determineSpecificType
+ * @module errnode/tests/unit/determineSpecificType
  */
 
 import { inspect } from 'node-inspect-extracted'

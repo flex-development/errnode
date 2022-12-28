@@ -1,6 +1,6 @@
 /**
  * @file Enums - ErrorCode
- * @module create-node-error/enums/ErrorCode
+ * @module errnode/enums/ErrorCode
  */
 
 /**

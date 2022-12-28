@@ -1,6 +1,6 @@
 /**
  * @file determineSpecificType
- * @module create-node-error/determineSpecificType
+ * @module errnode/determineSpecificType
  * @see https://github.com/nodejs/node/blob/v19.3.0/lib/internal/errors.js#L878-L896
  */
 

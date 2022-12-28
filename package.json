@@ -1,5 +1,5 @@
 {
-  "name": "@flex-development/create-node-error",
+  "name": "@flex-development/errnode",
   "description": "Utilities for creating Node.js errors",
   "version": "0.0.0",
   "keywords": [
@@ -8,9 +8,9 @@
     "typescript"
   ],
   "license": "BSD-3-Clause",
-  "homepage": "https://github.com/flex-development/create-node-error",
-  "repository": "https://github.com/flex-development/create-node-error.git",
-  "bugs": "https://github.com/flex-development/create-node-error/issues",
+  "homepage": "https://github.com/flex-development/errnode",
+  "repository": "https://github.com/flex-development/errnode.git",
+  "bugs": "https://github.com/flex-development/errnode/issues",
   "author": {
     "name": "Lexus Drumgold",
     "url": "https://github.com/unicornware"

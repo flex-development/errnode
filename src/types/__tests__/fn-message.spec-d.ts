@@ -1,6 +1,6 @@
 /**
  * @file Unit Tests - MessageFn
- * @module create-node-error/types/tests/unit-d/MessageFn
+ * @module errnode/types/tests/unit-d/MessageFn
  */
 
 import type TestSubject from '../fn-message'

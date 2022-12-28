@@ -1,6 +1,6 @@
 /**
  * @file Internal - kIsNodeError
- * @module create-node-error/internal/kIsNodeError
+ * @module errnode/internal/kIsNodeError
  */
 
 /**

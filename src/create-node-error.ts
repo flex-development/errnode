@@ -1,6 +1,6 @@
 /**
  * @file createNodeError
- * @module create-node-error/createNodeError
+ * @module errnode/createNodeError
  * @see https://github.com/nodejs/node/blob/v19.3.0/lib/internal/errors.js#L367-L404
  */
 

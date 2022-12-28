@@ -1,6 +1,6 @@
 /**
  * @file Type Definitions - MessageFn
- * @module create-node-error/types/MessageFn
+ * @module errnode/types/MessageFn
  */
 
 /**

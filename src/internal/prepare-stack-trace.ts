@@ -1,6 +1,6 @@
 /**
  * @file Internal - prepareStackTrace
- * @module create-node-error/internal/prepareStackTrace
+ * @module errnode/internal/prepareStackTrace
  */
 
 import type { NodeError } from '#src/types'

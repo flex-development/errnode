@@ -1,6 +1,6 @@
 /**
  * @file Unit Tests - createNodeError
- * @module create-node-error/tests/unit/createNodeError
+ * @module errnode/tests/unit/createNodeError
  */
 
 import { ErrorCode } from '#src/enums'

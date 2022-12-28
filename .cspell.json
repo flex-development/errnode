@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "allowCompoundWords": true,
   "caseSensitive": false,
-  "dictionaries": ["@flex-development/create-node-error"],
+  "dictionaries": ["@flex-development/errnode"],
   "dictionaryDefinitions": [
     {
-      "name": "@flex-development/create-node-error",
+      "name": "@flex-development/errnode",
       "path": "./.dictionary.txt"
     }
   ],

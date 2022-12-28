@@ -1,6 +1,6 @@
 /**
  * @file Entry Point - Type Definitions
- * @module create-node-error/types
+ * @module errnode/types
  */
 
 export type { default as MessageFn } from './fn-message'

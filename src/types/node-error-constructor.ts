@@ -1,6 +1,6 @@
 /**
  * @file Type Definitions - NodeErrorConstructor
- * @module create-node-error/types/NodeErrorConstructor
+ * @module errnode/types/NodeErrorConstructor
  */
 
 import type { Overwrite } from '@flex-development/tutils'

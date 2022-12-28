@@ -1,6 +1,6 @@
 /**
  * @file Unit Tests - NodeErrorConstructor
- * @module create-node-error/types/tests/unit-d/NodeErrorConstructor
+ * @module errnode/types/tests/unit-d/NodeErrorConstructor
  */
 
 import type NodeError from '../node-error'

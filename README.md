@@ -1,7 +1,7 @@
-# create-node-error
+# errnode
 
-[![npm](https://img.shields.io/npm/v/@flex-development/create-node-error.svg)](https://npmjs.com/package/@flex-development/create-node-error)
-[![license](https://img.shields.io/github/license/flex-development/create-node-error.svg)](LICENSE.md)
+[![npm](https://img.shields.io/npm/v/@flex-development/errnode.svg)](https://npmjs.com/package/@flex-development/errnode)
+[![license](https://img.shields.io/github/license/flex-development/errnode.svg)](LICENSE.md)
 [![conventional commits](https://img.shields.io/badge/-conventional%20commits-fe5196?logo=conventional-commits&logoColor=ffffff)](https://conventionalcommits.org/)
 [![typescript](https://img.shields.io/badge/-typescript-3178c6?logo=typescript&logoColor=ffffff)](https://typescriptlang.org/)
 [![vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat&logo=vitest&logoColor=ffffff)](https://vitest.dev/)
@@ -32,13 +32,13 @@ This package provides utilities for creating [Node.js errors][1].
 This package is [ESM only][2].
 
 ```sh
-yarn add @flex-development/create-node-error
+yarn add @flex-development/errnode
 ```
 
 From Git:
 
 ```sh
-yarn add @flex-development/create-node-error@flex-development/create-node-error
+yarn add @flex-development/errnode@flex-development/errnode
 ```
 
 <blockquote>

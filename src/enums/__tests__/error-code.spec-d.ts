@@ -1,6 +1,6 @@
 /**
  * @file Unit Tests - ErrorCode
- * @module create-node-error/enums/tests/unit-d/ErrorCode
+ * @module errnode/enums/tests/unit-d/ErrorCode
  */
 
 import type TestSubject from '../error-code'

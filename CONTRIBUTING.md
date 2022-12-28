@@ -15,8 +15,8 @@ Follow the steps below to setup your local development environment:
 1. Clone repository
 
    ```sh
-   git clone https://github.com/flex-development/create-node-error
-   cd create-node-error
+   git clone https://github.com/flex-development/errnode
+   cd errnode
    ```
 
 2. Install binaries with [Homebrew][1]
@@ -289,7 +289,7 @@ A well-written issue
 When you're ready to submit your changes, open a pull request (PR) against `main`:
 
 ```sh
-https://github.com/flex-development/create-node-error/compare/main...$branch
+https://github.com/flex-development/errnode/compare/main...$branch
 ```
 
 where `$branch` is the name of the branch you'd like to merge into `main`.
@@ -401,7 +401,7 @@ Before deploying, the following steps must be completed:
 [16]: https://vitest.dev/api/#test-todo
 [17]: https://codecov.io
 [18]: https://docs.codecov.com/docs/codecov-uploader
-[19]: https://github.com/flex-development/create-node-error/discussions/new?category=q-a
+[19]: https://github.com/flex-development/errnode/discussions/new?category=q-a
 [20]: https://stackoverflow.com/help/minimal-reproducible-example
 [21]: https://github.com/features/packages
 [22]: https://npmjs.com

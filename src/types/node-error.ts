@@ -1,6 +1,6 @@
 /**
  * @file Type Definitions - NodeError
- * @module create-node-error/types/NodeError
+ * @module errnode/types/NodeError
  */
 
 import type { ErrorCode } from '#src/enums'
