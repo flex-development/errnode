@@ -21,10 +21,9 @@ type NodeErrorConstructor<
   M extends MessageFn | string = string,
   T extends B['prototype'] = B['prototype']
 > = Overwrite<B, B> & {
-  readonly prototype: NodeError<T>
-
-  new (...args: M extends MessageFn ? Parameters<M> : any[]): NodeError<T>
   (...args: M extends MessageFn ? Parameters<M> : any[]): NodeError<T>
+  new (...args: M extends MessageFn ? Parameters<M> : any[]): NodeError<T>
+  readonly prototype: NodeError<T>
 }
 
 export type { NodeErrorConstructor as default }

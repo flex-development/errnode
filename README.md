@@ -17,6 +17,8 @@ Create [Node.js errors][1]
 - [Use](#use)
 - [API](#api)
 - [Types](#types)
+  - [Enums](#enums)
+  - [Type Defintions](#type-definitions)
 - [Contribute](#contribute)
 
 ## What is this?
@@ -64,7 +66,17 @@ yarn add @flex-development/errnode@flex-development/errnode
 
 ## Types
 
-This package is fully typed with [TypeScript][7].
+This package is fully typed with [TypeScript][7]. It exports the following definitions:
+
+### Enums
+
+- [`ErrorCode`](src/enums/error-code.ts)
+
+### Type Definitions
+
+- [`NodeError`](src/types/node-error.ts)
+- [`NodeErrorConstructor`](src/types/node-error-constructor.ts)
+- [`MessageFn`](src/types/fn-message.ts)
 
 ## Contribute
 
