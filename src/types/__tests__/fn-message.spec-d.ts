@@ -1,5 +1,5 @@
 /**
- * @file Unit Tests - MessageFn
+ * @file Type Tests - MessageFn
  * @module errnode/types/tests/unit-d/MessageFn
  */
 

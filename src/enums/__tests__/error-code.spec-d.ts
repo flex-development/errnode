@@ -1,5 +1,5 @@
 /**
- * @file Unit Tests - ErrorCode
+ * @file Type Tests - ErrorCode
  * @module errnode/enums/tests/unit-d/ErrorCode
  */
 

@@ -1,5 +1,5 @@
 /**
- * @file Unit Tests - NodeErrorConstructor
+ * @file Type Tests - NodeErrorConstructor
  * @module errnode/types/tests/unit-d/NodeErrorConstructor
  */
 

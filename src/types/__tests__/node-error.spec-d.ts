@@ -1,5 +1,5 @@
 /**
- * @file Unit Tests - NodeError
+ * @file Type Tests - NodeError
  * @module errnode/types/tests/unit-d/NodeError
  */
 
