@@ -43,5 +43,15 @@
   "useGitignore": true,
   "usePnP": false,
   "version": "0.2",
-  "words": ["Odfijos", "fldv"]
+  "words": [
+    "ECHARSET",
+    "EFTYPE",
+    "EHOSTDOWN",
+    "ENONET",
+    "EREMOTEIO",
+    "ESHUTDOWN",
+    "ESOCKTNOSUPPORT",
+    "Odfijos",
+    "fldv"
+  ]
 }

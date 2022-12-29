@@ -321,6 +321,7 @@ This package is fully typed with [TypeScript][8]. It exports the following defin
 ### Enums
 
 - [`ErrorCode`](src/enums/error-code.ts)
+- [`SystemErrorCode`](src/enums/error-code-system.ts)
 
 ### Type Definitions
 
