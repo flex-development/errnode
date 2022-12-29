@@ -1,3 +1,15 @@
+## [1.0.1](https://github.com/flex-development/errnode/compare/1.0.0...1.0.1) (2022-12-28)
+
+
+### :bug: Fixes
+
+* **internal:** [`prepareStackTrace`] escape error message ([fab7e3a](https://github.com/flex-development/errnode/commit/fab7e3ae01b42fc49d44e3e179a71398dda2b93b))
+
+
+### :house_with_garden: Housekeeping
+
+* **vscode:** upgrade vscode ([7ddd6fc](https://github.com/flex-development/errnode/commit/7ddd6fc38b48e1c0dbe8763a6ed75d2d4e172085))
+
 ## 1.0.0 (2022-12-28)
 
 
