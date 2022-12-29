@@ -52,6 +52,7 @@
     "ESHUTDOWN",
     "ESOCKTNOSUPPORT",
     "Odfijos",
+    "errno",
     "fldv"
   ]
 }

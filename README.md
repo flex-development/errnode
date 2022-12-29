@@ -22,6 +22,7 @@ Create [Node.js errors][1]
   - [`determineSpecificType(value)`](#determinespecifictypevalue)
 - [Types](#types)
   - [Enums](#enums)
+  - [Interfaces](#interfaces)
   - [Type Defintions](#type-definitions)
 - [Contribute](#contribute)
 
@@ -322,6 +323,10 @@ This package is fully typed with [TypeScript][8]. It exports the following defin
 
 - [`ErrorCode`](src/enums/error-code.ts)
 - [`SystemErrorCode`](src/enums/error-code-system.ts)
+
+### Interfaces
+
+- [`ErrnoException`](src/interfaces/errno-exception.ts)
 
 ### Type Definitions
 
