@@ -1,3 +1,21 @@
+## [1.1.0](https://github.com/flex-development/errnode/compare/1.0.1...1.1.0) (2022-12-29)
+
+
+### :sparkles: Features
+
+* **enums:** `SystemErrorCode` ([d65c142](https://github.com/flex-development/errnode/commit/d65c142e5354c75b16c0807c5832d33d0ee8ee9f))
+* **interfaces:** `ErrnoException` ([c12645a](https://github.com/flex-development/errnode/commit/c12645ad71c5204291a12be009a7e44fcc293202))
+
+
+### :house_with_garden: Housekeeping
+
+* **tests:** update file overviews ([b3ca4a7](https://github.com/flex-development/errnode/commit/b3ca4a7f8ec3661580d6d1deb4be7e7eb219f4a2))
+
+
+### :white_check_mark: Testing
+
+* **enums:** [`ErrorCode`] update type test strategy ([964c15b](https://github.com/flex-development/errnode/commit/964c15b34452f3066722ec49c750e048d2ade699))
+
 ## [1.0.1](https://github.com/flex-development/errnode/compare/1.0.0...1.0.1) (2022-12-28)
 
 
