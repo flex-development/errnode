@@ -28,6 +28,7 @@
         "tests",
         "ts",
         "types",
+        "utils",
         "vscode",
         "workflows",
         "yarn"

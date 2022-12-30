@@ -53,8 +53,6 @@
 
 ### :sparkles: Features
 
-* `createNodeError` ([d82b2bf](https://github.com/flex-development/errnode/commit/d82b2bfa798c0e40f75e750c1dad9e36f1967b55))
-* `determineSpecificType` ([8c83b4e](https://github.com/flex-development/errnode/commit/8c83b4ef19664d2be9daa2968921642088bd281f))
 * **enums:** `ErrorCode` ([b3f705a](https://github.com/flex-development/errnode/commit/b3f705a817214494ac501999bf1af14d1517f4d7))
 * **internal:** `formatMessage` ([9494c4c](https://github.com/flex-development/errnode/commit/9494c4cd6862f967e033fd90139736c9fa0351d1))
 * **internal:** `kIsNodeError` ([18825fd](https://github.com/flex-development/errnode/commit/18825fdd1cfe15fa26fb239b8ffcbae2c27965a5))
@@ -62,6 +60,8 @@
 * **types:** `MessageFn` ([139c893](https://github.com/flex-development/errnode/commit/139c893cea93aaf4c6f52df5d2fe3a631903c828))
 * **types:** `NodeError` ([4926126](https://github.com/flex-development/errnode/commit/49261264b266cf1f67f18aded358ad616e22e8b7))
 * **types:** `NodeErrorConstructor` ([de221cd](https://github.com/flex-development/errnode/commit/de221cdffdcddc49616f34aea05fe5934a4a3911))
+* **utils:** `createNodeError` ([d82b2bf](https://github.com/flex-development/errnode/commit/d82b2bfa798c0e40f75e750c1dad9e36f1967b55))
+* **utils:** `determineSpecificType` ([8c83b4e](https://github.com/flex-development/errnode/commit/8c83b4ef19664d2be9daa2968921642088bd281f))
 
 
 ### :house_with_garden: Housekeeping
