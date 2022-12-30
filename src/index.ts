@@ -1,6 +1,6 @@
 /**
  * @file Package Entry Point
- * @module create-node-error
+ * @module errnode
  */
 
 export * from './enums'
