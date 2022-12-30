@@ -12,6 +12,15 @@ describe('unit-d:types/NodeErrorConstructor', () => {
     expectTypeOf<TestSubject>().constructorParameters.toEqualTypeOf<any[]>()
   })
 
+  it('should extract parameters of type M if M extends any[]', () => {
+    // Arrange
+    type B = ErrorConstructor
+    type M = [string, string, string]
+
+    expectTypeOf<TestSubject<B, M>>().parameters.toEqualTypeOf<M>()
+    expectTypeOf<TestSubject<B, M>>().constructorParameters.toEqualTypeOf<M>()
+  })
+
   it('should extract parameters of type Parameters<M> if M extends MessageFn', () => {
     type B = TypeErrorConstructor
     type M = (ext: string, path: string) => string

@@ -21,7 +21,8 @@ import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
  * [2]: https://nodejs.org/api/util.html#utilformatformat-args
  *
  * @template B - Error base class type
- * @template M - Error message type
+ * @template M - Error message type, [`util.format`][2] arguments type, or
+ * custom message function parameters type
  * @template T - Error base type
  *
  * @constructs NodeError<T>
@@ -33,7 +34,7 @@ import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
  */
 function createNodeError<
   B extends ErrorConstructor = ErrorConstructor,
-  M extends MessageFn | string = MessageFn | string,
+  M extends any[] | MessageFn | string = MessageFn,
   T extends B['prototype'] = B['prototype']
 >(code: ErrorCode, Base: B, message: M): NodeErrorConstructor<B, M, T> {
   /**
@@ -44,12 +45,12 @@ function createNodeError<
    * @class
    * @implements {NodeError<T>}
    *
-   * @param {any[] | Parameters<M>} args - `message` params if `message` is a
-   * function; [`util.format`][1] arguments if `message` is a string
+   * @param {any[] | M | Parameters<M>} args - `message` params if `message` is
+   * a function; [`util.format`][1] arguments if `message` is a string
    * @return {NodeError<T>} Node.js error instance
    */
   function NodeError(
-    ...args: M extends MessageFn ? Parameters<M> : any[]
+    ...args: M extends MessageFn ? Parameters<M> : M extends any[] ? M : any[]
   ): NodeError<T> {
     /**
      * Node.js error instance.
