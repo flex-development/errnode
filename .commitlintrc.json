@@ -21,6 +21,7 @@
         "install",
         "interfaces",
         "internal",
+        "models",
         "patches",
         "pkg",
         "release",
