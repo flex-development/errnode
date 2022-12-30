@@ -46,6 +46,10 @@
   description: public api
   color: 74cefc
 
+- name: scope:models
+  description: error models
+  color: 74cefc
+
 - name: scope:patches
   description: patches
   color: 74cefc
