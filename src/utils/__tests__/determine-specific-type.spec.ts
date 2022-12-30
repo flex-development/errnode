@@ -1,12 +1,12 @@
 /**
  * @file Unit Tests - determineSpecificType
- * @module errnode/tests/unit/determineSpecificType
+ * @module errnode/utils/tests/unit/determineSpecificType
  */
 
 import { inspect } from 'node-inspect-extracted'
 import testSubject from '../determine-specific-type'
 
-describe('unit:determineSpecificType', () => {
+describe('unit:utils/determineSpecificType', () => {
   it('should detect bigint', () => {
     // Arrange
     const value: bigint = faker.datatype.bigInt(13)

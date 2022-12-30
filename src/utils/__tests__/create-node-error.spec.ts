@@ -1,6 +1,6 @@
 /**
  * @file Unit Tests - createNodeError
- * @module errnode/tests/unit/createNodeError
+ * @module errnode/utils/tests/unit/createNodeError
  */
 
 import { ErrorCode } from '#src/enums'
@@ -9,7 +9,7 @@ import { format } from 'node-inspect-extracted'
 import { resolve } from 'node:path'
 import testSubject from '../create-node-error'
 
-describe('unit:createNodeError', () => {
+describe('unit:utils/createNodeError', () => {
   it('should return NodeErrorConstructor', () => {
     expect(testSubject(ErrorCode.ERR_INVALID_ARG_TYPE, TypeError, vi.fn()))
       .to.be.a('function')
