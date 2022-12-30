@@ -18,8 +18,10 @@ Create [Node.js errors][1]
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
-  - [`createNodeError(code, Base, message)`](#createnodeerrorcode-base-message)
-  - [`determineSpecificType(value)`](#determinespecifictypevalue)
+  - [Error Models](#error-models)
+  - [Utilities](#utilities)
+    - [`createNodeError(code, Base, message)`](#createnodeerrorcode-base-message)
+    - [`determineSpecificType(value)`](#determinespecifictypevalue)
 - [Types](#types)
   - [Enums](#enums)
   - [Interfaces](#interfaces)
@@ -292,7 +294,13 @@ This package exports the following identifiers:
 
 There is no default export.
 
-### `createNodeError(code, Base, message)`
+### Error Models
+
+**TODO**: Update documentation.
+
+### Utilities
+
+#### `createNodeError(code, Base, message)`
 
 Creates a Node.js error constructor.
 
@@ -306,7 +314,7 @@ constructor arguments are passed to [`util.format`][7] instead.
 
 > **Source**: [`src/create-node-error.ts`](src/create-node-error.ts)
 
-### `determineSpecificType(value)`
+#### `determineSpecificType(value)`
 
 Determines the specific type of a value for type-mismatch errors.
 
