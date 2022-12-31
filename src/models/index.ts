@@ -18,3 +18,4 @@ export { default as ERR_NETWORK_IMPORT_DISALLOWED } from './err-network-import-d
 export { default as ERR_OPERATION_FAILED } from './err-operation-failed'
 export { default as ERR_UNKNOWN_ENCODING } from './err-unknown-encoding'
 export { default as ERR_UNKNOWN_MODULE_FORMAT } from './err-unknown-module-format'
+export { default as ERR_UNSUPPORTED_DIR_IMPORT } from './err-unsupported-dir-import'
