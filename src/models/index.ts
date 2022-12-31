@@ -17,6 +17,7 @@ export { default as ERR_METHOD_NOT_IMPLEMENTED } from './err-method-not-implemen
 export { default as ERR_MISSING_OPTION } from './err-missing-option'
 export { default as ERR_NETWORK_IMPORT_DISALLOWED } from './err-network-import-disallowed'
 export { default as ERR_OPERATION_FAILED } from './err-operation-failed'
+export { default as ERR_UNHANDLED_ERROR } from './err-unhandled-error'
 export { default as ERR_UNKNOWN_ENCODING } from './err-unknown-encoding'
 export { default as ERR_UNKNOWN_FILE_EXTENSION } from './err-unknown-file-extension'
 export { default as ERR_UNKNOWN_MODULE_FORMAT } from './err-unknown-module-format'
