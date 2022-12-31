@@ -15,6 +15,7 @@ export { default as ERR_INCOMPATIBLE_OPTION_PAIR } from './err-incompatible-opti
 export { default as ERR_INVALID_MODULE_SPECIFIER } from './err-invalid-module-specifier'
 export { default as ERR_METHOD_NOT_IMPLEMENTED } from './err-method-not-implemented'
 export { default as ERR_MISSING_OPTION } from './err-missing-option'
+export { default as ERR_MODULE_NOT_FOUND } from './err-module-not-found'
 export { default as ERR_NETWORK_IMPORT_DISALLOWED } from './err-network-import-disallowed'
 export { default as ERR_OPERATION_FAILED } from './err-operation-failed'
 export { default as ERR_UNHANDLED_ERROR } from './err-unhandled-error'
