@@ -17,7 +17,7 @@ import { createNodeError } from '#src/utils'
  *
  * @class
  *
- * @param {string} method - Method that is not implemented
+ * @param {string} method - Method name
  * @return {NodeError} `Error` instance
  */
 const ERR_METHOD_NOT_IMPLEMENTED: NodeErrorConstructor<

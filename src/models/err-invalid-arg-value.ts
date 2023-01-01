@@ -53,23 +53,23 @@ const ERR_INVALID_ARG_VALUE: NodeErrorConstructor<
     /**
      * Error message.
      *
-     * @var {string} message
+     * @var {string} ret
      */
-    let message: string = 'The'
+    let ret: string = 'The'
 
     // trim inspected value
     if (inspected.length > 128) inspected = inspected.slice(0, 128) + '...'
 
     // add stylized invalid argument or property name
-    message += ` ${name.includes('.') ? 'property' : 'argument'} '${name}'`
+    ret += ` ${name.includes('.') ? 'property' : 'argument'} '${name}'`
 
     // add reason for error
-    if (reason) message += ` ${reason}`
+    if (reason) ret += ` ${reason}`
 
     // add inspected value
-    message += `. Received ${inspected}`
+    ret += `. Received ${inspected}`
 
-    return message
+    return ret
   }
 )
 

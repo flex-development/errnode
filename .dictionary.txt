@@ -39,4 +39,5 @@ preid
 safecrlf
 syncer
 vates
+whatwg
 yarnrc

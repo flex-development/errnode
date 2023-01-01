@@ -18,8 +18,8 @@ import { createNodeError } from '#src/utils'
  *
  * @class
  *
- * @param {string} option1 - Option that cannot be ued
- * @param {string} option2 - Option that is incompatible
+ * @param {string} option1 - Option that cannot be used
+ * @param {string} option2 - Option that is incompatible with `option1`
  * @return {NodeError<TypeError>} `TypeError` instance
  */
 const ERR_INCOMPATIBLE_OPTION_PAIR: NodeErrorConstructor<

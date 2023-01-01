@@ -21,11 +21,11 @@ import { createNodeError } from '#src/utils'
  *
  * @class
  *
- * @param {string} dir - Directory containing `package.json` file
- * @param {string} key - `exports` or `imports` key
+ * @param {string} dir - Id of directory containing `package.json`
+ * @param {string} key - `"exports"` or `"imports"` key
  * @param {unknown} target - Invalid package target
- * @param {boolean?} [internal=false] - `target` is package [`imports`][2]?
- * @param {string?} [base=''] - Id of module package was imported from
+ * @param {boolean?} [internal=false] - `target` is [`"imports"`][2]?
+ * @param {string?} [base=''] - Id of module `package.json` was imported from
  * @return {NodeError} `Error` instance
  */
 const ERR_INVALID_PACKAGE_TARGET: NodeErrorConstructor<
@@ -40,11 +40,11 @@ const ERR_INVALID_PACKAGE_TARGET: NodeErrorConstructor<
    * [1]: https://nodejs.org/api/errors.html#err_invalid_package_target
    * [2]: https://nodejs.org/api/packages.html#imports
    *
-   * @param {string} dir - Directory containing `package.json` file
-   * @param {string} key - `exports` or `imports` key
+   * @param {string} dir - Id of directory containing `package.json`
+   * @param {string} key - `"exports"` or `"imports"` key
    * @param {unknown} target - Invalid package target
-   * @param {boolean?} [internal=false] - `target` is package [`imports`][2]?
-   * @param {string?} [base=''] - Id of module package was imported from
+   * @param {boolean?} [internal=false] - `target` is [`"imports"`][2]?
+   * @param {string?} [base=''] - Id of module `package.json` was imported from
    * @return {string} Error message
    */
   (

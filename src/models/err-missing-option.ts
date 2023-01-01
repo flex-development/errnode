@@ -11,14 +11,14 @@ import { createNodeError } from '#src/utils'
 /**
  * `ERR_MISSING_OPTION` model.
  *
- * For APIs that accept options objects, some options might be mandatory. This
- * code is thrown if a required option is missing.
+ * Thrown when a required option is missing. For APIs that accept options
+ * objects, some options might be mandatory.
  *
  * @see https://nodejs.org/api/errors.html#err_missing_option
  *
  * @class
  *
- * @param {string} option - Option that is required
+ * @param {string} option - Option name
  * @return {NodeError<TypeError>} `TypeError` instance
  */
 const ERR_MISSING_OPTION: NodeErrorConstructor<TypeErrorConstructor, [string]> =

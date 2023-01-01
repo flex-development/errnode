@@ -43,14 +43,14 @@ const ERR_INVALID_MODULE_SPECIFIER: NodeErrorConstructor<
     /**
      * Error message.
      *
-     * @var {string} message
+     * @var {string} ret
      */
-    let message: string = `Invalid module '${request}' ${reason}`.trimEnd()
+    let ret: string = `Invalid module '${request}' ${reason}`.trimEnd()
 
     // add details regarding where error occurred
-    if (base) message += ` imported from ${base}`
+    if (base) ret += ` imported from ${base}`
 
-    return message
+    return ret
   }
 )
 

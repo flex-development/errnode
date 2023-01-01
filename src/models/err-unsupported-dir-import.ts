@@ -17,7 +17,7 @@ import { createNodeError } from '#src/utils'
  *
  * @class
  *
- * @param {string} id - Module id
+ * @param {string} id - Module id of directory
  * @param {string} base - Id of module `id` was imported from
  * @return {NodeError} `Error` instance
  */

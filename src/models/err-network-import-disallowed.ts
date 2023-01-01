@@ -19,7 +19,7 @@ import { createNodeError } from '#src/utils'
  * @class
  *
  * @param {string} specifier - Invalid module specifier
- * @param {string} base - Location of file `specifier` was imported from
+ * @param {string} base - Id of module `specifier` was imported from
  * @param {string} reason - Reason for error
  * @return {NodeError} `Error` instance
  */

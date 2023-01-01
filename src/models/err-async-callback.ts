@@ -18,7 +18,7 @@ import { createNodeError } from '#src/utils'
  *
  * @class
  *
- * @param {string} name - Name argument that must be a function
+ * @param {string} name - Name of argument that must be a function
  * @return {NodeError<TypeError>} `TypeError` instance
  */
 const ERR_ASYNC_CALLBACK: NodeErrorConstructor<TypeErrorConstructor, [string]> =

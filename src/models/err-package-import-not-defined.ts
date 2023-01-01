@@ -12,7 +12,7 @@ import { createNodeError } from '#src/utils'
  * `ERR_PACKAGE_IMPORT_NOT_DEFINED` model.
  *
  * Thrown when a `package.json` [`"imports"`][1] field does not define the given
- * internal package specifier mapping.
+ * package import specifier.
  *
  * [1]: https://nodejs.org/api/packages.html#imports
  *
@@ -20,9 +20,9 @@ import { createNodeError } from '#src/utils'
  *
  * @class
  *
- * @param {string} specifier - Package import specifier that is not defined
+ * @param {string} specifier - Invalid package import specifier
  * @param {string} base - Id of module `specifier` was imported from
- * @param {string?} [dir=''] - Directory containing `package.json` file
+ * @param {string?} [dir=''] - Id of directory containing `package.json`
  * @return {NodeError<TypeError>} `TypeError` instance
  */
 const ERR_PACKAGE_IMPORT_NOT_DEFINED: NodeErrorConstructor<
@@ -36,9 +36,9 @@ const ERR_PACKAGE_IMPORT_NOT_DEFINED: NodeErrorConstructor<
    *
    * [1]: https://nodejs.org/api/errors.html#err_package_import_not_defined
    *
-   * @param {string} specifier - Package import specifier that is not defined
+   * @param {string} specifier - Invalid package import specifier
    * @param {string} base - Id of module `specifier` was imported from
-   * @param {string?} [dir=''] - Directory containing `package.json` file
+   * @param {string?} [dir=''] - Id of directory containing `package.json`
    * @return {string} Error message
    */
   (specifier: string, base: string, dir: string = ''): string => {

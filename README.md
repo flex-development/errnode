@@ -8,7 +8,7 @@
 [![vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat&logo=vitest&logoColor=ffffff)](https://vitest.dev/)
 [![yarn](https://img.shields.io/badge/-yarn-2c8ebb?style=flat&logo=yarn&logoColor=ffffff)](https://yarnpkg.com/)
 
-Create [Node.js errors][1]
+Universal API for creating [Node.js errors][1]
 
 ## Contents
 
@@ -19,6 +19,32 @@ Create [Node.js errors][1]
 - [Use](#use)
 - [API](#api)
   - [Error Models](#error-models)
+    - [`ERR_AMBIGUOUS_ARGUMENT(reason)`](#err_ambiguous_argumentname-reason)
+    - [`ERR_ARG_NOT_ITERABLE(name)`](#err_arg_not_iterablename)
+    - [`ERR_ASYNC_CALLBACK(name)`](#err_async_callbackname)
+    - [`ERR_ILLEGAL_CONSTRUCTOR()`](#err_illegal_constructor)
+    - [`ERR_IMPORT_ASSERTION_TYPE_FAILED(id, type)`](#err_import_assertion_type_failedid-type)
+    - [`ERR_IMPORT_ASSERTION_TYPE_MISSING(id, type)`](#err_import_assertion_type_missingid-type)
+    - [`ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED(type)`](#err_import_assertion_type_unsupportedtype)
+    - [`ERR_INCOMPATIBLE_OPTION_PAIR(option1, option2)`](#err_incompatible_option_pairoption1-option2)
+    - [`ERR_INVALID_ARG_TYPE(name, expected, actual)`](#err_invalid_arg_typename-expected-actual)
+    - [`ERR_INVALID_ARG_VALUE(name, value[, reason])`](#err_invalid_arg_valuename-value-reason)
+    - [`ERR_INVALID_MODULE_SPECIFIER(request[, reason][, base])`](#err_invalid_module_specifierrequest-reason-base)
+    - [`ERR_INVALID_PACKAGE_CONFIG(id[, base][, reason])`](#err_invalid_package_configid-base-reason)
+    - [`ERR_INVALID_PACKAGE_TARGET(dir, key, target[, internal][, base])`](#err_invalid_package_targetdir-key-target-internal-base)
+    - [`ERR_METHOD_NOT_IMPLEMENTED(method)`](#err_method_not_implementedmethod)
+    - [`ERR_MISSING_OPTION(option)`](#err_missing_optionoption)
+    - [`ERR_MODULE_NOT_FOUND(id, base[, type])`](#err_module_not_foundid-base-type)
+    - [`ERR_NETWORK_IMPORT_DISALLOWED(specifier, base, reason)`](#err_network_import_disallowedspecifier-base-reason)
+    - [`ERR_OPERATION_FAILED(reason)`](#err_operation_failedreason)
+    - [`ERR_PACKAGE_IMPORT_NOT_DEFINED(specifier, base[, dir])`](#err_package_import_not_definedspecifier-base-dir)
+    - [`ERR_PACKAGE_PATH_NOT_EXPORTED(dir, subpath[, base])`](#err_package_path_not_exporteddir-subpath-base)
+    - [`ERR_UNHANDLED_ERROR([err])`](#err_unhandled_errorerr)
+    - [`ERR_UNKNOWN_ENCODING(encoding)`](#err_unknown_encodingencoding)
+    - [`ERR_UNKNOWN_FILE_EXTENSION(ext, id[, suggestion])`](#err_unknown_file_extensionext-id-suggestion)
+    - [`ERR_UNKNOWN_MODULE_FORMAT(format, id)`](#err_unknown_module_formatformat-id)
+    - [`ERR_UNSUPPORTED_DIR_IMPORT(id, base)`](#err_unsupported_dir_importid-base)
+    - [`ERR_UNSUPPORTED_ESM_URL_SCHEME(url, supported[, windows])`](#err_unsupported_esm_url_schemeurl-supported-windows)
   - [Utilities](#utilities)
     - [`createNodeError(code, Base, message)`](#createnodeerrorcode-base-message)
     - [`determineSpecificType(value)`](#determinespecifictypevalue)
@@ -30,12 +56,12 @@ Create [Node.js errors][1]
 
 ## What is this?
 
-This package provides utilities for creating [Node.js errors][1].
+This package provides a universal API for creating [Node.js errors][1].
 
 ## When should I use this?
 
-This package is designed to help developers build Node.js tools like [ponyfills][2], as well as more verbose utilities
-like [`mlly`][3], by providing a universal API for creating [Node.js errors][1].
+This package is designed to help developers build Node.js tools like [ponyfills][2], as well as more verbose tools like
+[`mlly`][3], by providing a set of utilities and constructor functions for creating [Node.js errors][1].
 
 ### Differences between Node.js
 
@@ -68,204 +94,89 @@ yarn add @flex-development/errnode@flex-development/errnode
 ```typescript
 import {
   createNodeError,
-  determineSpecificType,
   ErrorCode,
   type MessageFn,
   type NodeError,
   type NodeErrorConstructor
 } from '@flex-development/errnode'
-import type { OneOrMany } from '@flex-development/tutils'
-import assert from 'node:assert'
 
 /**
- * Creates an [`ERR_INVALID_ARG_TYPE`][1] message.
+ * [`ERR_INVALID_URL`][1] schema.
  *
- * [1]: https://nodejs.org/api/errors.html#err_invalid_arg_type
+ * [1]: https://nodejs.org/api/errors.html#err_invalid_url
  *
- * @see https://github.com/nodejs/node/blob/v19.3.0/lib/internal/errors.js#L1197-L1286
- *
- * @param {string} name - Name of invalid argument or property
- * @param {OneOrMany<string>} expected - Expected type(s)
- * @param {unknown} actual - Value supplied by user
- * @return {string} Error message
+ * @extends {NodeError<TypeError>}
  */
-const msg: MessageFn<[string, OneOrMany<string>, unknown]> = (
-  name: string,
-  expected: OneOrMany<string>,
-  actual: unknown
-): string => {
-  // ensure name is a string
-  assert(typeof name === 'string', "'name' must be a string")
-
-  // ensure expected is an array
-  if (!Array.isArray(expected)) expected = [expected]
+interface ErrInvalidUrl extends NodeError<TypeError> {
+  /**
+   * Error code.
+   */
+  code: ErrorCode.ERR_INVALID_URL
 
   /**
-   * Primitive value names.
+   * URL that failed to parse.
    *
-   * Sorted by a rough estimate on most frequently used entries.
-   *
-   * @const {Set<string>} kTypes
+   * @example
+   *  'http://[127.0.0.1\x00c8763]:8000/'
    */
-  const kTypes: Set<string> = new Set([
-    'string',
-    'function',
-    'number',
-    'object',
-    'Function',
-    'Object',
-    'boolean',
-    'bigint',
-    'symbol'
-  ])
-
-  /**
-   * Error message.
-   *
-   * @var {string} msg
-   */
-  let msg: string = 'The '
-
-  // stylize invalid argument name
-  msg += name.endsWith(' argument')
-    ? name
-    : `"${name}" ${name.includes('.') ? 'property' : 'argument'}`
-
-  // continue building error message
-  msg += ' must be '
-
-  /**
-   * Names of expected class instances.
-   *
-   * @const {string[]} instances
-   */
-  const instances: string[] = []
-
-  /**
-   * Names of other expected types.
-   */
-  const other: string[] = []
-
-  /**
-   * Names of expected primitive types.
-   */
-  const types: string[] = []
-
-  // get expected types
-  for (const value of expected) {
-    assert(typeof value === 'string', '`expected` should be of type string[]')
-
-    if (kTypes.has(value)) types.push(value.toLowerCase())
-    else if (/^([A-Z][\da-z]*)+$/.exec(value)) instances.push(value)
-    else other.push(value === 'object' ? 'Object' : value)
-  }
-
-  // special case: handle `object` in case other instances are allowed to
-  // outline the differences between each other
-  if (instances.length > 0) {
-    /**
-     * Position of `'object'` in {@linkcode types}.
-     *
-     * @const {number} pos
-     */
-    const pos: number = types.indexOf('object')
-
-    // replace 'object' in types with "Object" in instances
-    if (pos !== -1) {
-      types.splice(pos, 1)
-      instances.push('Object')
-    }
-  }
-
-  // add expected primitive types to error message
-  if (types.length > 0) {
-    if (types.length > 2) {
-      /**
-       * Last primitive type name in {@linkcode types}.
-       *
-       * @const {string} last_type
-       */
-      const last_type: string = types.pop()!
-
-      msg += `one of type ${types.join(', ')}, or ${last_type}`
-    } else if (types.length === 2) {
-      msg += `one of type ${types[0]} or ${types[1]}`
-    } else {
-      msg += `of type ${types[0]}`
-    }
-
-    if (instances.length > 0 || other.length > 0) msg += ' or '
-  }
-
-  // add expected class instances to error message
-  if (instances.length > 0) {
-    if (instances.length > 2) {
-      /**
-       * Last instance type name in {@linkcode instances}.
-       *
-       * @const {string} last_instance
-       */
-      const last_instance: string = types.pop()!
-
-      msg += `an instance of ${instances.join(', ')}, or ${last_instance}`
-    } else {
-      msg += `an instance of ${instances[0]}`
-      if (instances.length === 2) msg += ` or ${instances[1]}`
-    }
-
-    if (other.length > 0) msg += ' or '
-  }
-
-  // add other expected types to error message
-  if (other.length > 0) {
-    if (other.length > 2) {
-      /**
-       * Last other type name in {@linkcode other}.
-       *
-       * @const {string} last_other
-       */
-      const last_other: string = other.pop()!
-
-      msg += `one of ${other.join(', ')}, or ${last_other}`
-    } else if (other.length === 2) {
-      msg += `one of ${other[0]} or ${other[1]}`
-    } else {
-      if (other[0]?.toLowerCase() !== other[0]) msg += 'an '
-      msg += `${other[0]}`
-    }
-  }
-
-  // end error message
-  msg += `. Received ${determineSpecificType(actual)}`
-
-  return msg
+  input: string
 }
 
 /**
- * [`ERR_INVALID_ARG_TYPE`][1] model.
+ * `ERR_INVALID_URL` model.
  *
- * Thrown when an argument of the wrong type was passed to a Node.js API.
+ * Thrown when an invalid URL is passed to a [WHATWG][1] [`URL` constructor][2]
+ * or [`url.parse()`][3] to be parsed.
  *
- * [1]: https://nodejs.org/api/errors.html#err_invalid_arg_type
+ * [1]: https://nodejs.org/api/url.html#the-whatwg-url-api
+ * [2]: https://nodejs.org/api/url.html#new-urlinput-base
+ * [3]: https://nodejs.org/api/url.html#urlparseurlstring-parsequerystring-slashesdenotehost
+ *
+ * @see https://nodejs.org/api/errors.html#err_invalid_url
  *
  * @class
- * @implements {NodeError<TypeError>}
+ *
+ * @param {string} input - URL that failed to parse
+ * @return {ErrInvalidUrl} `TypeError` instance
  */
-const ERR_INVALID_ARG_TYPE: NodeErrorConstructor<
+const ERR_INVALID_URL: NodeErrorConstructor<
   TypeErrorConstructor,
-  typeof msg
-> = createNodeError(ErrorCode.ERR_INVALID_ARG_TYPE, TypeError, msg)
+  MessageFn<[string]>,
+  ErrInvalidUrl
+> = createNodeError(
+  ErrorCode.ERR_INVALID_URL,
+  TypeError,
+  /**
+   * Creates an [`ERR_INVALID_URL`][1] message.
+   *
+   * [1]: https://nodejs.org/api/errors.html#err_invalid_url
+   *
+   * @see https://github.com/nodejs/node/blob/v19.3.0/lib/internal/errors.js#L1381-L1386
+   *
+   * @this {ErrInvalidUrl}
+   *
+   * @param {string} input - URL that failed to parse
+   * @return {string} Error message
+   */
+  function msg(this: ErrInvalidUrl, input: string): string {
+    this.input = input
+    return 'Invalid URL'
+  }
+)
 
 /**
- * {@linkcode ERR_INVALID_ARG_TYPE} instance.
+ * URL that will fail to parse.
  *
- * @const {NodeError<TypeError>} err
+ * @const {string} BAD_URL
  */
-const err: NodeError<TypeError> = new ERR_INVALID_ARG_TYPE(
-  'path',
-  'string',
-  null
-)
+const BAD_URL: string = 'http://[127.0.0.1\x00c8763]:8000/'
+
+/**
+ * {@linkcode ERR_INVALID_URL} instance.
+ *
+ * @const {ErrInvalidUrl} err
+ */
+const err: ErrInvalidUrl = new ERR_INVALID_URL(BAD_URL)
 
 console.error(err)
 console.debug('err instanceof TypeError:', err instanceof TypeError)
@@ -274,14 +185,17 @@ console.debug('err instanceof TypeError:', err instanceof TypeError)
 ...running that yields:
 
 ```zsh
-TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received null
-    at new NodeError (file:////home/runner/work/errnode/errnode/src/create-node-error.ts:94:5)
-    at file:////home/runner/work/errnode/errnode/scratch.ts:201:35
+TypeError [ERR_INVALID_URL]: Invalid URL
+    at new NodeError (file:////home/runner/work/errnode/errnode/src/create-node-error.ts:103:5)
+    at file:////home/runner/work/errnode/errnode/scratch.ts:90:28
     at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
     at async Promise.all (index 0)
     at async ESMLoader.import (node:internal/modules/esm/loader:533:24)
     at async loadESM (node:internal/process/esm_loader:91:5)
-    at async handleMainPromise (node:internal/modules/run_main:65:12)
+    at async handleMainPromise (node:internal/modules/run_main:65:12) {
+  code: 'ERR_INVALID_URL',
+  input: 'http://[127.0.0.1\x00c8763]:8000/'
+}
 err instanceof TypeError: true
 ```
 
@@ -289,14 +203,336 @@ err instanceof TypeError: true
 
 This package exports the following identifiers:
 
+- [`ERR_AMBIGUOUS_ARGUMENT`](#err_ambiguous_argumentname-reason)
+- [`ERR_ARG_NOT_ITERABLE`](#err_arg_not_iterablename)
+- [`ERR_ASYNC_CALLBACK`](#err_async_callbackname)
+- [`ERR_ILLEGAL_CONSTRUCTOR`](#err_illegal_constructor)
+- [`ERR_IMPORT_ASSERTION_TYPE_FAILED`](#err_import_assertion_type_failedid-type)
+- [`ERR_IMPORT_ASSERTION_TYPE_MISSING`](#err_import_assertion_type_missingid-type)
+- [`ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED`](#err_import_assertion_type_unsupportedtype)
+- [`ERR_INCOMPATIBLE_OPTION_PAIR`](#err_incompatible_option_pairoption1-option2)
+- [`ERR_INVALID_ARG_TYPE`](#err_invalid_arg_typename-expected-actual)
+- [`ERR_INVALID_ARG_VALUE`](#err_invalid_arg_valuename-value-reason)
+- [`ERR_INVALID_MODULE_SPECIFIER`](#err_invalid_module_specifierrequest-reason-base)
+- [`ERR_INVALID_PACKAGE_CONFIG`](#err_invalid_package_configid-base-reason)
+- [`ERR_INVALID_PACKAGE_TARGET`](#err_invalid_package_targetdir-key-target-internal-base)
+- [`ERR_METHOD_NOT_IMPLEMENTED`](#err_method_not_implementedmethod)
+- [`ERR_MISSING_OPTION`](#err_missing_optionoption)
+- [`ERR_MODULE_NOT_FOUND`](#err_module_not_foundid-base-type)
+- [`ERR_NETWORK_IMPORT_DISALLOWED`](#err_network_import_disallowedspecifier-base-reason)
+- [`ERR_OPERATION_FAILED`](#err_operation_failedreason)
+- [`ERR_PACKAGE_IMPORT_NOT_DEFINED`](#err_package_import_not_definedspecifier-base-dir)
+- [`ERR_PACKAGE_PATH_NOT_EXPORTED`](#err_package_path_not_exporteddir-subpath-base)
+- [`ERR_UNHANDLED_ERROR`](#err_unhandled_errorerr)
+- [`ERR_UNKNOWN_ENCODING`](#err_unknown_encodingencoding)
+- [`ERR_UNKNOWN_FILE_EXTENSION`](#err_unknown_file_extensionext-id-suggestion)
+- [`ERR_UNKNOWN_MODULE_FORMAT`](#err_unknown_module_formatformat-id)
+- [`ERR_UNSUPPORTED_DIR_IMPORT`](#err_unsupported_dir_importid-base)
+- [`ERR_UNSUPPORTED_ESM_URL_SCHEME`](#err_unsupported_esm_url_schemeurl-supported-windows)
 - [`createNodeError`](#createnodeerrorcode-base-message)
 - [`determineSpecificType`](#determinespecifictypevalue)
+- [`errors`](#error-models)
 
 There is no default export.
 
 ### Error Models
 
-**TODO**: Update documentation.
+Constructor functions representing [Node.js error codes][7], callable with and without the `new` keyword. Constructor
+arguments are used to generate error messages.
+
+Models can be imported individually:
+
+```typescript
+import {
+  ERR_INVALID_ARG_VALUE,
+  ERR_INVALID_MODULE_SPECIFIER,
+  ERR_INVALID_PACKAGE_CONFIG,
+  ERR_INVALID_PACKAGE_TARGET,
+  ERR_MODULE_NOT_FOUND,
+  ERR_NETWORK_IMPORT_DISALLOWED,
+  ERR_PACKAGE_IMPORT_NOT_DEFINED,
+  ERR_PACKAGE_PATH_NOT_EXPORTED,
+  ERR_UNKNOWN_FILE_EXTENSION,
+  ERR_UNSUPPORTED_DIR_IMPORT,
+  ERR_UNSUPPORTED_ESM_URL_SCHEME
+ } from '@flex-development/errnode'
+```
+
+...or all at once using the `errors` export:
+
+```typescript
+import { errors } from '@flex-development/errnode'
+```
+
+**Note**: This package **does not export a model for every error code**. Submit a feature request (or pull request if
+you're up for the challenge :wink:) to add a model. For more fine-grained control, however, use
+[`createNodeError`](#createnodeerrorcode-base-message) instead.
+
+#### `ERR_AMBIGUOUS_ARGUMENT(name, reason)`
+
+Thrown when a function argument is being used in a way that suggests that the function signature may be misunderstood.
+
+- `{string}` **`name`** &mdash; Name of ambiguous argument
+- `{string}` **`reason`** &mdash; Reason `name` is ambiguous
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-ambiguous-argument.ts`](src/models/err-ambiguous-argument.ts)
+
+#### `ERR_ARG_NOT_ITERABLE(name)`
+
+Thrown when an iterable argument (i.e. a value that works with `for...of` loops) is required, but not provided to a
+Node.js API.
+
+- `{string}` **`name`** &mdash; Name of non-iterable argument
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-arg-not-iterable.ts`](src/models/err-arg-not-iterable.ts)
+
+#### `ERR_ASYNC_CALLBACK(name)`
+
+Thrown when an attempt is made to register something that is not a function as an `AsyncHooks` callback.
+
+- `{string}` **`name`** &mdash; Name of argument that must be a function
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-async-callback.ts`](src/models/err-async-callback.ts)
+
+#### `ERR_ILLEGAL_CONSTRUCTOR()`
+
+Thrown when an attempt is made to construct an object using a non-public constructor.
+
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-illegal-constructor.ts`](src/models/err-illegal-constructor.ts)
+
+#### `ERR_IMPORT_ASSERTION_TYPE_FAILED(id, type)`
+
+Thrown when an import assertion has failed, preventing the specified module from being imported.
+
+- `{string}` **`id`** &mdash; Id of module that cannot be imported
+- `{string}` **`type`** &mdash; Invalid import assertion type
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-import-assertion-type-failed.ts`](src/models/err-import-assertion-type-failed.ts)
+
+#### `ERR_IMPORT_ASSERTION_TYPE_MISSING(id, type)`
+
+Thrown when an import assertion is missing, preventing the specified module from being imported.
+
+- `{string}` **`id`** &mdash; Id of module that cannot be imported
+- `{string}` **`type`** &mdash; Invalid import assertion type
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-import-assertion-type-missing.ts`](src/models/err-import-assertion-type-missing.ts)
+
+#### `ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED(type)`
+
+Thrown when an import assertion is not supported by a version of Node.js.
+
+- `{string}` **`type`** &mdash; Unsupported import assertion type
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-import-assertion-type-unsupported.ts`](src/models/err-import-assertion-type-unsupported.ts)
+
+#### `ERR_INCOMPATIBLE_OPTION_PAIR(option1, option2)`
+
+Thrown when an option pair is incompatible with each other and cannot be used at the same time.
+
+- `{string}` **`option1`** &mdash; Option that cannot be used
+- `{string}` **`option2`** &mdash; Option that is incompatible with `option1`
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-incompatible-option-pair.ts`](src/models/err-incompatible-option-pair.ts)
+
+#### `ERR_INVALID_ARG_TYPE(name, expected, actual)`
+
+Thrown when an argument of the wrong type is passed to a Node.js API.
+
+- `{string}` **`name`** &mdash; Name of invalid argument or property
+- `{OneOrMany<string>}` **`expected`** &mdash; Expected type(s)
+- `{unknown}` **`actual`** &mdash; Value supplied by user
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-invalid-arg-type.ts`](src/models/err-invalid-arg-type.ts)
+
+#### `ERR_INVALID_ARG_VALUE(name, value[, reason])`
+
+Thrown when an invalid or unsupported value is passed for a given argument or property.
+
+- `{string}` **`name`** &mdash; Name of invalid argument or property
+- `{unknown}` **`value`** &mdash; Value supplied by user
+- `{string?}` **`[reason='is invalid']`** &mdash; Reason `value` is invalid
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-invalid-arg-value.ts`](src/models/err-invalid-arg-value.ts)
+
+#### `ERR_INVALID_MODULE_SPECIFIER(request[, reason][, base])`
+
+Thrown when an imported module string is an invalid URL, package name, or package subpath specifier.
+
+- `{string}` **`request`** &mdash; Invalid module specifier
+- `{string?}` **`[reason='']`** &mdash; Reason `request` is invalid
+- `{string?}` **`[base='']`** &mdash; Id of module `request` was imported from
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-invalid-module-specifier.ts`](src/models/err-invalid-module-specifier.ts)
+
+#### `ERR_INVALID_PACKAGE_CONFIG(id[, base][, reason])`
+
+Thrown when a [`package.json`][8] file fails parsing.
+
+- `{string}` **`id`** &mdash; Location of invalid `package.json` file
+- `{string?}` **`[base='']`** &mdash; Id of module being imported. May also include where module is being imported from
+- `{string?}` **`[reason='']`** &mdash; Reason package config is invalid
+- **Returns**: `{NodeError<Error>}`
+
+> **Source**: [`src/models/err-invalid-package-config.ts`](src/models/err-invalid-package-config.ts)
+
+#### `ERR_INVALID_PACKAGE_TARGET(dir, key, target[, internal][, base])`
+
+Thrown when a `package.json` [`"exports"`][9] or [`"imports"`][10] field contains an invalid target mapping value for
+the attempted module resolution.
+
+- `{string}` **`dir`** &mdash; Id of directory containing `package.json`
+- `{string}` **`key`** &mdash; `"exports"` or `"imports"` key
+- `{unknown}` **`target`** &mdash; Invalid package target
+- `{boolean?}` **`[internal=false]`** &mdash; `target` is `"imports"`?
+- `{string?}` **`[base='']`** &mdash; Id of module `package.json` was imported from
+- **Returns**: `{NodeError<Error>}`
+
+> **Source**: [`src/models/err-invalid-package-target.ts`](src/models/err-invalid-package-target.ts)
+
+#### `ERR_METHOD_NOT_IMPLEMENTED(method)`
+
+Thrown when a method is required but not implemented.
+
+- `{string}` **`method`** &mdash; Method name
+- **Returns**: `{NodeError<Error>}`
+
+> **Source**: [`src/models/err-method-not-implemented.ts`](src/models/err-method-not-implemented.ts)
+
+#### `ERR_MISSING_OPTION(option)`
+
+Thrown when a required option is missing. For APIs that accept options objects, some options might be mandatory.
+
+- `{string}` **`option`** &mdash; Option name
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-missing-option.ts`](src/models/err-missing-option.ts)
+
+#### `ERR_MODULE_NOT_FOUND(id, base[, type])`
+
+Thrown when a module file cannot be resolved by the ECMAScript modules loader while attempting an `import` operation or
+when loading a program entry point.
+
+- `{string}` **`id`** &mdash; Id of missing module
+- `{string}` **`base`** &mdash; Id of module `id` was imported from
+- `{string?}` **`[type='package']`** &mdash; Module file type
+- **Returns**: `{NodeError<Error>}`
+
+> **Source**: [`src/models/err-module-not-found.ts`](src/models/err-module-not-found.ts)
+
+#### `ERR_NETWORK_IMPORT_DISALLOWED(specifier, base, reason)`
+
+Thrown when a network module attempts to load another module that it is not allowed to load.
+
+- `{string}` **`specifier`** &mdash; Invalid module specifier
+- `{string}` **`base`** &mdash; Id of module `specifier` was imported from
+- `{string}` **`reason`** &mdash; Reason for error
+- **Returns**: `{NodeError<Error>}`
+
+> **Source**: [`src/models/err-network-import-disallowed.ts`](src/models/err-network-import-disallowed.ts)
+
+#### `ERR_OPERATION_FAILED(reason)`
+
+Thrown when an operation has failed. Typically used to signal the general failure of an asynchronous operation.
+
+- `{string}` **`reason`** &mdash; Reason for operation failure
+- **Returns**: `{NodeError<Error>}`
+
+> **Source**: [`src/models/err-operation-failed.ts`](src/models/err-operation-failed.ts)
+
+#### `ERR_PACKAGE_IMPORT_NOT_DEFINED(specifier, base[, dir])`
+
+Thrown when a `package.json` [`"imports"`][10] field does not define the given package import specifier.
+
+- `{string}` **`specifier`** &mdash; Invalid package import specifier
+- `{string}` **`base`** &mdash; Id of module `specifier` was imported from
+- `{string?}` **`[dir='']`** &mdash; Id of directory containing `package.json`
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-package-import-not-defined.ts`](src/models/err-package-import-not-defined.ts)
+
+#### `ERR_PACKAGE_PATH_NOT_EXPORTED(dir, subpath[, base])`
+
+Thrown when a `package.json` [`"exports"`][9] field does not export the requested subpath.
+
+- `{string}` **`dir`** &mdash; Id of directory containing `package.json`
+- `{string}` **`subpath`** &mdash; Requested subpath
+- `{string?}` **`[base='']`** &mdash; Id of module `subpath` was imported from
+- **Returns**: `{NodeError<Error>}`
+
+> **Source**: [`src/models/err-package-path-not-exported.ts`](src/models/err-package-path-not-exported.ts)
+
+#### `ERR_UNHANDLED_ERROR([err])`
+
+Thrown when an unhandled error occurs.
+
+- `{string?}` **`[err='']`** &mdash; Stringified error
+- **Returns**: `{NodeError<Error>}`
+
+> **Source**: [`src/models/err-unhandled-error.ts`](src/models/err-unhandled-error.ts)
+
+#### `ERR_UNKNOWN_ENCODING(encoding)`
+
+Thrown when an invalid or unknown encoding option is passed to a Node.js API.
+
+- `{string}` **`encoding`** &mdash; Invalid or unknown encoding
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-unknown-encoding.ts`](src/models/err-unknown-encoding.ts)
+
+#### `ERR_UNKNOWN_FILE_EXTENSION(ext, id[, suggestion])`
+
+Thrown when an attempt is made to load a module with an unknown or unsupported file extension.
+
+- `{string}` **`ext`** &mdash; Unknown or unsupported file extension
+- `{string}` **`id`** &mdash; Id of module containing `ext`
+- `{string?}` **`[suggestion='']`** &mdash; Recommended fix
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-unknown-file-extension.ts`](src/models/err-unknown-file-extension.ts)
+
+#### `ERR_UNKNOWN_MODULE_FORMAT(format, id)`
+
+Thrown when an attempt is made to load a module with an unknown or unsupported format.
+
+- `{string}` **`format`** &mdash; Unknown or unsupported format
+- `{string}` **`id`** &mdash; Id of module with `format`
+- **Returns**: `{NodeError<RangeError>}`
+
+> **Source**: [`src/models/err-unknown-module-format.ts`](src/models/err-unknown-module-format.ts)
+
+#### `ERR_UNSUPPORTED_DIR_IMPORT(id, base)`
+
+Thrown when a directory URL is `import`ed.
+
+- `{string}` **`id`** &mdash; Module id of directory
+- `{string}` **`base`** &mdash; Id of module `id` was imported from
+- **Returns**: `{NodeError<Error>}`
+
+> **Source**: [`src/models/err-unsupported-dir-import.ts`](src/models/err-unsupported-dir-import.ts)
+
+#### `ERR_UNSUPPORTED_ESM_URL_SCHEME(url, supported[, windows])`
+
+Thrown when an unsupported URL scheme is used in an `import` statement. URL schemes other than `file` and `data` are unsupported.
+
+- `{URL}` **`url`** &mdash; URL containing unsupported scheme
+- `{string[]}` **`supported`** &mdash; Supported URL schemes
+- `{boolean?}` **`[windows=false]`** &mdash; Windows operating system?
+- **Returns**: `{NodeError<Error>}`
+
+> **Source**: [`src/models/err-unsupported-esm-url-scheme.ts`](src/models/err-unsupported-esm-url-scheme.ts)
 
 ### Utilities
 
@@ -305,7 +541,7 @@ There is no default export.
 Creates a Node.js error constructor.
 
 If the given error `message` is a function, constructor arguments are passed to `message`. If the `message` is a string,
-constructor arguments are passed to [`util.format`][7] instead.
+constructor arguments are passed to [`util.format`][11] instead.
 
 - `{ErrorCode}` **`code`** &mdash; Node.js error code
 - `{B extends ErrorConstructor}` **`Base`** &mdash; Error base class
@@ -325,7 +561,7 @@ Determines the specific type of a value for type-mismatch errors.
 
 ## Types
 
-This package is fully typed with [TypeScript][8]. It exports the following definitions:
+This package is fully typed with [TypeScript][12]. It exports the following definitions:
 
 ### Enums
 
@@ -346,11 +582,15 @@ This package is fully typed with [TypeScript][8]. It exports the following defin
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-[1]: https://nodejs.org/api/errors.html#nodejs-error-codes
+[1]: https://nodejs.org/api/errors.html
 [2]: https://github.com/sindresorhus/ponyfill
 [3]: https://github.com/flex-development/mlly
 [4]: https://nodejs.org/api/errors.html#errorstacktracelimit
 [5]: https://github.com/nodejs/node/blob/v19.3.0/lib/internal/errors.js#L484-L496
 [6]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
-[7]: https://nodejs.org/api/util.html#utilformatformat-args
-[8]: https://www.typescriptlang.org
+[7]: https://nodejs.org/api/errors.html#nodejs-error-codes
+[8]: https://nodejs.org/api/packages.html#nodejs-packagejson-field-definitions
+[9]: https://nodejs.org/api/packages.html#exports
+[10]: https://nodejs.org/api/packages.html#imports
+[11]: https://nodejs.org/api/util.html#utilformatformat-args
+[12]: https://www.typescriptlang.org

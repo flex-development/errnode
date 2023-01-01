@@ -46,17 +46,17 @@ const ERR_INVALID_PACKAGE_CONFIG: NodeErrorConstructor<
     /**
      * Error message.
      *
-     * @var {string} message
+     * @var {string} ret
      */
-    let message: string = `Invalid package config ${id}`
+    let ret: string = `Invalid package config ${id}`
 
     // add import details
-    if (base) message += ` while importing ${base}`
+    if (base) ret += ` while importing ${base}`
 
     // add reason package config is invalid
-    if (reason) message += `. ${reason}`
+    if (reason) ret += `. ${reason}`
 
-    return message
+    return ret
   }
 )
 

@@ -11,7 +11,7 @@ import { createNodeError } from '#src/utils'
 /**
  * `ERR_PACKAGE_PATH_NOT_EXPORTED` model.
  *
- * Thrown when a `package.json` [`"exports"`][1] field does not export a
+ * Thrown when a `package.json` [`"exports"`][1] field does not export the
  * requested subpath.
  *
  * [1]: https://nodejs.org/api/packages.html#exports
@@ -20,8 +20,8 @@ import { createNodeError } from '#src/utils'
  *
  * @class
  *
- * @param {string} dir - Directory containing `package.json` file
- * @param {string} subpath - Invalid subpath
+ * @param {string} dir - Id of directory containing `package.json`
+ * @param {string} subpath - Requested subpath
  * @param {string?} [base=''] - Id of module `subpath` was imported from
  * @return {NodeError} `Error` instance
  */
@@ -36,8 +36,8 @@ const ERR_PACKAGE_PATH_NOT_EXPORTED: NodeErrorConstructor<
    *
    * [1]: https://nodejs.org/api/errors.html#err_package_path_not_exported
    *
-   * @param {string} dir - Directory containing `package.json` file
-   * @param {string} subpath - Invalid subpath
+   * @param {string} dir - Id of directory containing `package.json`
+   * @param {string} subpath - Requested subpath
    * @param {string?} [base=''] - Id of module `subpath` was imported from
    * @return {string} Error message
    */

@@ -1,6 +1,6 @@
 {
   "name": "@flex-development/errnode",
-  "description": "Utilities for creating Node.js errors",
+  "description": "Universal API for creating Node.js errors",
   "version": "1.1.0",
   "keywords": [
     "error",

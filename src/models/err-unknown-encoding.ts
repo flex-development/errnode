@@ -11,7 +11,7 @@ import { createNodeError } from '#src/utils'
 /**
  * `ERR_UNKNOWN_ENCODING` model.
  *
- * Thrown when an invalid or unknown encoding option is passed to an API.
+ * Thrown when an invalid or unknown encoding option is passed to a Node.js API.
  *
  * @see https://nodejs.org/api/errors.html#err_unknown_encoding
  *
