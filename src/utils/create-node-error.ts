@@ -59,21 +59,22 @@ function createNodeError<
      */
     const error: NodeError<T> = new Base() as NodeError<T>
 
-    // define error symbol
-    Object.defineProperty(error, kIsNodeError, {
+    // define error code
+    // note: defined first to ensure `this.code` can be used in message function
+    Object.defineProperty(error, 'code', {
       configurable: true,
       enumerable: false,
-      value: true,
-      writable: false
+      value: code,
+      writable: true
     })
 
-    // define instance properties and methods
+    // define error symbol and message + redefine toString method
     Object.defineProperties(error, {
-      code: {
+      [kIsNodeError]: {
         configurable: true,
         enumerable: false,
-        value: code,
-        writable: true
+        value: true,
+        writable: false
       },
       message: {
         configurable: true,
