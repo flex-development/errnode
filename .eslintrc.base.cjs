@@ -993,7 +993,7 @@ const config = {
       }
     },
     {
-      files: ['**/__tests__/*.spec.*', '**/__tests__/*.spec-d.*'],
+      files: ['**/__tests__/*.spec.ts', '**/__tests__/*.spec-d.ts'],
       globals: {
         afterAll: true,
         afterEach: true,
