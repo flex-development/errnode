@@ -20,7 +20,12 @@ describe('unit:models/ERR_INVALID_MODULE_SPECIFIER', () => {
   })
 
   it('should return TypeError instance', () => {
-    expect(new TestSubject(request, reason)).to.be.instanceof(TypeError)
+    // Act
+    const result = new TestSubject(request, reason)
+
+    // Expect
+    expect(result).to.be.instanceof(TypeError)
+    expect(result).to.have.property('name').equal('TypeError')
   })
 
   it('should set error code', () => {

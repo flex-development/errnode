@@ -19,8 +19,8 @@ describe('unit:models/ERR_UNSUPPORTED_DIR_IMPORT', () => {
   })
 
   it('should return Error instance', () => {
-    expect(result).to.have.property('name').equal('Error')
     expect(result).to.be.instanceof(Error)
+    expect(result).to.have.property('name').equal('Error')
   })
 
   it('should set error code', () => {

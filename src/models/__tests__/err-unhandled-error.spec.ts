@@ -18,8 +18,8 @@ describe('unit:models/ERR_UNHANDLED_ERROR', () => {
     const result = new TestSubject()
 
     // Expect
-    expect(result).to.have.property('name').equal('Error')
     expect(result).to.be.instanceof(Error)
+    expect(result).to.have.property('name').equal('Error')
   })
 
   it('should set error code', () => {

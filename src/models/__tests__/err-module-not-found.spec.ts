@@ -16,7 +16,12 @@ describe('unit:models/ERR_MODULE_NOT_FOUND', () => {
   })
 
   it('should return Error instance', () => {
-    expect(new TestSubject(id, base)).to.be.instanceof(Error)
+    // Act
+    const result = new TestSubject(id, base)
+
+    // Expect
+    expect(result).to.have.property('name').equal('Error')
+    expect(result).to.be.instanceof(Error)
   })
 
   it('should set error code', () => {

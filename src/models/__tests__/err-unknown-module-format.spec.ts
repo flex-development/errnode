@@ -19,8 +19,8 @@ describe('unit:models/ERR_UNKNOWN_MODULE_FORMAT', () => {
   })
 
   it('should return RangeError instance', () => {
-    expect(result).to.have.property('name').equal('RangeError')
     expect(result).to.be.instanceof(RangeError)
+    expect(result).to.have.property('name').equal('RangeError')
   })
 
   it('should set error code', () => {

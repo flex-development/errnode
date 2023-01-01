@@ -25,8 +25,8 @@ describe('unit:models/ERR_UNKNOWN_FILE_EXTENSION', () => {
     const result = new TestSubject(ext, id)
 
     // Expect
-    expect(result).to.have.property('name').equal('TypeError')
     expect(result).to.be.instanceof(TypeError)
+    expect(result).to.have.property('name').equal('TypeError')
   })
 
   it('should set error code', () => {

@@ -20,8 +20,8 @@ describe('unit:models/ERR_IMPORT_ASSERTION_TYPE_MISSING', () => {
   })
 
   it('should return TypeError instance', () => {
-    expect(result).to.have.property('name').equal('TypeError')
     expect(result).to.be.instanceof(TypeError)
+    expect(result).to.have.property('name').equal('TypeError')
   })
 
   it('should set error code', () => {

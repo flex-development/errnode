@@ -15,8 +15,8 @@ describe('unit:models/ERR_ILLEGAL_CONSTRUCTOR', () => {
   })
 
   it('should return TypeError instance', () => {
-    expect(result).to.have.property('name').equal('TypeError')
     expect(result).to.be.instanceof(TypeError)
+    expect(result).to.have.property('name').equal('TypeError')
   })
 
   it('should set error code', () => {
