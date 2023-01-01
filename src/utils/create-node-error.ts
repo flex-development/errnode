@@ -63,7 +63,7 @@ function createNodeError<
     // note: defined first to ensure `this.code` can be used in message function
     Object.defineProperty(error, 'code', {
       configurable: true,
-      enumerable: false,
+      enumerable: true,
       value: code,
       writable: true
     })
