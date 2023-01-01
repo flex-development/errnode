@@ -999,6 +999,7 @@ __metadata:
     "@commitlint/types": "npm:17.0.0"
     "@faker-js/faker": "npm:7.6.0"
     "@flex-development/mkbuild": "npm:1.0.0-alpha.9"
+    "@flex-development/pkg-types": "npm:1.0.0"
     "@flex-development/tutils": "npm:6.0.0-alpha.7"
     "@graphql-eslint/eslint-plugin": "npm:3.13.0"
     "@types/chai": "npm:4.3.4"
@@ -1118,6 +1119,15 @@ __metadata:
   peerDependencies:
     typescript: "*"
   checksum: ec8cca3db4d9602ecb61c72e7a23722e57a9c09920bb7c6decf66f3b545f48dbdc58f32057a8e8c85644761428a0cb5a53382c2103656e6aa20eb1e39deef32e
+  languageName: node
+  linkType: hard
+
+"@flex-development/pkg-types@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@flex-development/pkg-types@npm:1.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fpkg-types%2F1.0.0%2F596322ff94bcaf29541e3ed76742b4777510121a"
+  peerDependencies:
+    "@flex-development/tutils": ">=6.0.0-alpha.7"
+  checksum: 673e66cbcb1cdfe1529014696687e625e6d57d53f435639a18fd04a50807f08588198485ff35ada7c3a8d33aeeb081d3fe4df58a5a3a8734ae74a363d308a2c6
   languageName: node
   linkType: hard
 
