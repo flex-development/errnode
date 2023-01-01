@@ -7,7 +7,6 @@
 import { ErrorCode } from '#src/enums'
 import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
 import { createNodeError } from '#src/utils'
-import type pkg from '@flex-development/pkg-types'
 
 /**
  * `ERR_INVALID_PACKAGE_TARGET` model.
@@ -24,14 +23,14 @@ import type pkg from '@flex-development/pkg-types'
  *
  * @param {string} dir - Directory containing `package.json` file
  * @param {string} key - `exports` or `imports` key
- * @param {pkg.Exports} target - Invalid package target
+ * @param {unknown} target - Invalid package target
  * @param {boolean?} [internal=false] - `target` is package [`imports`][2]?
  * @param {string?} [base=''] - Id of module package was imported from
  * @return {NodeError} `Error` instance
  */
 const ERR_INVALID_PACKAGE_TARGET: NodeErrorConstructor<
   ErrorConstructor,
-  MessageFn<[string, string, pkg.Exports, boolean?, string?]>
+  MessageFn<[string, string, unknown, boolean?, string?]>
 > = createNodeError(
   ErrorCode.ERR_INVALID_PACKAGE_TARGET,
   Error,
@@ -43,7 +42,7 @@ const ERR_INVALID_PACKAGE_TARGET: NodeErrorConstructor<
    *
    * @param {string} dir - Directory containing `package.json` file
    * @param {string} key - `exports` or `imports` key
-   * @param {pkg.Exports} target - Invalid package target
+   * @param {unknown} target - Invalid package target
    * @param {boolean?} [internal=false] - `target` is package [`imports`][2]?
    * @param {string?} [base=''] - Id of module package was imported from
    * @return {string} Error message
@@ -51,7 +50,7 @@ const ERR_INVALID_PACKAGE_TARGET: NodeErrorConstructor<
   (
     dir: string,
     key: string,
-    target: pkg.Exports,
+    target: unknown,
     internal: boolean = false,
     base: string = ''
   ): string => {

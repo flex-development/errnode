@@ -4,14 +4,13 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type pkg from '@flex-development/pkg-types'
 import TestSubject from '../err-invalid-package-target'
 
 describe('unit:models/ERR_INVALID_PACKAGE_TARGET', () => {
   let base: string
   let dir: string
   let key: string
-  let target: pkg.Exports
+  let target: unknown
 
   beforeEach(() => {
     base = import.meta.url
