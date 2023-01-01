@@ -12,6 +12,7 @@ export { default as ERR_IMPORT_ASSERTION_TYPE_FAILED } from './err-import-assert
 export { default as ERR_IMPORT_ASSERTION_TYPE_MISSING } from './err-import-assertion-type-missing'
 export { default as ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED } from './err-import-assertion-type-unsupported'
 export { default as ERR_INCOMPATIBLE_OPTION_PAIR } from './err-incompatible-option-pair'
+export { default as ERR_INVALID_ARG_TYPE } from './err-invalid-arg-type'
 export { default as ERR_INVALID_ARG_VALUE } from './err-invalid-arg-value'
 export { default as ERR_INVALID_MODULE_SPECIFIER } from './err-invalid-module-specifier'
 export { default as ERR_INVALID_PACKAGE_CONFIG } from './err-invalid-package-config'
