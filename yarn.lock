@@ -1006,7 +1006,7 @@ __metadata:
     "@types/chai-string": "npm:1.4.2"
     "@types/conventional-changelog": "npm:3.1.1"
     "@types/conventional-changelog-config-spec": "npm:2.1.2"
-    "@types/conventional-changelog-writer": "npm:4.0.1"
+    "@types/conventional-changelog-writer": "npm:4.0.2"
     "@types/conventional-commits-parser": "npm:3.0.3"
     "@types/dateformat": "npm:5.0.0"
     "@types/eslint": "npm:8.4.10"
@@ -1803,13 +1803,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/conventional-changelog-writer@npm:*, @types/conventional-changelog-writer@npm:4.0.1":
+"@types/conventional-changelog-writer@npm:*":
   version: 4.0.1
   resolution: "@types/conventional-changelog-writer@npm:4.0.1"
   dependencies:
     "@types/conventional-commits-parser": "npm:*"
     "@types/node": "npm:*"
   checksum: ded597513ca59388fee28a80ee8c1efb1766de3e76265923549cf4710bded6c925c3ef4bb850e43a315f99bdb66d15a7882ac82d9cd6b9401318e74e3a1f9fb9
+  languageName: node
+  linkType: hard
+
+"@types/conventional-changelog-writer@npm:4.0.2":
+  version: 4.0.2
+  resolution: "@types/conventional-changelog-writer@npm:4.0.2"
+  dependencies:
+    "@types/conventional-commits-parser": "npm:*"
+    "@types/node": "npm:*"
+  checksum: 84b59aebd7b0a51c898d5a28ff32c9772124aeea693d13e6bf6ca6b51ee9ecb02e97fba9342ad0bad2e35cb3e53b984fd1d4555477bdd80c96a9b1459459507f
   languageName: node
   linkType: hard
 
