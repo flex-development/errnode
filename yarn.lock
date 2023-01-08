@@ -1803,17 +1803,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/conventional-changelog-writer@npm:*":
-  version: 4.0.1
-  resolution: "@types/conventional-changelog-writer@npm:4.0.1"
-  dependencies:
-    "@types/conventional-commits-parser": "npm:*"
-    "@types/node": "npm:*"
-  checksum: ded597513ca59388fee28a80ee8c1efb1766de3e76265923549cf4710bded6c925c3ef4bb850e43a315f99bdb66d15a7882ac82d9cd6b9401318e74e3a1f9fb9
-  languageName: node
-  linkType: hard
-
-"@types/conventional-changelog-writer@npm:4.0.2":
+"@types/conventional-changelog-writer@npm:*, @types/conventional-changelog-writer@npm:4.0.2":
   version: 4.0.2
   resolution: "@types/conventional-changelog-writer@npm:4.0.2"
   dependencies:
