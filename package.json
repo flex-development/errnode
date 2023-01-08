@@ -95,7 +95,7 @@
     "@typescript-eslint/eslint-plugin": "5.48.0",
     "@typescript-eslint/parser": "5.48.0",
     "@vates/toggle-scripts": "1.0.0",
-    "@vitest/coverage-c8": "0.26.2",
+    "@vitest/coverage-c8": "0.26.3",
     "@vitest/ui": "0.26.2",
     "chai": "4.3.7",
     "chai-string": "1.5.0",
