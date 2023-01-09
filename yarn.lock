@@ -1001,7 +1001,7 @@ __metadata:
     "@flex-development/mkbuild": "npm:1.0.0-alpha.9"
     "@flex-development/pkg-types": "npm:1.0.0"
     "@flex-development/tutils": "npm:6.0.0-alpha.7"
-    "@graphql-eslint/eslint-plugin": "npm:3.13.0"
+    "@graphql-eslint/eslint-plugin": "npm:3.14.3"
     "@types/chai": "npm:4.3.4"
     "@types/chai-string": "npm:1.4.2"
     "@types/conventional-changelog": "npm:3.1.1"
@@ -1147,23 +1147,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-eslint/eslint-plugin@npm:3.13.0":
-  version: 3.13.0
-  resolution: "@graphql-eslint/eslint-plugin@npm:3.13.0"
+"@graphql-eslint/eslint-plugin@npm:3.14.3":
+  version: 3.14.3
+  resolution: "@graphql-eslint/eslint-plugin@npm:3.14.3"
   dependencies:
     "@babel/code-frame": "npm:^7.18.6"
     "@graphql-tools/code-file-loader": "npm:^7.3.6"
     "@graphql-tools/graphql-tag-pluck": "npm:^7.3.6"
-    "@graphql-tools/utils": "npm:^8.12.0"
+    "@graphql-tools/utils": "npm:^9.0.0"
     chalk: "npm:^4.1.2"
     debug: "npm:^4.3.4"
     fast-glob: "npm:^3.2.12"
-    graphql-config: "npm:^4.3.6"
+    graphql-config: "npm:^4.4.0"
     graphql-depth-limit: "npm:^1.1.0"
     lodash.lowercase: "npm:^4.3.0"
+    tslib: "npm:^2.4.1"
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: c99f4dd6893e547fbee4ee315af1189f0e05b26c12fc174256ee59993df312c2a007e70946a1e92c861fb6fab3f379462cf2e4c31758a649bb13e9ec13dd9db8
+  checksum: 6087ef5c67cd755fc014814a86b68d112799715779b392f60af170b8e78293fb37375388f771aff8c986ed9fd77c08177b73f9998842b86d1d9259e1bff153fe
   languageName: node
   linkType: hard
 
@@ -1407,17 +1408,6 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 7997cc2a13e69c6b27c66f4ae66a86115e72bfe28baa722c06e8f3e6713d0f0a23ad2c10a367172bb79c01fff5e0aa2f0ce9c3298c5ec6b0b0f489ecce870e47
-  languageName: node
-  linkType: hard
-
-"@graphql-tools/utils@npm:^8.12.0":
-  version: 8.13.1
-  resolution: "@graphql-tools/utils@npm:8.13.1"
-  dependencies:
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: c86537f1e38d4c86ab5d5d051d78e48e7de48b0f1601af49592e838e01f5b31b1210227749b3d0c830b55a5cf2900270e55c4dfd4d4a5fca1cb1239624d30b25
   languageName: node
   linkType: hard
 
@@ -4841,7 +4831,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-config@npm:4.4.0, graphql-config@npm:^4.3.6":
+"graphql-config@npm:4.4.0, graphql-config@npm:^4.4.0":
   version: 4.4.0
   resolution: "graphql-config@npm:4.4.0"
   dependencies:
