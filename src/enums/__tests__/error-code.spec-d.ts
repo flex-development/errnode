@@ -13,6 +13,6 @@ describe('unit-d:enums/ErrorCode', () => {
     // Expect
     expectTypeOf<Key>().toMatchTypeOf<Uppercase<string>>()
     expectTypeOf<TestSubject>().toMatchTypeOf<Key>()
-    expectTypeOf<typeof TestSubject[Key]>().toEqualTypeOf<TestSubject>()
+    expectTypeOf<(typeof TestSubject)[Key]>().toEqualTypeOf<TestSubject>()
   })
 })

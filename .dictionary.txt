@@ -1,15 +1,6 @@
 ardatan
-autocrlf
-autosetuprebase
-bdel
-bdelr
 bdougie
-bren
 cefc
-chbfeat
-chbfix
-chbhotfix
-chbrelease
 codecov
 commitlintrc
 dawidd
@@ -18,7 +9,6 @@ dessant
 dohm
 esbuild
 fbca
-fpnv
 gpgsign
 hmarr
 iife
@@ -26,6 +16,7 @@ instanceof
 keyid
 larsgw
 lcov
+lintstagedrc
 micnncim
 mkbuild
 mlly
@@ -36,7 +27,6 @@ nvmrc
 pkgs
 pnpm
 preid
-safecrlf
 syncer
 vates
 vitest

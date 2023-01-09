@@ -14,6 +14,7 @@
   "flagWords": [],
   "ignorePaths": [
     "**/*.snap",
+    "**/.gitconfig",
     "**/.gitignore",
     "**/dist/",
     ".cspell.json",
@@ -29,9 +30,11 @@
     "LICENSE.md",
     "__tests__/report.json",
     "patches/",
+    "tsconfig.temp.json",
     "yarn.lock"
   ],
   "ignoreRegExpList": [
+    "/0x*/",
     "/@flex-development\\/.*/",
     "/from\\s+(['\"]).*\\1/",
     "import\\(.*\\)"

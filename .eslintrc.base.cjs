@@ -39,7 +39,6 @@ const config = {
     LoadHookResult: 'readonly',
     LoaderHookFormat: 'readonly',
     NodeJS: 'readonly',
-    ResolveFilename: 'readonly',
     ResolveHook: 'readonly',
     ResolveHookContext: 'readonly',
     ResolveHookResult: 'readonly'
@@ -51,6 +50,7 @@ const config = {
       impliedStrict: true
     },
     emitDecoratorMetadata: tsconfig.compilerOptions.emitDecoratorMetadata,
+    extraFileExtensions: [],
     project: ['./tsconfig.json'],
     sourceType: 'module',
     tsconfigRootDir: __dirname,
@@ -280,7 +280,7 @@ const config = {
     '@typescript-eslint/no-var-requires': 2,
     '@typescript-eslint/padding-line-between-statements': 0,
     '@typescript-eslint/prefer-as-const': 2,
-    '@typescript-eslint/prefer-enum-initializers': 2,
+    '@typescript-eslint/prefer-enum-initializers': 0,
     '@typescript-eslint/prefer-for-of': 2,
     '@typescript-eslint/prefer-function-type': 2,
     '@typescript-eslint/prefer-includes': 0,
@@ -319,7 +319,8 @@ const config = {
     'jsdoc/check-access': 1,
     'jsdoc/check-alignment': 1,
     'jsdoc/check-examples': 0,
-    'jsdoc/check-indentation': [1, { excludeTags: ['description', 'example'] }],
+    // https://github.com/gajus/eslint-plugin-jsdoc/issues/541
+    'jsdoc/check-indentation': 0,
     'jsdoc/check-line-alignment': 1,
     'jsdoc/check-param-names': [
       1,
@@ -336,7 +337,7 @@ const config = {
     'jsdoc/check-tag-names': [
       1,
       {
-        definedTags: ['visibleName'],
+        definedTags: ['experimental', 'next', 'visibleName'],
         jsxTags: jsx
       }
     ],
@@ -402,6 +403,7 @@ const config = {
         enableFixer: true,
         enableRestElementFixer: true,
         enableRootFixer: true,
+        exemptedBy: ['inheritdoc', 'this'],
         unnamedRootBase: ['param'],
         useDefaultObjectProperties: true
       }
@@ -413,9 +415,9 @@ const config = {
     'jsdoc/require-returns-check': [
       1,
       {
-        exemptAsync: true,
+        exemptAsync: false,
         exemptGenerators: true,
-        reportMissingReturnForUndefinedTypes: false
+        reportMissingReturnForUndefinedTypes: true
       }
     ],
     'jsdoc/require-returns-description': 1,
@@ -602,8 +604,9 @@ const config = {
     'unicorn/no-useless-spread': 2,
     'unicorn/no-useless-undefined': 2,
     'unicorn/no-zero-fractions': 2,
-    'unicorn/number-literal-case': 2,
-    'unicorn/numeric-separators-style': 2,
+    'unicorn/number-literal-case': 0,
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2003
+    'unicorn/numeric-separators-style': 0,
     'unicorn/prefer-add-event-listener': 2,
     'unicorn/prefer-array-find': 2,
     'unicorn/prefer-array-flat': [2, { functions: [] }],
@@ -616,7 +619,7 @@ const config = {
     'unicorn/prefer-default-parameters': 2,
     'unicorn/prefer-export-from': [2, { ignoreUsedVariables: true }],
     'unicorn/prefer-includes': 2,
-    'unicorn/prefer-json-parse-buffer': 2,
+    'unicorn/prefer-json-parse-buffer': 0,
     'unicorn/prefer-math-trunc': 2,
     'unicorn/prefer-module': 2,
     'unicorn/prefer-negative-index': 2,
@@ -709,7 +712,7 @@ const config = {
         '@typescript-eslint/no-unnecessary-condition': [
           2,
           {
-            allowConstantLoopConditions: false,
+            allowConstantLoopConditions: true,
             allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false
           }
         ],
@@ -826,14 +829,9 @@ const config = {
       files: ['*.d.ts'],
       rules: {
         '@typescript-eslint/ban-types': 0,
-        '@typescript-eslint/lines-between-class-members': 0,
-        '@typescript-eslint/no-redundant-type-constituents': 0,
         '@typescript-eslint/triple-slash-reference': 0,
         'jsdoc/no-undefined-types': 0,
-        'jsdoc/require-file-overview': 0,
         'no-var': 0,
-        'unicorn/filename-case': 0,
-        'unicorn/no-empty-file': 0,
         'unicorn/no-keyword-prefix': 0
       }
     },
@@ -1016,6 +1014,7 @@ const config = {
       plugins: ['chai-expect', 'jest-formatting'],
       rules: {
         '@typescript-eslint/no-base-to-string': 0,
+        '@typescript-eslint/no-empty-function': 0,
         '@typescript-eslint/no-unused-expressions': 0,
         '@typescript-eslint/restrict-template-expressions': 0,
         '@typescript-eslint/unbound-method': 0,
@@ -1039,7 +1038,6 @@ const config = {
         'unicorn/no-useless-undefined': 0,
         'unicorn/prefer-at': 0,
         'unicorn/prefer-dom-node-append': 0,
-        'unicorn/prefer-json-parse-buffer': 0,
         'unicorn/string-content': 0
       }
     },
@@ -1048,6 +1046,13 @@ const config = {
       rules: {
         'jsdoc/check-indentation': 0,
         'unicorn/no-keyword-prefix': 0
+      }
+    },
+    {
+      files: ['**/typings/**/*.d.ts', '*-env.d.ts'],
+      rules: {
+        'jsdoc/require-file-overview': 0,
+        'unicorn/filename-case': 0
       }
     },
     {
@@ -1124,6 +1129,9 @@ const config = {
           name: 'namepath-defining',
           required: ['name', 'type']
         },
+        experimental: {
+          name: 'none'
+        },
         extends: {
           name: 'namepath-defining',
           required: ['type']
@@ -1139,6 +1147,10 @@ const config = {
         param: {
           name: 'namepath-defining',
           required: ['name', 'type']
+        },
+        next: {
+          name: 'namepath-defining',
+          required: ['type']
         },
         return: {
           name: 'namepath-defining',
