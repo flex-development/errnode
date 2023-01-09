@@ -32,8 +32,9 @@ updates:
       include: scope
     directory: /
     ignore:
-      - dependency-name: '@graphql-eslint/eslint-plugin'
       - dependency-name: '@types/node'
+      - dependency-name: '@vitest/*'
+      - dependency-name: vitest
     labels:
       - scope:dependencies
       - type:build
