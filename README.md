@@ -32,6 +32,7 @@ Universal API for creating [Node.js errors][1]
     - [`ERR_INVALID_MODULE_SPECIFIER(request[, reason][, base])`](#err_invalid_module_specifierrequest-reason-base)
     - [`ERR_INVALID_PACKAGE_CONFIG(id[, base][, reason])`](#err_invalid_package_configid-base-reason)
     - [`ERR_INVALID_PACKAGE_TARGET(dir, key, target[, internal][, base])`](#err_invalid_package_targetdir-key-target-internal-base)
+    - [`ERR_INVALID_URL(input)`](#err_invalid_urlinput)
     - [`ERR_METHOD_NOT_IMPLEMENTED(method)`](#err_method_not_implementedmethod)
     - [`ERR_MISSING_OPTION(option)`](#err_missing_optionoption)
     - [`ERR_MODULE_NOT_FOUND(id, base[, type])`](#err_module_not_foundid-base-type)
@@ -216,6 +217,7 @@ This package exports the following identifiers:
 - [`ERR_INVALID_MODULE_SPECIFIER`](#err_invalid_module_specifierrequest-reason-base)
 - [`ERR_INVALID_PACKAGE_CONFIG`](#err_invalid_package_configid-base-reason)
 - [`ERR_INVALID_PACKAGE_TARGET`](#err_invalid_package_targetdir-key-target-internal-base)
+- [`ERR_INVALID_URL`](#err_invalid_urlinput)
 - [`ERR_METHOD_NOT_IMPLEMENTED`](#err_method_not_implementedmethod)
 - [`ERR_MISSING_OPTION`](#err_missing_optionoption)
 - [`ERR_MODULE_NOT_FOUND`](#err_module_not_foundid-base-type)
@@ -248,6 +250,7 @@ import {
   ERR_INVALID_MODULE_SPECIFIER,
   ERR_INVALID_PACKAGE_CONFIG,
   ERR_INVALID_PACKAGE_TARGET,
+  ERR_INVALID_URL,
   ERR_MODULE_NOT_FOUND,
   ERR_NETWORK_IMPORT_DISALLOWED,
   ERR_PACKAGE_IMPORT_NOT_DEFINED,
@@ -402,6 +405,15 @@ the attempted module resolution.
 
 > **Source**: [`src/models/err-invalid-package-target.ts`](src/models/err-invalid-package-target.ts)
 
+#### `ERR_INVALID_URL(input)`
+
+Thrown when an invalid URL is passed to a [WHATWG][11] [`URL` constructor][12] or [`url.parse()`][13] to be parsed.
+
+- `{string}` **`input`** &mdash; URL that failed to parse
+- **Returns**: `{ErrInvalidUrl}`
+
+> **Source**: [`src/models/err-invalid-url.ts`](src/models/err-invalid-url.ts)
+
 #### `ERR_METHOD_NOT_IMPLEMENTED(method)`
 
 Thrown when a method is required but not implemented.
@@ -541,7 +553,7 @@ Thrown when an unsupported URL scheme is used in an `import` statement. URL sche
 Creates a Node.js error constructor.
 
 If the given error `message` is a function, constructor arguments are passed to `message`. If the `message` is a string,
-constructor arguments are passed to [`util.format`][11] instead.
+constructor arguments are passed to [`util.format`][14] instead.
 
 - `{ErrorCode}` **`code`** &mdash; Node.js error code
 - `{B extends ErrorConstructor}` **`Base`** &mdash; Error base class
@@ -561,7 +573,7 @@ Determines the specific type of a value for type-mismatch errors.
 
 ## Types
 
-This package is fully typed with [TypeScript][12]. It exports the following definitions:
+This package is fully typed with [TypeScript][15]. It exports the following definitions:
 
 ### Enums
 
@@ -593,5 +605,8 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 [8]: https://nodejs.org/api/packages.html#nodejs-packagejson-field-definitions
 [9]: https://nodejs.org/api/packages.html#exports
 [10]: https://nodejs.org/api/packages.html#imports
-[11]: https://nodejs.org/api/util.html#utilformatformat-args
-[12]: https://www.typescriptlang.org
+[11]: https://nodejs.org/api/url.html#the-whatwg-url-api
+[12]: https://nodejs.org/api/url.html#new-urlinput-base
+[13]: https://nodejs.org/api/url.html#urlparseurlstring-parsequerystring-slashesdenotehost
+[14]: https://nodejs.org/api/util.html#utilformatformat-args
+[15]: https://www.typescriptlang.org
