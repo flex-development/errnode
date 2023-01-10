@@ -570,6 +570,7 @@ This package is fully typed with [TypeScript][12]. It exports the following defi
 
 ### Interfaces
 
+- [`ErrInvalidUrl`](src/interfaces/err-invalid-url.ts)
 - [`ErrnoException`](src/interfaces/errno-exception.ts)
 
 ### Type Definitions
