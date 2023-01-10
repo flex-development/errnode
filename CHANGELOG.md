@@ -1,3 +1,35 @@
+## [1.3.0](https://github.com/flex-development/errnode/compare/1.2.0...1.3.0) (2023-01-09)
+
+
+### :package: Build
+
+* **deps-dev:** Bump @typescript-eslint/eslint-plugin from 5.47.1 to 5.48.0 ([#12](https://github.com/flex-development/errnode/issues/12)) ([417be18](https://github.com/flex-development/errnode/commit/417be18c63c1df0d04e2ad375c896ef1ad5e51d6))
+* **deps-dev:** Bump @typescript-eslint/parser from 5.47.1 to 5.48.0 ([#13](https://github.com/flex-development/errnode/issues/13)) ([2ff90c2](https://github.com/flex-development/errnode/commit/2ff90c28d730f782c56ca5a12fb62d7a15709050))
+* **deps-dev:** Bump eslint from 8.30.0 to 8.31.0 ([#8](https://github.com/flex-development/errnode/issues/8)) ([d5bf1de](https://github.com/flex-development/errnode/commit/d5bf1de9b81bc9a07541c477935d500bdc9b9783))
+* **deps:** bump @flex-development/tutils from 6.0.0-alpha.7 to 6.0.0-alpha.9 ([bd7c873](https://github.com/flex-development/errnode/commit/bd7c87352f1b33e4cba1b38b50a3048ad4685696))
+
+
+### :robot: Continuous Integration
+
+* [[@dependabot](https://github.com/dependabot)] update ignore list for npm ecosystem ([328c0d9](https://github.com/flex-development/errnode/commit/328c0d985d0bcaaf374772726ab465fe22437cbb))
+* **deps:** Bump actions/checkout from 3.2.0 to 3.3.0 ([#15](https://github.com/flex-development/errnode/issues/15)) ([e875d1a](https://github.com/flex-development/errnode/commit/e875d1a39a76c460dc9aa31e884b4dc69c368775))
+* **workflows:** [`add-to-project`] run workflow when pr is synchronized ([b120810](https://github.com/flex-development/errnode/commit/b1208106a2f01bf943763633a1ee26a3d4cc0be1))
+* **workflows:** [`ci`] split ci job into multiple jobs ([fc9f430](https://github.com/flex-development/errnode/commit/fc9f4305cebf141e0f7884018fa377414291ef40))
+* **workflows:** [`dependabot-auto`] sign lockfile fix commit ([5433c43](https://github.com/flex-development/errnode/commit/5433c43f7d9e3a84ab4343bf6e61e18cf3845b12))
+* **workflows:** add `typescript-canary` ([fbdfdb0](https://github.com/flex-development/errnode/commit/fbdfdb04f6b4a3a4f06d45e23389c239585bc0ca))
+
+
+### :sparkles: Features
+
+* **interfaces:** `ErrInvalidUrl` ([ed9d333](https://github.com/flex-development/errnode/commit/ed9d333b7640382e56ab5ae1931826f946a88422))
+* **models:** `ERR_INVALID_URL` ([42d894f](https://github.com/flex-development/errnode/commit/42d894fee6e4166b6a86f83b1bc1f27f007fee8a))
+
+
+### :house_with_garden: Housekeeping
+
+* update project architecture ([9031a2e](https://github.com/flex-development/errnode/commit/9031a2e0b09ed88be5587adede78fa269251a436))
+* **github:** configure sponsor button ([19a3cfe](https://github.com/flex-development/errnode/commit/19a3cfebafa55b08b1f2feb0a2066bcac897a0e1))
+
 ## [1.2.0](https://github.com/flex-development/errnode/compare/1.1.0...1.2.0) (2023-01-01)
 
 
