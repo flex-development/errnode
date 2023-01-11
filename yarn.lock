@@ -1008,7 +1008,7 @@ __metadata:
     "@types/conventional-commits-parser": "npm:3.0.3"
     "@types/dateformat": "npm:5.0.0"
     "@types/eslint": "npm:8.4.10"
-    "@types/fs-extra": "npm:11.0.0"
+    "@types/fs-extra": "npm:11.0.1"
     "@types/git-raw-commits": "npm:2.0.1"
     "@types/is-ci": "npm:3.0.0"
     "@types/node": "npm:16.18.11"
@@ -1858,13 +1858,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:11.0.0":
-  version: 11.0.0
-  resolution: "@types/fs-extra@npm:11.0.0"
+"@types/fs-extra@npm:11.0.1":
+  version: 11.0.1
+  resolution: "@types/fs-extra@npm:11.0.1"
   dependencies:
     "@types/jsonfile": "npm:*"
     "@types/node": "npm:*"
-  checksum: 6a6580cdd8d8d5202cdfedaa491009b4aa482c4048d64ee1d9a17ff61a82236831e3e7afd20e97bf8700f58ffdfc6387f4d164811d1d54435b71f8dadd6a5a89
+  checksum: aefb00f11b78b9c97987e734507f9f5d5f9713e73b3334d474e1e8248a2d55b7dbf822067e42622bb62191646c684500da182923673753baa408a21baf65e49e
   languageName: node
   linkType: hard
 
