@@ -41,6 +41,7 @@ Universal API for creating [Node.js errors][1]
     - [`ERR_PACKAGE_IMPORT_NOT_DEFINED(specifier, base[, dir])`](#err_package_import_not_definedspecifier-base-dir)
     - [`ERR_PACKAGE_PATH_NOT_EXPORTED(dir, subpath[, base])`](#err_package_path_not_exporteddir-subpath-base)
     - [`ERR_UNHANDLED_ERROR([err])`](#err_unhandled_errorerr)
+    - [`ERR_UNKNOWN_BUILTIN_MODULE(name)`](#err_unknown_builtin_modulename)
     - [`ERR_UNKNOWN_ENCODING(encoding)`](#err_unknown_encodingencoding)
     - [`ERR_UNKNOWN_FILE_EXTENSION(ext, id[, suggestion])`](#err_unknown_file_extensionext-id-suggestion)
     - [`ERR_UNKNOWN_MODULE_FORMAT(format, id)`](#err_unknown_module_formatformat-id)
@@ -226,6 +227,7 @@ This package exports the following identifiers:
 - [`ERR_PACKAGE_IMPORT_NOT_DEFINED`](#err_package_import_not_definedspecifier-base-dir)
 - [`ERR_PACKAGE_PATH_NOT_EXPORTED`](#err_package_path_not_exporteddir-subpath-base)
 - [`ERR_UNHANDLED_ERROR`](#err_unhandled_errorerr)
+- [`ERR_UNKNOWN_BUILTIN_MODULE`](#err_unknown_builtin_modulename)
 - [`ERR_UNKNOWN_ENCODING`](#err_unknown_encodingencoding)
 - [`ERR_UNKNOWN_FILE_EXTENSION`](#err_unknown_file_extensionext-id-suggestion)
 - [`ERR_UNKNOWN_MODULE_FORMAT`](#err_unknown_module_formatformat-id)
@@ -387,7 +389,7 @@ Thrown when a [`package.json`][8] file fails parsing.
 - `{string}` **`id`** &mdash; Location of invalid `package.json` file
 - `{string?}` **`[base='']`** &mdash; Id of module being imported. May also include where module is being imported from
 - `{string?}` **`[reason='']`** &mdash; Reason package config is invalid
-- **Returns**: `{NodeError<Error>}`
+- **Returns**: `{NodeError}`
 
 > **Source**: [`src/models/err-invalid-package-config.ts`](src/models/err-invalid-package-config.ts)
 
@@ -401,7 +403,7 @@ the attempted module resolution.
 - `{unknown}` **`target`** &mdash; Invalid package target
 - `{boolean?}` **`[internal=false]`** &mdash; `target` is `"imports"`?
 - `{string?}` **`[base='']`** &mdash; Id of module `package.json` was imported from
-- **Returns**: `{NodeError<Error>}`
+- **Returns**: `{NodeError}`
 
 > **Source**: [`src/models/err-invalid-package-target.ts`](src/models/err-invalid-package-target.ts)
 
@@ -419,7 +421,7 @@ Thrown when an invalid URL is passed to a [WHATWG][11] [`URL` constructor][12] o
 Thrown when a method is required but not implemented.
 
 - `{string}` **`method`** &mdash; Method name
-- **Returns**: `{NodeError<Error>}`
+- **Returns**: `{NodeError}`
 
 > **Source**: [`src/models/err-method-not-implemented.ts`](src/models/err-method-not-implemented.ts)
 
@@ -440,7 +442,7 @@ when loading a program entry point.
 - `{string}` **`id`** &mdash; Id of missing module
 - `{string}` **`base`** &mdash; Id of module `id` was imported from
 - `{string?}` **`[type='package']`** &mdash; Module file type
-- **Returns**: `{NodeError<Error>}`
+- **Returns**: `{NodeError}`
 
 > **Source**: [`src/models/err-module-not-found.ts`](src/models/err-module-not-found.ts)
 
@@ -451,7 +453,7 @@ Thrown when a network module attempts to load another module that it is not allo
 - `{string}` **`specifier`** &mdash; Invalid module specifier
 - `{string}` **`base`** &mdash; Id of module `specifier` was imported from
 - `{string}` **`reason`** &mdash; Reason for error
-- **Returns**: `{NodeError<Error>}`
+- **Returns**: `{NodeError}`
 
 > **Source**: [`src/models/err-network-import-disallowed.ts`](src/models/err-network-import-disallowed.ts)
 
@@ -460,7 +462,7 @@ Thrown when a network module attempts to load another module that it is not allo
 Thrown when an operation has failed. Typically used to signal the general failure of an asynchronous operation.
 
 - `{string}` **`reason`** &mdash; Reason for operation failure
-- **Returns**: `{NodeError<Error>}`
+- **Returns**: `{NodeError}`
 
 > **Source**: [`src/models/err-operation-failed.ts`](src/models/err-operation-failed.ts)
 
@@ -482,7 +484,7 @@ Thrown when a `package.json` [`"exports"`][9] field does not export the requeste
 - `{string}` **`dir`** &mdash; Id of directory containing `package.json`
 - `{string}` **`subpath`** &mdash; Requested subpath
 - `{string?}` **`[base='']`** &mdash; Id of module `subpath` was imported from
-- **Returns**: `{NodeError<Error>}`
+- **Returns**: `{NodeError}`
 
 > **Source**: [`src/models/err-package-path-not-exported.ts`](src/models/err-package-path-not-exported.ts)
 
@@ -491,9 +493,18 @@ Thrown when a `package.json` [`"exports"`][9] field does not export the requeste
 Thrown when an unhandled error occurs.
 
 - `{string?}` **`[err='']`** &mdash; Stringified error
-- **Returns**: `{NodeError<Error>}`
+- **Returns**: `{NodeError}`
 
 > **Source**: [`src/models/err-unhandled-error.ts`](src/models/err-unhandled-error.ts)
+
+#### `ERR_UNKNOWN_BUILTIN_MODULE(name)`
+
+Thrown when an unknown [builtin module][14] is encountered.
+
+- `{string}` **`name`** &mdash; Module name
+- **Returns**: `{NodeError}`
+
+> **Source**: [`src/models/err-unknown-builtin-module.ts`](src/models/err-unknown-builtin-module.ts)
 
 #### `ERR_UNKNOWN_ENCODING(encoding)`
 
@@ -531,7 +542,7 @@ Thrown when a directory URL is `import`ed.
 
 - `{string}` **`id`** &mdash; Module id of directory
 - `{string}` **`base`** &mdash; Id of module `id` was imported from
-- **Returns**: `{NodeError<Error>}`
+- **Returns**: `{NodeError}`
 
 > **Source**: [`src/models/err-unsupported-dir-import.ts`](src/models/err-unsupported-dir-import.ts)
 
@@ -542,7 +553,7 @@ Thrown when an unsupported URL scheme is used in an `import` statement. URL sche
 - `{URL}` **`url`** &mdash; URL containing unsupported scheme
 - `{string[]}` **`supported`** &mdash; Supported URL schemes
 - `{boolean?}` **`[windows=false]`** &mdash; Windows operating system?
-- **Returns**: `{NodeError<Error>}`
+- **Returns**: `{NodeError}`
 
 > **Source**: [`src/models/err-unsupported-esm-url-scheme.ts`](src/models/err-unsupported-esm-url-scheme.ts)
 
@@ -553,7 +564,7 @@ Thrown when an unsupported URL scheme is used in an `import` statement. URL sche
 Creates a Node.js error constructor.
 
 If the given error `message` is a function, constructor arguments are passed to `message`. If the `message` is a string,
-constructor arguments are passed to [`util.format`][14] instead.
+constructor arguments are passed to [`util.format`][15] instead.
 
 - `{ErrorCode}` **`code`** &mdash; Node.js error code
 - `{B extends ErrorConstructor}` **`Base`** &mdash; Error base class
@@ -573,7 +584,7 @@ Determines the specific type of a value for type-mismatch errors.
 
 ## Types
 
-This package is fully typed with [TypeScript][15]. It exports the following definitions:
+This package is fully typed with [TypeScript][16]. It exports the following definitions:
 
 ### Enums
 
@@ -608,5 +619,6 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 [11]: https://nodejs.org/api/url.html#the-whatwg-url-api
 [12]: https://nodejs.org/api/url.html#new-urlinput-base
 [13]: https://nodejs.org/api/url.html#urlparseurlstring-parsequerystring-slashesdenotehost
-[14]: https://nodejs.org/api/util.html#utilformatformat-args
-[15]: https://www.typescriptlang.org
+[14]: https://nodejs.org/api/module.html#modulebuiltinmodules
+[15]: https://nodejs.org/api/util.html#utilformatformat-args
+[16]: https://www.typescriptlang.org
