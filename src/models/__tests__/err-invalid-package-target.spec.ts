@@ -14,7 +14,7 @@ describe('unit:models/ERR_INVALID_PACKAGE_TARGET', () => {
 
   beforeEach(() => {
     base = import.meta.url
-    dir = process.cwd() + '/'
+    dir = process.cwd()
     key = '.'
     target = 'dist/index.mjs'
   })
@@ -43,23 +43,23 @@ describe('unit:models/ERR_INVALID_PACKAGE_TARGET', () => {
         target,
         undefined,
         undefined,
-        `Invalid "exports" main target "${target}" defined in the package config ${dir}package.json; targets must start with "./"`
+        `Invalid "exports" main target "${target}" defined in the package config ${dir}/package.json; targets must start with "./"`
       ],
       [
-        dir,
+        dir + '/',
         key + '/utils',
         'dist/utils.mjs',
         undefined,
         undefined,
-        `Invalid "exports" target "dist/utils.mjs" defined for './utils' in the package config ${dir}package.json; targets must start with "./"`
+        `Invalid "exports" target "dist/utils.mjs" defined for './utils' in the package config ${dir}/package.json; targets must start with "./"`
       ],
       [
-        '',
+        dir,
         '#src',
         'src/index.ts',
         true,
         base,
-        `Invalid "imports" target "src/index.ts" defined for '#src' in the package config package.json imported from ${base}`
+        `Invalid "imports" target "src/index.ts" defined for '#src' in the package config ${dir}/package.json imported from ${base}`
       ]
     ]
 

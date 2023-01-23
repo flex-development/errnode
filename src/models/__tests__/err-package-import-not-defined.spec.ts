@@ -42,7 +42,7 @@ describe('unit:models/ERR_PACKAGE_IMPORT_NOT_DEFINED', () => {
         specifier,
         base,
         dir,
-        `${message} in package ${dir}package.json imported from ${base}`
+        `${message} in package ${dir}/package.json imported from ${base}`
       ]
     ]
 

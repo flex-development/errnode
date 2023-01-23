@@ -53,7 +53,7 @@ const ERR_PACKAGE_PATH_NOT_EXPORTED: NodeErrorConstructor<
         : `Package subpath '${subpath}' is not defined by 'exports' in`
 
     // add package.json location
-    message += ` ${dir}package.json`
+    message += ` ${dir.replace(/\/$/, '')}/package.json`
 
     // add import location
     if (base) message += ` imported from ${base}`

@@ -13,7 +13,7 @@ describe('unit:models/ERR_PACKAGE_PATH_NOT_EXPORTED', () => {
 
   beforeEach(() => {
     base = import.meta.url
-    dir = process.cwd() + 'node_modules/@flex-development/errnode/'
+    dir = process.cwd() + '/' + 'node_modules/@flex-development/errnode'
     subpath = '.'
   })
 
@@ -39,25 +39,25 @@ describe('unit:models/ERR_PACKAGE_PATH_NOT_EXPORTED', () => {
         dir,
         subpath,
         undefined,
-        `No 'exports' main defined in ${dir}package.json`
+        `No 'exports' main defined in ${dir}/package.json`
       ],
       [
-        dir,
+        dir + '/',
         subpath,
         base,
-        `No 'exports' main defined in ${dir}package.json imported from ${base}`
+        `No 'exports' main defined in ${dir}/package.json imported from ${base}`
       ],
       [
         dir,
         subpath + '/internal/format-message',
         undefined,
-        `Package subpath '${subpath}/internal/format-message' is not defined by 'exports' in ${dir}package.json`
+        `Package subpath '${subpath}/internal/format-message' is not defined by 'exports' in ${dir}/package.json`
       ],
       [
         dir,
         subpath + '/utils/create-node-error',
         base,
-        `Package subpath '${subpath}/utils/create-node-error' is not defined by 'exports' in ${dir}package.json imported from ${base}`
+        `Package subpath '${subpath}/utils/create-node-error' is not defined by 'exports' in ${dir}/package.json imported from ${base}`
       ]
     ]
 

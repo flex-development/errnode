@@ -82,7 +82,7 @@ const ERR_INVALID_PACKAGE_TARGET: NodeErrorConstructor<
     if (!main) ret += ` for '${key}'`
 
     // add package.json location
-    ret += ` in the package config ${dir}package.json`
+    ret += ` in the package config ${dir.replace(/\/$/, '')}/package.json`
 
     // add import location
     if (base) ret += ` imported from ${base}`

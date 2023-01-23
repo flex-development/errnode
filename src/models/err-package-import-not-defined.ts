@@ -50,7 +50,7 @@ const ERR_PACKAGE_IMPORT_NOT_DEFINED: NodeErrorConstructor<
     let message: string = `Package import specifier '${specifier}' is not defined`
 
     // add package.json location
-    if (dir) message += ` in package ${dir}package.json`
+    if (dir) message += ` in package ${dir.replace(/\/$/, '')}/package.json`
 
     // add import location
     message += ` imported from ${base}`
