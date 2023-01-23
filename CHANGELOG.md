@@ -1,3 +1,20 @@
+## [1.4.0](https://github.com/flex-development/errnode/compare/1.3.0...1.4.0) (2023-01-23)
+
+
+### :package: Build
+
+* **deps-dev:** Bump @commitlint/cli from 17.4.0 to 17.4.2 ([#28](https://github.com/flex-development/errnode/issues/28)) ([08ab50e](https://github.com/flex-development/errnode/commit/08ab50eb8f5dceee629b8e64a00795d4fa59e3d0))
+* **deps-dev:** Bump @types/fs-extra from 11.0.0 to 11.0.1 ([#26](https://github.com/flex-development/errnode/issues/26)) ([9f378a5](https://github.com/flex-development/errnode/commit/9f378a5d401d56e60221f9d6444e42275bdb4473))
+* **deps-dev:** Bump @typescript-eslint/eslint-plugin from 5.48.0 to 5.48.1 ([#23](https://github.com/flex-development/errnode/issues/23)) ([0dbfffa](https://github.com/flex-development/errnode/commit/0dbfffa8b609e08a6e74d90daa28157c374f3485))
+* **deps-dev:** Bump esbuild from 0.16.16 to 0.16.17 ([#27](https://github.com/flex-development/errnode/issues/27)) ([9bdcf16](https://github.com/flex-development/errnode/commit/9bdcf1609bbba1b2a3a6ca625c5ba9b41f45848e))
+* **deps-dev:** Bump esbuild from 0.16.17 to 0.17.1 ([#33](https://github.com/flex-development/errnode/issues/33)) ([24c19d9](https://github.com/flex-development/errnode/commit/24c19d9950ba2d9d65c6702a56f00c1105628caf))
+
+
+### :sparkles: Features
+
+* **models:** `ERR_UNKNOWN_BUILTIN_MODULE` ([b16995c](https://github.com/flex-development/errnode/commit/b16995c41487ae0f8b7fbe5d14f91d8ea63eb4f6))
+* **models:** handle trailing separators for package directories ([0a0d256](https://github.com/flex-development/errnode/commit/0a0d25635715699f3c04e622de5ccee02c4045df))
+
 ## [1.3.0](https://github.com/flex-development/errnode/compare/1.2.0...1.3.0) (2023-01-09)
 
 
