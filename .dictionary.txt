@@ -12,15 +12,14 @@ fbca
 gpgsign
 hmarr
 iife
+infile
 instanceof
 keyid
-keyof
 larsgw
 lcov
 lintstagedrc
 micnncim
 mkbuild
-mlly
 nocheck
 npmrc
 nums
@@ -30,6 +29,5 @@ pnpm
 preid
 syncer
 vates
-vitest
 whatwg
 yarnrc

@@ -16,6 +16,9 @@
     "**/*.snap",
     "**/.gitconfig",
     "**/.gitignore",
+    "**/CHANGELOG.md",
+    "**/LICENSE.md",
+    "**/RELEASE_NOTES.md",
     "**/dist/",
     ".cspell.json",
     ".env*",
@@ -26,11 +29,10 @@
     ".vercel/",
     ".vscode/settings.json",
     ".yarn/",
-    "CHANGELOG.md",
-    "LICENSE.md",
     "__tests__/report.json",
     "patches/",
-    "tsconfig.temp.json",
+    "tsconfig*temp.json",
+    "vitest.config.*.timestamp-*.mjs",
     "yarn.lock"
   ],
   "ignoreRegExpList": [
@@ -56,6 +58,7 @@
     "ESOCKTNOSUPPORT",
     "Odfijos",
     "errno",
-    "fldv"
+    "fldv",
+    "mlly"
   ]
 }

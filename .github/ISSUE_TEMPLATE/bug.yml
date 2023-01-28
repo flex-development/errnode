@@ -61,7 +61,7 @@ body:
     type: dropdown
     attributes:
       label: Package manager
-      description: Provide the package manager that you are using
+      description: Package manager you are using
       options:
         - npm
         - other
@@ -80,7 +80,7 @@ body:
     type: dropdown
     attributes:
       label: Operating system (environment)
-      description: Provide the operating system that you are using
+      description: Operating system you are using
       options:
         - linux
         - macos
