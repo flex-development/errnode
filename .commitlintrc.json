@@ -22,6 +22,7 @@
         "interfaces",
         "internal",
         "models",
+        "nvm",
         "patches",
         "pkg",
         "release",
