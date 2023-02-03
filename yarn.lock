@@ -1183,6 +1183,7 @@ __metadata:
     "@types/chai": "npm:4.3.4"
     "@types/chai-string": "npm:1.4.2"
     "@types/conventional-changelog": "npm:3.1.1"
+    "@types/conventional-changelog-core": "npm:4.2.1"
     "@types/conventional-changelog-writer": "npm:4.0.2"
     "@types/conventional-commits-parser": "npm:3.0.3"
     "@types/conventional-recommended-bump": "npm:6.1.0"
@@ -1203,6 +1204,8 @@ __metadata:
     chai: "npm:4.3.7"
     chai-string: "npm:1.5.0"
     conventional-changelog: "npm:3.1.25"
+    conventional-changelog-conventionalcommits: "npm:5.0.0"
+    conventional-changelog-core: "npm:4.2.4"
     conventional-changelog-writer: "npm:5.0.1"
     conventional-commits-parser: "npm:3.2.4"
     conventional-recommended-bump: "npm:6.1.0"
@@ -1996,7 +1999,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/conventional-changelog-core@npm:*":
+"@types/conventional-changelog-core@npm:*, @types/conventional-changelog-core@npm:4.2.1":
   version: 4.2.1
   resolution: "@types/conventional-changelog-core@npm:4.2.1"
   dependencies:
@@ -3411,6 +3414,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"conventional-changelog-conventionalcommits@npm:5.0.0, conventional-changelog-conventionalcommits@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "conventional-changelog-conventionalcommits@npm:5.0.0"
+  dependencies:
+    compare-func: "npm:^2.0.0"
+    lodash: "npm:^4.17.15"
+    q: "npm:^1.5.1"
+  checksum: cd39e90a9637925b99c425197436f6cec1257f3ae82b437edeb93390d4cea90702cff31c06ab4d9dde71ea243cf64f7665eafa019bbfd7735ce2e4d30b9362bf
+  languageName: node
+  linkType: hard
+
 "conventional-changelog-conventionalcommits@npm:^4.5.0":
   version: 4.6.3
   resolution: "conventional-changelog-conventionalcommits@npm:4.6.3"
@@ -3422,18 +3436,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-conventionalcommits@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "conventional-changelog-conventionalcommits@npm:5.0.0"
-  dependencies:
-    compare-func: "npm:^2.0.0"
-    lodash: "npm:^4.17.15"
-    q: "npm:^1.5.1"
-  checksum: cd39e90a9637925b99c425197436f6cec1257f3ae82b437edeb93390d4cea90702cff31c06ab4d9dde71ea243cf64f7665eafa019bbfd7735ce2e4d30b9362bf
-  languageName: node
-  linkType: hard
-
-"conventional-changelog-core@npm:^4.2.1":
+"conventional-changelog-core@npm:4.2.4, conventional-changelog-core@npm:^4.2.1":
   version: 4.2.4
   resolution: "conventional-changelog-core@npm:4.2.4"
   dependencies:
