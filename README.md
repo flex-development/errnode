@@ -32,6 +32,7 @@ Universal API for creating [Node.js errors][1]
     - [`ERR_INVALID_MODULE_SPECIFIER(request[, reason][, base])`](#err_invalid_module_specifierrequest-reason-base)
     - [`ERR_INVALID_PACKAGE_CONFIG(id[, base][, reason])`](#err_invalid_package_configid-base-reason)
     - [`ERR_INVALID_PACKAGE_TARGET(dir, key, target[, internal][, base])`](#err_invalid_package_targetdir-key-target-internal-base)
+    - [`ERR_INVALID_RETURN_VALUE(expected, name, value)`](#err_invalid_return_valueexpected-name-value)
     - [`ERR_INVALID_URL(input)`](#err_invalid_urlinput)
     - [`ERR_METHOD_NOT_IMPLEMENTED(method)`](#err_method_not_implementedmethod)
     - [`ERR_MISSING_OPTION(option)`](#err_missing_optionoption)
@@ -218,6 +219,7 @@ This package exports the following identifiers:
 - [`ERR_INVALID_MODULE_SPECIFIER`](#err_invalid_module_specifierrequest-reason-base)
 - [`ERR_INVALID_PACKAGE_CONFIG`](#err_invalid_package_configid-base-reason)
 - [`ERR_INVALID_PACKAGE_TARGET`](#err_invalid_package_targetdir-key-target-internal-base)
+- [`ERR_INVALID_RETURN_VALUE`](#err_invalid_return_valueexpected-name-value)
 - [`ERR_INVALID_URL`](#err_invalid_urlinput)
 - [`ERR_METHOD_NOT_IMPLEMENTED`](#err_method_not_implementedmethod)
 - [`ERR_MISSING_OPTION`](#err_missing_optionoption)
@@ -406,6 +408,18 @@ the attempted module resolution.
 - **Returns**: `{NodeError}`
 
 > **Source**: [`src/models/err-invalid-package-target.ts`](src/models/err-invalid-package-target.ts)
+
+#### `ERR_INVALID_RETURN_VALUE(expected, name, value)`
+
+Thrown when a function does not return an expected value type on execution, such as when a function is expected to
+return a promise.
+
+- `{string}` **`expected`** &mdash; Expected return value type
+- `{string}` **`name`** &mdash; Name of function that returned invalid value type
+- `{unknown}` **`value`** &mdash; Value supplied by user
+- **Returns**: `{NodeError<TypeError>}`
+
+> **Source**: [`src/models/err-invalid-return-value.ts`](src/models/err-invalid-return-value.ts)
 
 #### `ERR_INVALID_URL(input)`
 
