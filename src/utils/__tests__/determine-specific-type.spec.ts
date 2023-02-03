@@ -9,7 +9,7 @@ import testSubject from '../determine-specific-type'
 describe('unit:utils/determineSpecificType', () => {
   it('should detect bigint', () => {
     // Arrange
-    const value: bigint = faker.datatype.bigInt(13)
+    const value: bigint = faker.number.bigInt(13)
     const expected: string = `type bigint (${inspect(value, {
       colors: false
     })})`
@@ -51,7 +51,7 @@ describe('unit:utils/determineSpecificType', () => {
 
   it('should detect number', () => {
     // Arrange
-    const value: unknown = faker.datatype.number(13)
+    const value: unknown = faker.number.int(13)
     const expected: string = `type number (${value})`
 
     // Act + Expect
@@ -60,7 +60,7 @@ describe('unit:utils/determineSpecificType', () => {
 
   it('should detect string', () => {
     // Arrange
-    const value: unknown = faker.datatype.string(30)
+    const value: unknown = faker.string.sample(30)
     const inspected: string = inspect(value, { colors: false })
     const expected: string = `type string (${inspected.slice(0, 25)}...)`
 
