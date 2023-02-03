@@ -1015,6 +1015,8 @@ const config = {
       },
       plugins: ['chai-expect', 'jest-formatting'],
       rules: {
+        '@typescript-eslint/ban-types': 0,
+        '@typescript-eslint/consistent-indexed-object-style': 0,
         '@typescript-eslint/no-base-to-string': 0,
         '@typescript-eslint/no-empty-function': 0,
         '@typescript-eslint/no-unused-expressions': 0,
