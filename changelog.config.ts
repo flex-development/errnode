@@ -276,8 +276,8 @@ sade('changelog', true)
           commits: ICommit[],
           key: ICommit | undefined
         ): GeneratedContext {
-          const { gitSemverTags = [], isPatch, linkCompare, version } = context
-          let { currentTag, previousTag } = context
+          const { gitSemverTags = [], isPatch, linkCompare } = context
+          let { currentTag, previousTag, version = '' } = context
 
           /**
            * First commit in release.
@@ -293,6 +293,18 @@ sade('changelog', true)
            */
           const last_commit: ICommit | undefined = commits.at(-1)
 
+          // set version
+          if ([version, pkg.tagPrefix + version].includes(gitSemverTags[0]!)) {
+            switch (true) {
+              case typeof outputUnreleased === 'boolean' && outputUnreleased:
+              case (outputUnreleased as string).trim().length > 0:
+                version = 'unreleased'
+                break
+              default:
+                break
+            }
+          }
+
           // set current and previous tags
           if (key && (!currentTag || !previousTag)) {
             currentTag = key.version ?? undefined
@@ -304,7 +316,7 @@ sade('changelog', true)
               if (!previousTag) previousTag = last_commit?.hash ?? undefined
             }
           } else {
-            currentTag = /^unreleased$/i.test(version ?? '')
+            currentTag = /^unreleased$/i.test(version)
               ? currentTag ??
                 (typeof outputUnreleased === 'string' && outputUnreleased
                   ? outputUnreleased
@@ -317,7 +329,8 @@ sade('changelog', true)
 
           // set release date
           context.date =
-            key?.committerDate ?? dateformat(new Date(), 'yyyy-mm-dd', true)
+            key?.committerDate ??
+            dateformat(new Date().toLocaleDateString(), 'yyyy-mm-dd', true)
 
           // determine patch release state
           if (version && semver.valid(version)) {
