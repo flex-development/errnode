@@ -1,3 +1,55 @@
+## [1.5.0](https://github.com/flex-development/errnode/compare/1.4.0...1.5.0) (2023-02-03)
+
+
+### :package: Build
+
+* **deps-dev:** bump @flex-development/mlly from 1.0.0-alpha.7 to 1.0.0-alpha.9 ([b8f27f5](https://github.com/flex-development/errnode/commit/b8f27f5bfb3543afc62abd98f6c03424cb62ca35))
+* **deps-dev:** bump typescript from 5.0.0-dev.20221215 to 5.0.0-dev.20230128 ([7cb02b0](https://github.com/flex-development/errnode/commit/7cb02b068ea25e7e99a520531b7f42e50a097e40))
+* **deps-dev:** cleanup changelog deps ([4107ef9](https://github.com/flex-development/errnode/commit/4107ef974e47943d4234d45566058538573c0b1b))
+* **deps:** bump @flex-development/tutils from 6.0.0-alpha.9 to 6.0.0-alpha.10 ([e00da7f](https://github.com/flex-development/errnode/commit/e00da7ff7ccdd751cf46dd9f362a6ee86422d829))
+* **nvm:** bump node from 16 to 19 ([d28f76c](https://github.com/flex-development/errnode/commit/d28f76caecef2f8bb3f5c06ddc793d06daee25f5))
+
+
+### :robot: Continuous Integration
+
+* **deps:** bump actions/cache from 3.2.2 to 3.2.3 ([4d1eb64](https://github.com/flex-development/errnode/commit/4d1eb645263ea9d5b7f5b987d856f1765bc55053)), closes [#22](https://github.com/flex-development/errnode/issues/22)
+* **deps:** Bump actions/github-script from 6.3.3 to 6.4.0 ([#39](https://github.com/flex-development/errnode/issues/39)) ([ebce7da](https://github.com/flex-development/errnode/commit/ebce7da8698f61e7fc777bd858826689e4f4a926))
+* **deps:** bump actions/setup-node from 3.5.1 to 3.6.0 ([464efa8](https://github.com/flex-development/errnode/commit/464efa8fd4549570b1b92da2a37b0700b4000d9e)), closes [#16](https://github.com/flex-development/errnode/issues/16)
+* **deps:** bump actions/upload-artifact from 3.1.1 to 3.1.2 ([de257af](https://github.com/flex-development/errnode/commit/de257af10bf3b90a9e9bb1c67d4f7774f29fd1da)), closes [#17](https://github.com/flex-development/errnode/issues/17)
+* **deps:** Bump dependabot/fetch-metadata from 1.3.5 to 1.3.6 ([#37](https://github.com/flex-development/errnode/issues/37)) ([8e43151](https://github.com/flex-development/errnode/commit/8e4315148183e9ef50322c1b876d0474704ac03c))
+* **workflows:** [`approve-pr`] refactor approval step conditional ([f13faa4](https://github.com/flex-development/errnode/commit/f13faa4bbaa29a3d463716314d8e630e68392df1))
+* **workflows:** [`ci`] `jobs.setup` -> `jobs.metadata` ([49edebc](https://github.com/flex-development/errnode/commit/49edebc38a1bf72ca19e1acfba4c659403cb9dca))
+* **workflows:** [`ci`] add `version` output to `metadata` job ([3079ae4](https://github.com/flex-development/errnode/commit/3079ae4f44aedae9e08d4bd6563ba78d0ee3a31a))
+* **workflows:** [`ci`] make typescript matrix dynamic ([8f3d76b](https://github.com/flex-development/errnode/commit/8f3d76bfa3ee85c7621ae49307ed6fa1b6ba4117))
+* **workflows:** [`ci`] refactor `metadata` job conditional ([c1dc67b](https://github.com/flex-development/errnode/commit/c1dc67b4dd1073d239be8a685984d11232383c26))
+* **workflows:** [`ci`] skip workflow run for [@dependabot](https://github.com/dependabot) on `push` ([46130b7](https://github.com/flex-development/errnode/commit/46130b7c5f92f55307cbf70675fd1d7103f2f82d))
+* **workflows:** [`ci`] skip workflow run for [@flexdevelopment](https://github.com/flexdevelopment) on `push` ([b6aab62](https://github.com/flex-development/errnode/commit/b6aab6219eecbaf16c4856b84533704ecc445d1f))
+* **workflows:** [`integrity`] update `pull_request` event activity types ([c64ee0f](https://github.com/flex-development/errnode/commit/c64ee0fc330bbf8277c57dc0cf6b9fee64b51bd6))
+* **workflows:** [`typescript-canary`] add `tsconfig.json` prep step ([bd26e5d](https://github.com/flex-development/errnode/commit/bd26e5d82c9b812349bbb15e6c17ccc44072be33))
+
+
+### :sparkles: Features
+
+* **models:** `ERR_INVALID_RETURN_VALUE` ([288c689](https://github.com/flex-development/errnode/commit/288c6893e6bf389487fe92b1669af78343941ab9))
+
+
+### :house_with_garden: Housekeeping
+
+* [eslint] update rules for test files ([48af1d1](https://github.com/flex-development/errnode/commit/48af1d16781b270b667474e84067d843e04471de))
+* update project architecture ([0bc284e](https://github.com/flex-development/errnode/commit/0bc284e5dd5777c43f8c7a2b85e4412a89680fe6))
+* **github:** add "typescript version" input to bug report template ([c7b9e91](https://github.com/flex-development/errnode/commit/c7b9e91c58d4232b63643d1f3fde00e1fd4ff04e))
+* **github:** add commit scope `nvm` ([7fac1a8](https://github.com/flex-development/errnode/commit/7fac1a8cbc801fb3bbb929f3274e360a44ce8782))
+* **github:** add commit scope `spelling` ([68fb47c](https://github.com/flex-development/errnode/commit/68fb47c605cf7100517dc3a31f5260c8685fcb7f))
+* **github:** cleanup reference link in `.github/funding.yml` ([aaf8e26](https://github.com/flex-development/errnode/commit/aaf8e2669b1837c19fd5038482f2db08f03dc242))
+* **github:** remove "tests" section from pull request template ([01eeb03](https://github.com/flex-development/errnode/commit/01eeb03b929ee2b04b9c871d114b93adf058c371))
+* **github:** remove `git@bitbucket.org` alias from sample `.gitconfig` ([e749983](https://github.com/flex-development/errnode/commit/e7499839f877ac8c1a2dae02e5f84a9d904752b7))
+* **yarn:** disable transparent workspaces ([553a21c](https://github.com/flex-development/errnode/commit/553a21ccd130833e949d72e99ebaab5b946cf95d))
+
+
+### :white_check_mark: Testing
+
+* replace deprecated `faker` methods ([0dfde52](https://github.com/flex-development/errnode/commit/0dfde5217f65df0c397e48bc268fd4618270af81))
+
 ## [1.4.0](https://github.com/flex-development/errnode/compare/1.3.0...1.4.0) (2023-01-23)
 
 
