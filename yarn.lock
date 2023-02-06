@@ -4156,7 +4156,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.16.14, esbuild@npm:^0.16.3":
+"esbuild@npm:^0.16.14":
   version: 0.16.17
   resolution: "esbuild@npm:0.16.17"
   dependencies:
@@ -7317,17 +7317,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.20":
-  version: 8.4.20
-  resolution: "postcss@npm:8.4.20"
-  dependencies:
-    nanoid: "npm:^3.3.4"
-    picocolors: "npm:^1.0.0"
-    source-map-js: "npm:^1.0.2"
-  checksum: bdc074b44b690f08c0496d78e0777bb2072633c6facbb6a987ae4cb1041333bcbd592e81244293ba1cf888ececc8dd224a1162751e84d173305aaed6f8f82957
-  languageName: node
-  linkType: hard
-
 "postcss@npm:^8.4.21":
   version: 8.4.21
   resolution: "postcss@npm:8.4.21"
@@ -7845,20 +7834,6 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: 9fa7c283f048e6709d6b452cb7d66b8186e6859cdb0fe2d3268ff36fc9e85aeaaf4ffdb710ab03b01e1016262e7614f63e83aba9c7c2732dbdb9ea390b637d2b
-  languageName: node
-  linkType: hard
-
-"rollup@npm:^3.7.0":
-  version: 3.8.1
-  resolution: "rollup@npm:3.8.1"
-  dependencies:
-    fsevents: "npm:~2.3.2"
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    rollup: dist/bin/rollup
-  checksum: e6df7611f6a2b80db687526748614dfbf4f1e4540ea0e8fe86d9d062b2432cc39df0294a0e22eb63e52a8ed7b626854e213581745e26611176c87ef254cde45d
   languageName: node
   linkType: hard
 
@@ -9062,7 +9037,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:4.1.1":
+"vite@npm:4.1.1, vite@npm:^3.0.0 || ^4.0.0":
   version: 4.1.1
   resolution: "vite@npm:4.1.1"
   dependencies:
@@ -9097,44 +9072,6 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 1214e901a0836cfad0b20abe3ba03684c5c6d1a5d486e7ddd55e56e2c786677cecd7c1822b97540a001867164a9e38e52aa5c14480cdc50afd2561ed4bc2f89b
-  languageName: node
-  linkType: hard
-
-"vite@npm:^3.0.0 || ^4.0.0":
-  version: 4.0.4
-  resolution: "vite@npm:4.0.4"
-  dependencies:
-    esbuild: "npm:^0.16.3"
-    fsevents: "npm:~2.3.2"
-    postcss: "npm:^8.4.20"
-    resolve: "npm:^1.22.1"
-    rollup: "npm:^3.7.0"
-  peerDependencies:
-    "@types/node": ">= 14"
-    less: "*"
-    sass: "*"
-    stylus: "*"
-    sugarss: "*"
-    terser: ^5.4.0
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  peerDependenciesMeta:
-    "@types/node":
-      optional: true
-    less:
-      optional: true
-    sass:
-      optional: true
-    stylus:
-      optional: true
-    sugarss:
-      optional: true
-    terser:
-      optional: true
-  bin:
-    vite: bin/vite.js
-  checksum: f4f9d9d5b910b8cc8130ef235b3f0eaf1eb7ab690e744760de1326c5db1ca6a3def2c17b053dea3123a1dee991b782c0d2b5a5a8df3705c0d23db86e6039c552
   languageName: node
   linkType: hard
 
