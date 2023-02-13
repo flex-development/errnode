@@ -79,7 +79,7 @@
     "@flex-development/mlly": "1.0.0-alpha.11",
     "@flex-development/pkg-types": "2.0.0",
     "@flex-development/tsconfig-utils": "1.1.1",
-    "@graphql-eslint/eslint-plugin": "3.15.0",
+    "@graphql-eslint/eslint-plugin": "3.16.0",
     "@types/chai": "4.3.4",
     "@types/chai-string": "1.4.2",
     "@types/conventional-changelog": "3.1.1",
