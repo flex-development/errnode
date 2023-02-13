@@ -31,8 +31,6 @@ updates:
       prefix: build
       include: scope
     directory: /
-    ignore:
-      - dependency-name: '@types/node'
     labels:
       - scope:dependencies
       - type:build
