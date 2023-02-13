@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "allowImportingTsExtensions": true,
     "allowJs": true,
     "allowUnreachableCode": false,
     "alwaysStrict": false,
-    "baseUrl": ".",
+    "baseUrl": "../../..",
     "checkJs": false,
     "declaration": true,
     "declarationMap": true,
@@ -13,9 +12,10 @@
     "exactOptionalPropertyTypes": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
+    "importsNotUsedAsValues": "error",
+    "isolatedModules": true,
     "lib": ["es2020"],
     "module": "esnext",
-    "moduleDetection": "force",
     "moduleResolution": "node",
     "newLine": "lf",
     "noEmit": true,
@@ -27,7 +27,7 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "outDir": "dist",
+    "outDir": "../../../dist",
     "paths": {
       "#fixtures/*": ["__fixtures__/*"],
       "#src": ["src/index"],
@@ -38,7 +38,7 @@
     "preserveSymlinks": true,
     "pretty": true,
     "resolveJsonModule": true,
-    "rootDir": ".",
+    "rootDir": "../../..",
     "skipDefaultLibCheck": false,
     "skipLibCheck": true,
     "sourceMap": true,
@@ -47,8 +47,7 @@
     "strictPropertyInitialization": true,
     "target": "esnext",
     "useDefineForClassFields": true,
-    "useUnknownInCatchVariables": true,
-    "verbatimModuleSyntax": true
+    "useUnknownInCatchVariables": true
   },
   "exclude": ["**/coverage", "**/dist", "**/node_modules"],
   "include": ["**/**.cjs", "**/**.mjs", "**/**.ts", "**/.*.cjs"]
