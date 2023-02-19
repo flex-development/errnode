@@ -1160,6 +1160,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@flex-development/decorator-regex@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@flex-development/decorator-regex@npm:1.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fdecorator-regex%2F1.0.0%2Fe485b45a5c66ca688d77188039bb5efa90ca3fb8"
+  checksum: 3200659769897add6af31341c391a58a4edc7920b81042a7117a95c50ae0375da2f62c6869060ce91507a29ac9dbd06a96e440fe30b438536685f7ce36a1daca
+  languageName: node
+  linkType: hard
+
 "@flex-development/errnode@npm:1.2.0":
   version: 1.2.0
   resolution: "@flex-development/errnode@npm:1.2.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Ferrnode%2F1.2.0%2F8e54e66e637d392299cd2d422224da9cf5d16cab"
@@ -1203,7 +1210,7 @@ __metadata:
     "@commitlint/cli": "npm:17.4.2"
     "@commitlint/config-conventional": "npm:17.4.2"
     "@faker-js/faker": "npm:8.0.0-alpha.0"
-    "@flex-development/mkbuild": "npm:1.0.0-alpha.11"
+    "@flex-development/mkbuild": "npm:1.0.0-alpha.13"
     "@flex-development/mlly": "npm:1.0.0-alpha.11"
     "@flex-development/pathe": "npm:1.0.3"
     "@flex-development/pkg-types": "npm:2.0.0"
@@ -1219,7 +1226,6 @@ __metadata:
     "@types/conventional-recommended-bump": "npm:6.1.0"
     "@types/dateformat": "npm:5.0.0"
     "@types/eslint": "npm:8.21.0"
-    "@types/fs-extra": "npm:11.0.1"
     "@types/git-raw-commits": "npm:2.0.1"
     "@types/is-ci": "npm:3.0.0"
     "@types/node": "npm:16.18.11"
@@ -1298,6 +1304,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@flex-development/ext-regex@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@flex-development/ext-regex@npm:1.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fext-regex%2F1.0.0%2Fe1729f6d8dfd8e62423acbdf6a7c341e5436568b"
+  dependencies:
+    "@flex-development/errnode": "npm:1.5.0"
+    "@flex-development/pathe": "npm:1.0.3"
+    "@flex-development/tutils": "npm:6.0.0-alpha.10"
+  checksum: 11f53ffc974dd91a5e17ae680393e61e8f43f673f19ea7d029f14bb0dff918051139230d736a6a52bb9dc017da1da00d5868586d8ea3f705920e4e2ae72a8562
+  languageName: node
+  linkType: hard
+
 "@flex-development/import-regex@npm:2.0.1":
   version: 2.0.1
   resolution: "@flex-development/import-regex@npm:2.0.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fimport-regex%2F2.0.1%2Fb3412222fb42257bd8146591e14249aa1941e089"
@@ -1316,10 +1333,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/mkbuild@npm:1.0.0-alpha.11":
-  version: 1.0.0-alpha.11
-  resolution: "@flex-development/mkbuild@npm:1.0.0-alpha.11::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fmkbuild%2F1.0.0-alpha.11%2F2d64818ca9b2dc1a810a0ae1a215b835be936da5"
+"@flex-development/mkbuild@npm:1.0.0-alpha.13":
+  version: 1.0.0-alpha.13
+  resolution: "@flex-development/mkbuild@npm:1.0.0-alpha.13::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fmkbuild%2F1.0.0-alpha.13%2Fb166c2d15fa0e749fbc7738b41257ee0e8040fd3"
   dependencies:
+    "@flex-development/decorator-regex": "npm:1.0.0"
+    "@flex-development/ext-regex": "npm:1.0.0"
     "@flex-development/mlly": "npm:1.0.0-alpha.11"
     "@flex-development/pathe": "npm:1.0.3"
     "@flex-development/pkg-types": "npm:2.0.0"
@@ -1335,11 +1354,11 @@ __metadata:
     radash: "npm:10.7.0"
   peerDependencies:
     "@types/node": ">=14.18.36"
-    esbuild: ">=0.17.7"
+    esbuild: ">=0.17.8"
     typescript: ">=4.8"
   bin:
     mkbuild: dist/cli.mjs
-  checksum: 326563ba00dd260f0a65d0d338e570e311f2c9c02e3b4fcd85f094135afddd466ae340837f1e2cc91c88681d980c39169e31732b75876f01f90a6b563daaa5b0
+  checksum: a577e853e4e575504eb925f64a710d356f3fa2a848bd3ce5b808d2d7044031c97e7b397a7c460f58685730503ce5c25a4cbfe3f03fd5a419847156f45335ad41
   languageName: node
   linkType: hard
 
@@ -2148,16 +2167,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:11.0.1":
-  version: 11.0.1
-  resolution: "@types/fs-extra@npm:11.0.1"
-  dependencies:
-    "@types/jsonfile": "npm:*"
-    "@types/node": "npm:*"
-  checksum: aefb00f11b78b9c97987e734507f9f5d5f9713e73b3334d474e1e8248a2d55b7dbf822067e42622bb62191646c684500da182923673753baa408a21baf65e49e
-  languageName: node
-  linkType: hard
-
 "@types/git-raw-commits@npm:*, @types/git-raw-commits@npm:2.0.1":
   version: 2.0.1
   resolution: "@types/git-raw-commits@npm:2.0.1"
@@ -2187,15 +2196,6 @@ __metadata:
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
   checksum: 8e5c6dd393411418e3d803ab0a09862b4ed47f73e7ed990f3b907dd41cc4d2f2b4f7aed9a39c7fd2acaa80314ac1397a5e2e5e6c25a338f01bbfba708cc70d8e
-  languageName: node
-  linkType: hard
-
-"@types/jsonfile@npm:*":
-  version: 6.1.1
-  resolution: "@types/jsonfile@npm:6.1.1"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 512b06e09f3e5e0f8e45323b54e8d5eb43367a88408812d320e3003cfdd5bd5f49bb13212a1ea66c111f20202b2c05cc72a00214c41668ed74abbe6cb06c76ab
   languageName: node
   linkType: hard
 
