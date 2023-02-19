@@ -1,5 +1,5 @@
 /**
- * @file Changelog Configuration
+ * @file Configuration - Changelog
  * @module config/changelog
  * @see https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-conventionalcommits
  * @see https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-core
@@ -8,6 +8,7 @@
  * @see https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/git-raw-commits
  */
 
+import pathe from '@flex-development/pathe'
 import { CompareResult, isNIL } from '@flex-development/tutils'
 import addStream from 'add-stream'
 import conventionalChangelog from 'conventional-changelog'
@@ -26,12 +27,11 @@ import {
   type ReadStream,
   type WriteStream
 } from 'node:fs'
-import path from 'node:path'
 import type { Readable } from 'node:stream'
 import sade from 'sade'
 import semver from 'semver'
 import tempfile from 'tempfile'
-import pkg from './package.json' assert { type: 'json' }
+import pkg from '../package.json' assert { type: 'json' }
 
 /**
  * CLI flags.
@@ -146,7 +146,7 @@ sade('changelog', true)
             : typeof outputUnreleased === 'string'
             ? !!outputUnreleased.trim()
             : false,
-        pkg: { path: path.resolve('package.json') },
+        pkg: { path: pathe.resolve('package.json') },
         // @ts-expect-error ts(2322)
         preset: {
           header: '',
@@ -276,8 +276,8 @@ sade('changelog', true)
           commits: ICommit[],
           key: ICommit | undefined
         ): GeneratedContext {
-          const { gitSemverTags = [], isPatch, linkCompare } = context
-          let { currentTag, previousTag, version = '' } = context
+          const { gitSemverTags = [], isPatch, linkCompare, version } = context
+          let { currentTag, previousTag } = context
 
           /**
            * First commit in release.
@@ -293,18 +293,6 @@ sade('changelog', true)
            */
           const last_commit: ICommit | undefined = commits.at(-1)
 
-          // set version
-          if ([version, pkg.tagPrefix + version].includes(gitSemverTags[0]!)) {
-            switch (true) {
-              case typeof outputUnreleased === 'boolean' && outputUnreleased:
-              case (outputUnreleased as string).trim().length > 0:
-                version = 'unreleased'
-                break
-              default:
-                break
-            }
-          }
-
           // set current and previous tags
           if (key && (!currentTag || !previousTag)) {
             currentTag = key.version ?? undefined
@@ -316,7 +304,7 @@ sade('changelog', true)
               if (!previousTag) previousTag = last_commit?.hash ?? undefined
             }
           } else {
-            currentTag = /^unreleased$/i.test(version)
+            currentTag = /^unreleased$/i.test(version ?? '')
               ? currentTag ??
                 (typeof outputUnreleased === 'string' && outputUnreleased
                   ? outputUnreleased
@@ -346,7 +334,10 @@ sade('changelog', true)
             repoUrl: pkg.repository.slice(0, -4)
           }
         },
-        headerPartial: readFileSync('templates/changelog/header.hbs', 'utf8'),
+        headerPartial: readFileSync(
+          'config/templates/changelog/header.hbs',
+          'utf8'
+        ),
         ignoreReverted: false
       }
     ).on('error', err => console.error(err.stack))

@@ -5,9 +5,10 @@
  */
 
 import * as mlly from '@flex-development/mlly'
+import * as pathe from '@flex-development/pathe'
 import * as tscu from '@flex-development/tsconfig-utils'
+import * as tutils from '@flex-development/tutils'
 import * as esbuild from 'esbuild'
-import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 // add support for extensionless files in "bin" scripts
@@ -53,10 +54,10 @@ export const load = async (url, context) => {
   /**
    * File extension of {@linkcode url}.
    *
-   * @type {string}
+   * @type {pathe.Ext | tutils.EmptyString}
    * @const ext
    */
-  const ext = path.extname(url)
+  const ext = pathe.extname(url)
 
   /**
    * Source code.
