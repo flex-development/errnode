@@ -17,6 +17,7 @@ esbuild
 eshutdown
 esocktnosupport
 fbca
+ggshield
 gpgsign
 hmarr
 iife
