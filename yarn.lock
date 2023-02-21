@@ -188,15 +188,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:17.4.2":
-  version: 17.4.2
-  resolution: "@commitlint/cli@npm:17.4.2"
+"@commitlint/cli@npm:17.4.4":
+  version: 17.4.4
+  resolution: "@commitlint/cli@npm:17.4.4"
   dependencies:
-    "@commitlint/format": "npm:^17.4.0"
-    "@commitlint/lint": "npm:^17.4.2"
-    "@commitlint/load": "npm:^17.4.2"
-    "@commitlint/read": "npm:^17.4.2"
-    "@commitlint/types": "npm:^17.4.0"
+    "@commitlint/format": "npm:^17.4.4"
+    "@commitlint/lint": "npm:^17.4.4"
+    "@commitlint/load": "npm:^17.4.4"
+    "@commitlint/read": "npm:^17.4.4"
+    "@commitlint/types": "npm:^17.4.4"
     execa: "npm:^5.0.0"
     lodash.isfunction: "npm:^3.0.9"
     resolve-from: "npm:5.0.0"
@@ -204,7 +204,7 @@ __metadata:
     yargs: "npm:^17.0.0"
   bin:
     commitlint: cli.js
-  checksum: 0d68555ad55b0533a049cfad02095171819c68957fd738e066dccba5dd729e1eece153e81de3db5ad7b9eecff526532270ad7b5b955a064cd3149330281ea30e
+  checksum: 6f2c7541c7e2e64ffb65a3674f8bc91b3b73fd98f88db77d8973d7072769b14f3adbb19ee65c95d3ea32d22e57dc5de59de9f7285840ce65e89d12aa3cf97b70
   languageName: node
   linkType: hard
 
@@ -248,7 +248,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/format@npm:^17.4.0":
+"@commitlint/format@npm:^17.4.4":
   version: 17.4.4
   resolution: "@commitlint/format@npm:17.4.4"
   dependencies:
@@ -268,7 +268,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/lint@npm:^17.4.2":
+"@commitlint/lint@npm:^17.4.4":
   version: 17.4.4
   resolution: "@commitlint/lint@npm:17.4.4"
   dependencies:
@@ -280,7 +280,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:^17.4.2":
+"@commitlint/load@npm:^17.4.4":
   version: 17.4.4
   resolution: "@commitlint/load@npm:17.4.4"
   dependencies:
@@ -320,7 +320,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/read@npm:^17.4.2":
+"@commitlint/read@npm:^17.4.4":
   version: 17.4.4
   resolution: "@commitlint/read@npm:17.4.4"
   dependencies:
@@ -376,7 +376,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/types@npm:^17.4.0, @commitlint/types@npm:^17.4.4":
+"@commitlint/types@npm:^17.4.4":
   version: 17.4.4
   resolution: "@commitlint/types@npm:17.4.4"
   dependencies:
@@ -1215,7 +1215,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@flex-development/errnode@workspace:."
   dependencies:
-    "@commitlint/cli": "npm:17.4.2"
+    "@commitlint/cli": "npm:17.4.4"
     "@commitlint/config-conventional": "npm:17.4.4"
     "@faker-js/faker": "npm:8.0.0-alpha.0"
     "@flex-development/mkbuild": "npm:1.0.0-alpha.13"
