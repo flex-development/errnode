@@ -1298,7 +1298,7 @@ __metadata:
     vitest-github-actions-reporter: "npm:0.9.0"
     yaml-eslint-parser: "npm:1.1.0"
   peerDependencies:
-    "@types/node": ">=14"
+    "@types/node": ">=16.18.23"
   peerDependenciesMeta:
     "@types/node":
       optional: true
