@@ -31,6 +31,8 @@ updates:
       prefix: build
       include: scope
     directory: /
+    ignore:
+      - dependency-name: node-inspect-extracted
     labels:
       - scope:dependencies
       - type:build

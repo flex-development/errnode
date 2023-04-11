@@ -15,8 +15,7 @@ const config = {
     {
       files: ['scratch.ts'],
       rules: {
-        'unicorn/no-hex-escape': 0,
-        'unicorn/string-content': 0
+        'unicorn/no-hex-escape': 0
       }
     },
     {

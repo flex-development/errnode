@@ -1,5 +1,6 @@
 # errnode
 
+[![github release](https://img.shields.io/github/v/release/flex-development/errnode.svg?include_prereleases&sort=semver)](https://github.com/flex-development/errnode/releases/latest)
 [![npm](https://img.shields.io/npm/v/@flex-development/errnode.svg)](https://npmjs.com/package/@flex-development/errnode)
 [![codecov](https://codecov.io/gh/flex-development/errnode/branch/main/graph/badge.svg?token=e2gnycTeI9)](https://codecov.io/gh/flex-development/errnode)
 [![license](https://img.shields.io/github/license/flex-development/errnode.svg)](LICENSE.md)

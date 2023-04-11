@@ -3,7 +3,6 @@ bdougie
 cefc
 codecov
 commitlintrc
-dawidd
 dedupe
 dessant
 dohm
@@ -13,7 +12,6 @@ ehostdown
 enonet
 eremoteio
 errno
-esbuild
 eshutdown
 esocktnosupport
 fbca
@@ -27,7 +25,6 @@ keyid
 larsgw
 lcov
 lintstagedrc
-micnncim
 mkbuild
 mlly
 nocheck
@@ -36,9 +33,7 @@ nvmrc
 odfijos
 pathe
 pkgs
-pnpm
 preid
-syncer
 tscu
 unstub
 vates

@@ -6,8 +6,9 @@
     "alwaysStrict": false,
     "baseUrl": ".",
     "checkJs": false,
-    "declaration": true,
-    "declarationMap": true,
+    "customConditions": ["import", "node", "default"],
+    "declaration": false,
+    "declarationMap": false,
     "emitDecoratorMetadata": false,
     "esModuleInterop": true,
     "exactOptionalPropertyTypes": true,
@@ -15,7 +16,7 @@
     "forceConsistentCasingInFileNames": true,
     "lib": ["es2022"],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "newLine": "lf",
     "noEmit": true,
     "noErrorTruncation": true,
@@ -28,7 +29,6 @@
     "noUnusedParameters": false,
     "outDir": "dist",
     "paths": {
-      "#fixtures/*": ["__fixtures__/*"],
       "#src": ["src/index"],
       "#src/*": ["src/*"],
       "#tests/*": ["__tests__/*"]
@@ -37,6 +37,8 @@
     "preserveSymlinks": false,
     "pretty": true,
     "resolveJsonModule": true,
+    "resolvePackageJsonExports": true,
+    "resolvePackageJsonImports": true,
     "rootDir": ".",
     "skipDefaultLibCheck": false,
     "skipLibCheck": true,
@@ -50,5 +52,6 @@
     "verbatimModuleSyntax": true
   },
   "exclude": ["**/coverage", "**/dist", "**/node_modules"],
-  "include": ["**/**.cjs", "**/**.mjs", "**/**.mts", "**/**.ts", "**/.*.cjs"]
+  "include": ["**/**.mjs", "**/**.mts", "**/**.ts"],
+  "references": [{ "path": "./tsconfig.cjs.json" }]
 }

@@ -27,12 +27,7 @@ const ERR_UNSUPPORTED_DIR_IMPORT: NodeErrorConstructor<
 > = createNodeError(
   ErrorCode.ERR_UNSUPPORTED_DIR_IMPORT,
   Error,
-  // needs mkbuild update => import '%s' is being picked up as import statement
-  [
-    'Directory',
-    'import',
-    "'%s' is not supported resolving ES modules imported from %s"
-  ].join(' ')
+  "Directory import '%s' is not supported resolving ES modules imported from %s"
 )
 
 export default ERR_UNSUPPORTED_DIR_IMPORT
