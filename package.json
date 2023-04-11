@@ -3,6 +3,7 @@
   "description": "Universal API for creating Node.js errors",
   "version": "1.5.0",
   "keywords": [
+    "errno",
     "error",
     "node",
     "nodejs",
