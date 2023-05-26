@@ -86,7 +86,7 @@
     "@flex-development/pathe": "1.0.3",
     "@flex-development/pkg-types": "2.0.0",
     "@flex-development/tsconfig-utils": "1.1.2",
-    "@graphql-eslint/eslint-plugin": "3.18.0",
+    "@graphql-eslint/eslint-plugin": "3.19.1",
     "@types/chai": "4.3.4",
     "@types/chai-string": "1.4.2",
     "@types/conventional-changelog": "3.1.1",
