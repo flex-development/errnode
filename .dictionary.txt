@@ -15,6 +15,7 @@ eremoteio
 errno
 eshutdown
 esocktnosupport
+eunatch
 fbca
 ggshield
 gpgsign

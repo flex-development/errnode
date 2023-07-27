@@ -600,6 +600,12 @@ describe('unit-d:enums/SystemErrorCode', () => {
       .toMatchTypeOf<'ETXTBSY'>()
   })
 
+  it('should match [EUNATCH = "EUNATCH"]', () => {
+    expectTypeOf<typeof TestSubject>()
+      .toHaveProperty('EUNATCH')
+      .toMatchTypeOf<'EUNATCH'>()
+  })
+
   it('should match [EWOULDBLOCK = "EWOULDBLOCK"]', () => {
     expectTypeOf<typeof TestSubject>()
       .toHaveProperty('EWOULDBLOCK')
