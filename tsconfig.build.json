@@ -7,6 +7,9 @@
   },
   "exclude": ["**/__mocks__", "**/__tests__"],
   "extends": "./tsconfig.json",
-  "files": ["./typings/node-inspect-extracted/index.d.mts"],
+  "files": [
+    "./typings/@types/node/http2.d.ts",
+    "./typings/node-inspect-extracted/index.d.mts"
+  ],
   "include": ["./dist/*", "./src/*"]
 }

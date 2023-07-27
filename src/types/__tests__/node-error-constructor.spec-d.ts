@@ -46,7 +46,9 @@ describe('unit-d:types/NodeErrorConstructor', () => {
 
       // Expect
       expectTypeOf<TestSubject<B, M>>().parameters.toEqualTypeOf<P>()
-      expectTypeOf<TestSubject<B, M>>().constructorParameters.toEqualTypeOf<P>()
+      expectTypeOf<
+        ConstructorParameters<TestSubject<B, M>>
+      >().toEqualTypeOf<P>()
     })
   })
 

@@ -1,6 +1,4 @@
 declare module 'node-inspect-extracted' {
-  import type { ObjectPlain } from '@flex-development/tutils'
-
   export interface InspectOptions {
     breakLength?: number | undefined
     colors?: boolean | undefined
@@ -69,7 +67,7 @@ declare module 'node-inspect-extracted' {
 
   export function stylizeWithHTML(text: string, styleType: Style): string
 
-  export const Proxy: new <T extends ObjectPlain>(
+  export const Proxy: new <T extends object>(
     target: T,
     handler: ProxyHandler<T>
   ) => T
