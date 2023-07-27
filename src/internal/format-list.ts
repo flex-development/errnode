@@ -4,6 +4,8 @@
  * @see https://github.com/nodejs/node/blob/0f69ec4dd74d446765639274728466baf5f13cdd/lib/internal/errors.js#L905-L908
  */
 
+import { join } from '@flex-development/tutils'
+
 /**
  * Creates a list string in the form `'A and B'` or `'A, B, ..., and Z`.
  *
@@ -23,8 +25,8 @@
  */
 function formatList(arr: string[], transition: string = 'and'): string {
   return arr.length < 3
-    ? arr.join(` ${transition} `)
-    : `${arr.slice(0, -1).join(', ')}, ${transition} ${arr[arr.length - 1]}`
+    ? join(arr, ` ${transition} `)
+    : `${join(arr.slice(0, -1), ', ')}, ${transition} ${arr[arr.length - 1]}`
 }
 
 export default formatList

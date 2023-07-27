@@ -7,6 +7,7 @@
 import { ErrorCode } from '#src/enums'
 import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
 import { createNodeError } from '#src/utils'
+import { trimEnd } from '@flex-development/tutils'
 
 /**
  * `ERR_INVALID_MODULE_SPECIFIER` model.
@@ -45,7 +46,7 @@ const ERR_INVALID_MODULE_SPECIFIER: NodeErrorConstructor<
      *
      * @var {string} ret
      */
-    let ret: string = `Invalid module '${request}' ${reason}`.trimEnd()
+    let ret: string = trimEnd(`Invalid module '${request}' ${reason}`)
 
     // add details regarding where error occurred
     if (base) ret += ` imported from ${base}`

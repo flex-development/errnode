@@ -4,6 +4,7 @@
  * @see https://github.com/nodejs/node/blob/v19.3.0/lib/internal/errors.js#L878-L896
  */
 
+import { cast } from '@flex-development/tutils'
 import { inspect } from 'node-inspect-extracted'
 
 /**
@@ -22,7 +23,7 @@ function determineSpecificType(value: unknown): string {
 
   switch (true) {
     case typeof value === 'function':
-      type = `function ${(value as FunctionConstructor).name}`
+      type = `function ${cast<FunctionConstructor>(value).name}`
       break
     case typeof value === 'object':
       type = value?.constructor?.name

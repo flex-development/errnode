@@ -8,7 +8,13 @@ import { ErrorCode } from '#src/enums'
 import formatList from '#src/internal/format-list'
 import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
 import { createNodeError, determineSpecificType } from '#src/utils'
-import type { OneOrMany } from '@flex-development/tutils'
+import {
+  DOT,
+  includes,
+  isArray,
+  lowercase,
+  type OneOrMany
+} from '@flex-development/tutils'
 
 /**
  * `ERR_INVALID_ARG_TYPE` model.
@@ -47,7 +53,7 @@ const ERR_INVALID_ARG_TYPE: NodeErrorConstructor<
     if (typeof name !== 'string') throw new TypeError("'name' must be a string")
 
     // ensure expected is an array
-    if (!Array.isArray(expected)) expected = [expected]
+    if (!isArray(expected)) expected = [expected]
 
     /**
      * Primitive value names.
@@ -78,7 +84,7 @@ const ERR_INVALID_ARG_TYPE: NodeErrorConstructor<
     // stylize invalid argument name
     msg += name.endsWith(' argument')
       ? name
-      : `'${name}' ${name.includes('.') ? 'property' : 'argument'}`
+      : `'${name}' ${includes(name, DOT) ? 'property' : 'argument'}`
 
     // continue building error message
     msg += ' must be '
@@ -151,7 +157,7 @@ const ERR_INVALID_ARG_TYPE: NodeErrorConstructor<
         msg += `one of ${formatList(other, 'or')}`
       } else {
         /* c8 ignore next */
-        if (other[0]!.toLowerCase() !== other[0]) msg += 'an '
+        if (lowercase(other[0]!) !== other[0]) msg += 'an '
         msg += `${other[0]}`
       }
     }

@@ -4,6 +4,7 @@
  */
 
 import type { NodeError } from '#src/types'
+import { regexp } from '@flex-development/tutils'
 
 /**
  * Adds a stack trace to the given `error`.
@@ -23,19 +24,7 @@ function prepareStackTrace<T extends Error = Error>(
 
   // make sure stack trace is formatted properly
   error.stack = error.stack!.replace(
-    new RegExp(
-      `^${error.name}: ${error.message
-        /*
-         * Escape characters with special meaning, either inside or outside
-         * character sets.
-         *
-         * A simple backslash escape is used when it’s always valid; a `\xnn`
-         * escape is used when the simpler form would be disallowed by stricter
-         * unicode patterns.
-         */
-        .replace(/[$()*+.?[\\\]^{|}]/g, '\\$&')
-        .replace(/-/g, '\\x2d')}`
-    ),
+    new RegExp(`^${error.name}: ${regexp(error.message)}`),
     error.toString()
   )
 

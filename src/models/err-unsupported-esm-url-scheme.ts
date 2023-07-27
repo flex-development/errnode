@@ -8,6 +8,7 @@ import { ErrorCode } from '#src/enums'
 import formatList from '#src/internal/format-list'
 import type { NodeError, NodeErrorConstructor } from '#src/types'
 import { createNodeError } from '#src/utils'
+import { DOT } from '@flex-development/tutils'
 import type { URL } from 'node:url'
 
 /**
@@ -58,11 +59,11 @@ const ERR_UNSUPPORTED_ESM_URL_SCHEME: NodeErrorConstructor<
 
     // add additional error details if operating system is windows
     if (windows && url.protocol.length === 2) {
-      message += '. On Windows, absolute paths must be valid file:// URLs'
+      message += `${DOT} On Windows, absolute paths must be valid file:// URLs`
     }
 
     // add url scheme provided by user
-    message += `. Received protocol '${url.protocol}'`
+    message += `${DOT} Received protocol '${url.protocol}'`
 
     return message
   }

@@ -9,19 +9,22 @@ import formatMessage from '#src/internal/format-message'
 import kIsNodeError from '#src/internal/k-is-node-error'
 import prepareStackTrace from '#src/internal/prepare-stack-trace'
 import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
+import { cast } from '@flex-development/tutils'
 
 /**
  * Creates a Node.js error constructor.
  *
  * If the given error `message` is a function, constructor arguments are passed
  * to `message`. If the `message` is a string, constructor arguments are passed
- * to [`util.format`][2] instead.
+ * to [`util.format`][1] instead.
  *
- * [1]: {@link ./types/fn-message.ts}
- * [2]: https://nodejs.org/api/util.html#utilformatformat-args
+ * [1]: https://nodejs.org/api/util.html#utilformatformat-args
+ *
+ * @see {@linkcode NodeError}
+ * @see {@linkcode NodeErrorConstructor}
  *
  * @template B - Error base class type
- * @template M - Error message type, [`util.format`][2] arguments type, or
+ * @template M - Error message type, [`util.format`][1] arguments type, or
  * custom message function parameters type
  * @template T - Error base type
  *
@@ -30,11 +33,11 @@ import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
  * @param {ErrorCode} code - Node.js error code
  * @param {B} Base - Error base class
  * @param {M} message - Error message or message function
- * @return {NodeErrorConstructor<B, M>} `NodeError` constructor
+ * @return {NodeErrorConstructor<B, M, T>} `NodeError` constructor
  */
 function createNodeError<
   B extends ErrorConstructor = ErrorConstructor,
-  M extends any[] | MessageFn | string = MessageFn,
+  M extends MessageFn | unknown[] | string = MessageFn,
   T extends B['prototype'] = B['prototype']
 >(code: ErrorCode, Base: B, message: M): NodeErrorConstructor<B, M, T> {
   /**
@@ -50,14 +53,18 @@ function createNodeError<
    * @return {NodeError<T>} Node.js error instance
    */
   function NodeError(
-    ...args: M extends MessageFn ? Parameters<M> : M extends any[] ? M : any[]
+    ...args: M extends MessageFn
+      ? Parameters<M>
+      : M extends unknown[]
+      ? M
+      : any[]
   ): NodeError<T> {
     /**
      * Node.js error instance.
      *
      * @const {NodeError<T>} error
      */
-    const error: NodeError<T> = new Base() as NodeError<T>
+    const error: NodeError<T> = cast(new Base())
 
     // define error code
     // note: defined first to ensure `this.code` can be used in message function
@@ -105,7 +112,7 @@ function createNodeError<
     return error
   }
 
-  return NodeError as NodeErrorConstructor<B, M, T>
+  return cast(NodeError)
 }
 
 export default createNodeError

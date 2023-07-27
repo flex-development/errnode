@@ -7,6 +7,7 @@
 import { ErrorCode } from '#src/enums'
 import type { NodeError, NodeErrorConstructor } from '#src/types'
 import { createNodeError } from '#src/utils'
+import { DOT } from '@flex-development/tutils'
 
 /**
  * `ERR_PACKAGE_PATH_NOT_EXPORTED` model.
@@ -48,7 +49,7 @@ const ERR_PACKAGE_PATH_NOT_EXPORTED: NodeErrorConstructor<
      * @var {string} message
      */
     let message: string =
-      subpath === '.'
+      subpath === DOT
         ? "No 'exports' main defined in"
         : `Package subpath '${subpath}' is not defined by 'exports' in`
 

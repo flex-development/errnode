@@ -7,6 +7,7 @@
 import { ErrorCode } from '#src/enums'
 import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
 import { createNodeError } from '#src/utils'
+import { DOT, ifelse } from '@flex-development/tutils'
 
 /**
  * `ERR_INVALID_PACKAGE_TARGET` model.
@@ -63,14 +64,14 @@ const ERR_INVALID_PACKAGE_TARGET: NodeErrorConstructor<
      *
      * @const {boolean} main
      */
-    const main: boolean = !internal && key === '.'
+    const main: boolean = !internal && key === DOT
 
     /**
      * Error message.
      *
      * @var {string} ret
      */
-    let ret: string = `Invalid "${internal ? 'imports' : 'exports'}"`
+    let ret: string = `Invalid "${ifelse(internal, 'imports', 'exports')}"`
 
     // include if package target is main entry point
     if (main) ret += ' main'
@@ -89,8 +90,8 @@ const ERR_INVALID_PACKAGE_TARGET: NodeErrorConstructor<
 
     // add reason package target is invalid
     ret +=
-      typeof target === 'string' && !internal && !target.startsWith('./')
-        ? '; targets must start with "./"'
+      typeof target === 'string' && !internal && !target.startsWith(`${DOT}/`)
+        ? `; targets must start with "${DOT}/"`
         : ''
 
     return ret

@@ -7,6 +7,7 @@
 import { ErrorCode } from '#src/enums'
 import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
 import { createNodeError } from '#src/utils'
+import { DOT } from '@flex-development/tutils'
 
 /**
  * `ERR_UNKNOWN_FILE_EXTENSION` model.
@@ -48,7 +49,7 @@ const ERR_UNKNOWN_FILE_EXTENSION: NodeErrorConstructor<
     let message: string = `Unknown file extension '${ext}' for ${id}`
 
     // add recommended fix
-    if (suggestion) message += `. ${suggestion}`
+    if (suggestion) message += `${DOT} ${suggestion}`
 
     return message
   }

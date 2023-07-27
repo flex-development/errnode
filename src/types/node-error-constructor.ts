@@ -3,7 +3,7 @@
  * @module errnode/types/NodeErrorConstructor
  */
 
-import type { Overwrite } from '@flex-development/tutils'
+import type { Omit } from '@flex-development/tutils'
 import type MessageFn from './fn-message'
 import type NodeError from './node-error'
 
@@ -15,9 +15,9 @@ import type NodeError from './node-error'
  * @template M - Error message type, [`util.format`][1] arguments type, or
  * custom message function parameters type
  */
-type Args<M extends any[] | MessageFn | string> = M extends MessageFn
+type Args<M extends MessageFn | unknown[] | string> = M extends MessageFn
   ? Parameters<M>
-  : M extends any[]
+  : M extends unknown[]
   ? M
   : any[]
 
@@ -31,13 +31,13 @@ type Args<M extends any[] | MessageFn | string> = M extends MessageFn
  * custom message function parameters type
  * @template T - Error base type
  *
- * @extends {Overwrite<B, B>}
+ * @extends {Omit<B, 'prototype'>}
  */
 type NodeErrorConstructor<
   B extends ErrorConstructor = ErrorConstructor,
-  M extends any[] | MessageFn | string = MessageFn,
+  M extends MessageFn | unknown[] | string = MessageFn,
   T extends B['prototype'] = B['prototype']
-> = Overwrite<B, B> & {
+> = Omit<B, 'prototype'> & {
   (...args: Args<M>): NodeError<T>
   new (...args: Args<M>): NodeError<T>
   readonly prototype: NodeError<T>

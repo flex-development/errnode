@@ -7,6 +7,7 @@
 import { ErrorCode } from '#src/enums'
 import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
 import { createNodeError } from '#src/utils'
+import { DOT } from '@flex-development/tutils'
 
 /**
  * `ERR_INVALID_PACKAGE_CONFIG` model.
@@ -54,7 +55,7 @@ const ERR_INVALID_PACKAGE_CONFIG: NodeErrorConstructor<
     if (base) ret += ` while importing ${base}`
 
     // add reason package config is invalid
-    if (reason) ret += `. ${reason}`
+    if (reason) ret += `${DOT} ${reason}`
 
     return ret
   }

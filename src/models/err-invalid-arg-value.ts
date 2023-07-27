@@ -7,6 +7,7 @@
 import { ErrorCode } from '#src/enums'
 import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
 import { createNodeError } from '#src/utils'
+import { DOT, includes, truncate } from '@flex-development/tutils'
 import { inspect } from 'node-inspect-extracted'
 
 /**
@@ -58,16 +59,16 @@ const ERR_INVALID_ARG_VALUE: NodeErrorConstructor<
     let ret: string = 'The'
 
     // trim inspected value
-    if (inspected.length > 128) inspected = inspected.slice(0, 128) + '...'
+    if (inspected.length > 128) inspected = truncate(inspected, 131)
 
     // add stylized invalid argument or property name
-    ret += ` ${name.includes('.') ? 'property' : 'argument'} '${name}'`
+    ret += ` ${includes(name, DOT) ? 'property' : 'argument'} '${name}'`
 
     // add reason for error
     if (reason) ret += ` ${reason}`
 
     // add inspected value
-    ret += `. Received ${inspected}`
+    ret += `${DOT} Received ${inspected}`
 
     return ret
   }

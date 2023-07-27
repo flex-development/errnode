@@ -583,7 +583,7 @@ constructor arguments are passed to [`util.format`][15] instead.
 
 - `{ErrorCode}` **`code`** &mdash; Node.js error code
 - `{B extends ErrorConstructor}` **`Base`** &mdash; Error base class
-- `{M extends any[] | MessageFn | string}` **`message`** &mdash; Error message or message function
+- `{M extends MessageFn | unknown[] | string}` **`message`** &mdash; Error message or message function
 - **Returns**: `{NodeErrorConstructor<B, M>}` `NodeError` constructor
 
 > **Source**: [`src/create-node-error.ts`](src/create-node-error.ts)
