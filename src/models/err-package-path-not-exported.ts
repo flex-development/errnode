@@ -5,7 +5,8 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { MessageFn, NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
 import { DOT } from '@flex-development/tutils'
 
@@ -24,11 +25,11 @@ import { DOT } from '@flex-development/tutils'
  * @param {string} dir - Id of directory containing `package.json`
  * @param {string} subpath - Requested subpath
  * @param {string?} [base=''] - Id of module `subpath` was imported from
- * @return {NodeError} `Error` instance
+ * @return {NodeError} New `Error` instance
  */
 const ERR_PACKAGE_PATH_NOT_EXPORTED: NodeErrorConstructor<
-  ErrorConstructor,
-  [string, string, string?]
+  Error,
+  MessageFn<[string, string, string?]>
 > = createNodeError(
   ErrorCode.ERR_PACKAGE_PATH_NOT_EXPORTED,
   Error,

@@ -5,7 +5,8 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { MessageFn, NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
 
 /**
@@ -21,10 +22,10 @@ import { createNodeError } from '#src/utils'
  * @param {string} id - Id of missing module
  * @param {string} base - Id of module `id` was imported from
  * @param {string?} [type='package'] - Module file type
- * @return {NodeError} `Error` instance
+ * @return {NodeError} New `Error` instance
  */
 const ERR_MODULE_NOT_FOUND: NodeErrorConstructor<
-  ErrorConstructor,
+  Error,
   MessageFn<[string, string, string?]>
 > = createNodeError(
   ErrorCode.ERR_MODULE_NOT_FOUND,

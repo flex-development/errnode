@@ -5,8 +5,10 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
+import type { Times } from '@flex-development/tutils'
 
 /**
  * `ERR_OPERATION_FAILED` model.
@@ -19,9 +21,15 @@ import { createNodeError } from '#src/utils'
  * @class
  *
  * @param {string} reason - Reason for operation failure
- * @return {NodeError} `Error` instance
+ * @return {NodeError} New `Error` instance
  */
-const ERR_OPERATION_FAILED: NodeErrorConstructor<ErrorConstructor, [string]> =
-  createNodeError(ErrorCode.ERR_OPERATION_FAILED, Error, 'Operation failed: %s')
+const ERR_OPERATION_FAILED: NodeErrorConstructor<
+  Error,
+  Times<1, string>
+> = createNodeError(
+  ErrorCode.ERR_OPERATION_FAILED,
+  Error,
+  'Operation failed: %s'
+)
 
 export default ERR_OPERATION_FAILED

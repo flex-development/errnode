@@ -5,8 +5,10 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
+import type { Times } from '@flex-development/tutils'
 
 /**
  * `ERR_MISSING_OPTION` model.
@@ -19,9 +21,11 @@ import { createNodeError } from '#src/utils'
  * @class
  *
  * @param {string} option - Option name
- * @return {NodeError<TypeError>} `TypeError` instance
+ * @return {NodeError<TypeError>} New `TypeError` instance
  */
-const ERR_MISSING_OPTION: NodeErrorConstructor<TypeErrorConstructor, [string]> =
-  createNodeError(ErrorCode.ERR_MISSING_OPTION, TypeError, '%s is required')
+const ERR_MISSING_OPTION: NodeErrorConstructor<
+  TypeError,
+  Times<1, string>
+> = createNodeError(ErrorCode.ERR_MISSING_OPTION, TypeError, '%s is required')
 
 export default ERR_MISSING_OPTION

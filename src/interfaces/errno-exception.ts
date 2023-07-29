@@ -4,6 +4,7 @@
  */
 
 import type { SystemErrorCode } from '#src/enums'
+import type { Optional } from '@flex-development/tutils'
 
 /**
  * Node.js exception model.
@@ -16,9 +17,7 @@ interface ErrnoException extends Error {
   /**
    * System error code.
    *
-   * [1]: {@link ../enums/error-code-system.ts}
-   *
-   * @see [`SystemErrorCode`][1]
+   * @see {@linkcode SystemErrorCode}
    */
   code: SystemErrorCode
 
@@ -41,13 +40,13 @@ interface ErrnoException extends Error {
    *
    * @override
    */
-  message: NonNullable<Error['message']>
+  message: Error['message']
 
   /**
    * Relevant invalid pathname (i.e. a file path when reporting a file system
    * error).
    */
-  path?: string | undefined
+  path?: Optional<string>
 
   /**
    * Failed [syscall][1] description.

@@ -141,12 +141,11 @@ interface ErrInvalidUrl extends NodeError<TypeError> {
  * @class
  *
  * @param {string} input - URL that failed to parse
- * @return {ErrInvalidUrl} `TypeError` instance
+ * @return {ErrInvalidUrl} New `TypeError` instance
  */
 const ERR_INVALID_URL: NodeErrorConstructor<
-  TypeErrorConstructor,
-  MessageFn<[string]>,
-  ErrInvalidUrl
+  ErrInvalidUrl,
+  MessageFn<[string]>
 > = createNodeError(
   ErrorCode.ERR_INVALID_URL,
   TypeError,
@@ -244,7 +243,7 @@ There is no default export.
 
 ### Error Models
 
-Constructor functions representing [Node.js error codes][7], callable with and without the `new` keyword. Constructor
+Constructor functions representing [Node.js error codes][7], callable **only** with the `new` keyword. Constructor
 arguments are used to generate error messages.
 
 Models can be imported individually:
@@ -578,15 +577,15 @@ Thrown when an unsupported URL scheme is used in an `import` statement. URL sche
 
 Creates a Node.js error constructor.
 
-If the given error `message` is a function, constructor arguments are passed to `message`. If the `message` is a string,
-constructor arguments are passed to [`util.format`][15] instead.
+Constructor arguments are passed to [`util.format`][15] if the error `message` is a string, or `message` itself if it is
+a function. Message functions will also be called with the new Node.js error instance as `this`.
 
 - `{ErrorCode}` **`code`** &mdash; Node.js error code
-- `{B extends ErrorConstructor}` **`Base`** &mdash; Error base class
-- `{M extends MessageFn | unknown[] | string}` **`message`** &mdash; Error message or message function
-- **Returns**: `{NodeErrorConstructor<B, M>}` `NodeError` constructor
+- `{ErrnodeConstructor}` **`Base`** &mdash; Error base class
+- `{Message}` **`message`** &mdash; Error message string or function
+- **Returns**: `{NodeErrorConstructor` `NodeError` constructor
 
-> **Source**: [`src/create-node-error.ts`](src/create-node-error.ts)
+> **Source**: [`src/utils/create-node-error.ts`](src/utils/create-node-error.ts)
 
 #### `determineSpecificType(value)`
 
@@ -595,7 +594,7 @@ Determines the specific type of a value for type-mismatch errors.
 - `{unknown}` **`value`** &mdash; Value to evaluate
 - **Returns**: `{string}` Specific type of `value`
 
-> **Source**: [`src/determine-specific-type.ts`](src/determine-specific-type.ts)
+> **Source**: [`src/utils/determine-specific-type.ts`](src/utils/determine-specific-type.ts)
 
 ## Types
 
@@ -608,14 +607,17 @@ This package is fully typed with [TypeScript][16]. It exports the following defi
 
 ### Interfaces
 
+- [`CallSite`](src/interfaces/call-site.ts)
 - [`ErrInvalidUrl`](src/interfaces/err-invalid-url.ts)
 - [`ErrnoException`](src/interfaces/errno-exception.ts)
+- [`NodeErrorConstructor`](src/interfaces/node-error-constructor.ts)
 
 ### Type Definitions
 
-- [`NodeError`](src/types/node-error.ts)
-- [`NodeErrorConstructor`](src/types/node-error-constructor.ts)
+- [`ErrnodeConstructor`](src/types/errnode-constructor.ts)
 - [`MessageFn`](src/types/fn-message.ts)
+- [`Message`](src/types/message.ts)
+- [`NodeError`](src/types/node-error.ts)
 
 ## Contribute
 

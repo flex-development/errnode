@@ -5,8 +5,10 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
+import type { Times } from '@flex-development/tutils'
 
 /**
  * `ERR_NETWORK_IMPORT_DISALLOWED` model.
@@ -21,11 +23,11 @@ import { createNodeError } from '#src/utils'
  * @param {string} specifier - Invalid module specifier
  * @param {string} base - Id of module `specifier` was imported from
  * @param {string} reason - Reason for error
- * @return {NodeError} `Error` instance
+ * @return {NodeError} New `Error` instance
  */
 const ERR_NETWORK_IMPORT_DISALLOWED: NodeErrorConstructor<
-  ErrorConstructor,
-  [string, string, string]
+  Error,
+  Times<3, string>
 > = createNodeError(
   ErrorCode.ERR_NETWORK_IMPORT_DISALLOWED,
   Error,

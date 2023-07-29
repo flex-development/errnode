@@ -5,7 +5,8 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { MessageFn, NodeError } from '#src/types'
 import { createNodeError, determineSpecificType } from '#src/utils'
 
 /**
@@ -21,10 +22,10 @@ import { createNodeError, determineSpecificType } from '#src/utils'
  * @param {string} expected - Expected return value type
  * @param {string} name - Name of function that returned invalid value type
  * @param {unknown} value - Value supplied by user
- * @return {NodeError<TypeError>} `TypeError` instance
+ * @return {NodeError<TypeError>} New `TypeError` instance
  */
 const ERR_INVALID_RETURN_VALUE: NodeErrorConstructor<
-  TypeErrorConstructor,
+  TypeError,
   MessageFn<[string, string, unknown]>
 > = createNodeError(
   ErrorCode.ERR_INVALID_RETURN_VALUE,

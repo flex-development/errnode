@@ -5,8 +5,8 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { ErrInvalidUrl } from '#src/interfaces'
-import type { MessageFn, NodeErrorConstructor } from '#src/types'
+import type { ErrInvalidUrl, NodeErrorConstructor } from '#src/interfaces'
+import type { MessageFn } from '#src/types'
 import { createNodeError } from '#src/utils'
 
 /**
@@ -27,9 +27,8 @@ import { createNodeError } from '#src/utils'
  * @return {ErrInvalidUrl} `TypeError` instance
  */
 const ERR_INVALID_URL: NodeErrorConstructor<
-  TypeErrorConstructor,
-  MessageFn<[string]>,
-  ErrInvalidUrl
+  ErrInvalidUrl,
+  MessageFn<[string]>
 > = createNodeError(
   ErrorCode.ERR_INVALID_URL,
   TypeError,

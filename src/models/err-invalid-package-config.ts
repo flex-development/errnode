@@ -5,7 +5,8 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { MessageFn, NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
 import { DOT } from '@flex-development/tutils'
 
@@ -24,10 +25,10 @@ import { DOT } from '@flex-development/tutils'
  * @param {string?} [base=''] - Id of module being imported. May also include
  * where module is being imported from
  * @param {string?} [reason=''] - Reason package config is invalid
- * @return {NodeError} `Error` instance
+ * @return {NodeError} New `Error` instance
  */
 const ERR_INVALID_PACKAGE_CONFIG: NodeErrorConstructor<
-  ErrorConstructor,
+  Error,
   MessageFn<[string, string?, string?]>
 > = createNodeError(
   ErrorCode.ERR_INVALID_PACKAGE_CONFIG,

@@ -5,7 +5,7 @@
 
 import { ErrorCode } from '#src/enums'
 import { determineSpecificType } from '#src/utils'
-import type { OneOrMany } from '@flex-development/tutils'
+import { cast } from '@flex-development/tutils'
 import TestSubject from '../err-invalid-arg-type'
 
 describe('unit:models/ERR_INVALID_ARG_TYPE', () => {
@@ -85,7 +85,7 @@ describe('unit:models/ERR_INVALID_ARG_TYPE', () => {
 
   it('should throw if expected is not a string or string[]', () => {
     // Arrange
-    const fn = TestSubject.bind({}, name, actual as OneOrMany<string>, actual)
+    const fn = vi.fn(() => new TestSubject(name, cast(actual), actual))
 
     // Expect
     expect(fn).to.throw('`expected` must be a string or string[]')
@@ -93,7 +93,7 @@ describe('unit:models/ERR_INVALID_ARG_TYPE', () => {
 
   it('should throw if name is not a string', () => {
     // Arrange
-    const fn = TestSubject.bind({}, actual as string, [], actual)
+    const fn = vi.fn(() => new TestSubject(cast(actual), [], actual))
 
     // Expect
     expect(fn).to.throw("'name' must be a string")

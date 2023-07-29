@@ -5,8 +5,10 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
+import type { Times } from '@flex-development/tutils'
 
 /**
  * `ERR_ASYNC_CALLBACK` model.
@@ -19,13 +21,15 @@ import { createNodeError } from '#src/utils'
  * @class
  *
  * @param {string} name - Name of argument that must be a function
- * @return {NodeError<TypeError>} `TypeError` instance
+ * @return {NodeError<TypeError>} New `TypeError` instance
  */
-const ERR_ASYNC_CALLBACK: NodeErrorConstructor<TypeErrorConstructor, [string]> =
-  createNodeError(
-    ErrorCode.ERR_ASYNC_CALLBACK,
-    TypeError,
-    '%s must be a function'
-  )
+const ERR_ASYNC_CALLBACK: NodeErrorConstructor<
+  TypeError,
+  Times<1, string>
+> = createNodeError(
+  ErrorCode.ERR_ASYNC_CALLBACK,
+  TypeError,
+  '%s must be a function'
+)
 
 export default ERR_ASYNC_CALLBACK

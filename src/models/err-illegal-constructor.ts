@@ -5,8 +5,10 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
+import type { EmptyArray } from '@flex-development/tutils'
 
 /**
  * `ERR_ILLEGAL_CONSTRUCTOR` model.
@@ -18,9 +20,9 @@ import { createNodeError } from '#src/utils'
  *
  * @class
  *
- * @return {NodeError<TypeError>} `TypeError` instance
+ * @return {NodeError<TypeError>} New `TypeError` instance
  */
-const ERR_ILLEGAL_CONSTRUCTOR: NodeErrorConstructor<TypeErrorConstructor, []> =
+const ERR_ILLEGAL_CONSTRUCTOR: NodeErrorConstructor<TypeError, EmptyArray> =
   createNodeError(
     ErrorCode.ERR_ILLEGAL_CONSTRUCTOR,
     TypeError,

@@ -5,8 +5,10 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
+import type { Times } from '@flex-development/tutils'
 
 /**
  * `ERR_UNKNOWN_BUILTIN_MODULE` model.
@@ -20,11 +22,11 @@ import { createNodeError } from '#src/utils'
  * @class
  *
  * @param {string} name - Module name
- * @return {NodeError} `Error` instance
+ * @return {NodeError} New `Error` instance
  */
 const ERR_UNKNOWN_BUILTIN_MODULE: NodeErrorConstructor<
-  ErrorConstructor,
-  [string]
+  Error,
+  Times<1, string>
 > = createNodeError(
   ErrorCode.ERR_UNKNOWN_BUILTIN_MODULE,
   Error,

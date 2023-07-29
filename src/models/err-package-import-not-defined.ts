@@ -5,7 +5,8 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { MessageFn, NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
 
 /**
@@ -23,10 +24,10 @@ import { createNodeError } from '#src/utils'
  * @param {string} specifier - Invalid package import specifier
  * @param {string} base - Id of module `specifier` was imported from
  * @param {string?} [dir=''] - Id of directory containing `package.json`
- * @return {NodeError<TypeError>} `TypeError` instance
+ * @return {NodeError<TypeError>} New `TypeError` instance
  */
 const ERR_PACKAGE_IMPORT_NOT_DEFINED: NodeErrorConstructor<
-  TypeErrorConstructor,
+  TypeError,
   MessageFn<[string, string, string?]>
 > = createNodeError(
   ErrorCode.ERR_PACKAGE_IMPORT_NOT_DEFINED,

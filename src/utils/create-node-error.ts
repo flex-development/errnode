@@ -5,114 +5,215 @@
  */
 
 import type { ErrorCode } from '#src/enums'
-import formatMessage from '#src/internal/format-message'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { Args } from '#src/interfaces/node-error-constructor'
 import kIsNodeError from '#src/internal/k-is-node-error'
-import prepareStackTrace from '#src/internal/prepare-stack-trace'
-import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
-import { cast } from '@flex-development/tutils'
+import type { ErrnodeConstructor, Message, MessageFn } from '#src/types'
+import { cast, define, isString, regexp } from '@flex-development/tutils'
+import { format } from 'node-inspect-extracted'
 
 /**
  * Creates a Node.js error constructor.
  *
- * If the given error `message` is a function, constructor arguments are passed
- * to `message`. If the `message` is a string, constructor arguments are passed
- * to [`util.format`][1] instead.
+ * Constructor arguments are passed to [`util.format`][1] if the error `message`
+ * is a string, or `message` itself if it is a function. Message functions will
+ * also be called with the new Node.js error instance as `this`.
  *
  * [1]: https://nodejs.org/api/util.html#utilformatformat-args
  *
- * @see {@linkcode NodeError}
  * @see {@linkcode NodeErrorConstructor}
+ * @see https://nodejs.org/api/util.html#utilformatformat-args
  *
  * @template B - Error base class type
- * @template M - Error message type, [`util.format`][1] arguments type, or
- * custom message function parameters type
- * @template T - Error base type
- *
- * @constructs NodeError<T>
+ * @template M - Error message function or `util.format` arguments
+ * @template T - Error prototype
  *
  * @param {ErrorCode} code - Node.js error code
  * @param {B} Base - Error base class
- * @param {M} message - Error message or message function
- * @return {NodeErrorConstructor<B, M, T>} `NodeError` constructor
+ * @param {Message<M>} message - Error message string or function
+ * @return {NodeErrorConstructor<T, M>} `NodeError` constructor
  */
-function createNodeError<
-  B extends ErrorConstructor = ErrorConstructor,
-  M extends MessageFn | unknown[] | string = MessageFn,
-  T extends B['prototype'] = B['prototype']
->(code: ErrorCode, Base: B, message: M): NodeErrorConstructor<B, M, T> {
-  /**
-   * Creates a Node.js error.
-   *
-   * [1]: https://nodejs.org/api/util.html#utilformatformat-args
-   *
-   * @class
-   * @implements {NodeError<T>}
-   *
-   * @param {any[] | M | Parameters<M>} args - `message` params if `message` is
-   * a function; [`util.format`][1] arguments if `message` is a string
-   * @return {NodeError<T>} Node.js error instance
-   */
-  function NodeError(
-    ...args: M extends MessageFn
-      ? Parameters<M>
-      : M extends unknown[]
-      ? M
-      : any[]
-  ): NodeError<T> {
+const createNodeError = <
+  B extends ErrnodeConstructor,
+  M extends MessageFn | string | readonly unknown[],
+  T extends B['prototype']
+>(
+  code: ErrorCode,
+  Base: B,
+  message: Message<M>
+): NodeErrorConstructor<T, M> => {
+  // @ts-expect-error ts(2322)
+  return class NodeError extends Base {
     /**
-     * Node.js error instance.
+     * Node.js error code.
      *
-     * @const {NodeError<T>} error
+     * @public
+     * @instance
+     * @member {ErrorCode}
      */
-    const error: NodeError<T> = cast(new Base())
+    public code!: ErrorCode
 
-    // define error code
-    // note: defined first to ensure `this.code` can be used in message function
-    Object.defineProperty(error, 'code', {
-      configurable: true,
-      enumerable: true,
-      value: code,
-      writable: true
-    })
+    /**
+     * Creates a new Node.js error.
+     *
+     * @param {any[]} args - Error message function arguments
+     */
+    constructor(...args: any[]) {
+      super()
 
-    // define error symbol and message + redefine toString method
-    Object.defineProperties(error, {
-      [kIsNodeError]: {
+      /**
+       * Instance properties are defined in order of precedence.
+       *
+       * Precedence is determined by latter property definitions using the value
+       * of former property definitions to generate a value.
+       *
+       * Instance property dependencies:
+       *
+       * - `message`: `code`
+       * - `toString`: `code`, `message`, `name`
+       * - `stack`: `toString`
+       */
+
+      // add error symbol
+      define(this, kIsNodeError, {
         configurable: true,
         enumerable: false,
         value: true,
         writable: false
-      },
-      message: {
+      })
+
+      // add error code
+      define(this, 'code', {
+        configurable: true,
+        enumerable: true,
+        value: code,
+        writable: true
+      })
+
+      // add error message
+      define(this, 'message', {
         configurable: true,
         enumerable: false,
-        value: formatMessage(code, message, args, error),
+        value: NodeError.#message(code, message, cast(args), this),
         writable: true
-      },
-      toString: {
+      })
+
+      // redefine toString method
+      define(this, 'toString', {
         configurable: true,
         enumerable: false,
         /**
          * Returns a string representation of the error.
          *
-         * @this {NodeError<T>}
+         * @this {import('#src/types').NodeError}
          *
          * @return {string} String representation of error
          */
-        value(this: NodeError<T>): string {
+        value(this: NodeError): string {
           return `${this.name} [${this.code}]: ${this.message}`
         },
         writable: true
+      })
+
+      // add stack trace
+      define(this, 'stack', {
+        configurable: true,
+        enumerable: true,
+        value: NodeError.#prepareStackTrace(this),
+        writable: true
+      })
+    }
+
+    /**
+     * Creates an error message string.
+     *
+     * @see https://nodejs.org/api/util.html#utilformatformat-args
+     *
+     * @private
+     * @static
+     *
+     * @param {ErrorCode} code - Node.js error code
+     * @param {Message<M>} message - Error message function or format string
+     * @param {Args<M>} args - Custom message function arguments if `message` is
+     * a function, or `util.format` arguments if `message` is a string
+     * @param {Error} self - Error object used as `this` argument
+     * @return {string} Formatted error message
+     * @throws {Error} If `args` length is invalid
+     */
+    static #message(
+      code: ErrorCode,
+      message: Message<M>,
+      args: Args<M>,
+      self: Error
+    ): string {
+      /**
+       * Invalid {@linkcode args} length error message.
+       *
+       * @var {string} error
+       */
+      let error: string = `${code};` + ' '
+
+      // check args.length against expected message function arguments length
+      // default parameters do not count when message is a function
+      if (isString(message)) {
+        /**
+         * {@linkcode format} specifiers regex.
+         *
+         * @const {RegExp} regex
+         */
+        const regex: RegExp = /%[Odfijos]/g
+
+        /**
+         * Expected message length.
+         *
+         * @var {number} length
+         */
+        let length: number = 0
+
+        // get expected message length
+        while (regex.exec(message) !== null) length++
+
+        // throw if incorrect number of arguments are passed to util.format
+        if (length !== args.length) {
+          error += `The arguments length (${args.length}) provided to \`util.format\` does not match the required length (${length}).`
+          throw new Error(error, { cause: args })
+        }
+      } else if (!(message.length <= args.length)) {
+        error += `The arguments length (${args.length}) provided to \`message\` does not match the required length (${message.length}).`
+        throw new Error(error, { cause: args })
       }
-    })
 
-    // add stack trace
-    prepareStackTrace(error)
+      return Reflect.apply(
+        isString(message) ? format : message,
+        isString(message) ? null : self,
+        isString(message) ? [message, ...args] : args
+      )
+    }
 
-    return error
+    /**
+     * Adds a formatted stack trace to the given `error`.
+     *
+     * Previously written stack traces are not preserved.
+     *
+     * @see https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+     *
+     * @private
+     * @static
+     *
+     * @param {Error} error - Error object to prepare stack trace for
+     * @return {string} Formatted stack trace
+     */
+    static #prepareStackTrace(error: Error): string {
+      // create stack property
+      Base.captureStackTrace(error, NodeError.#prepareStackTrace)
+
+      // format stack trace
+      return error.stack!.replace(
+        new RegExp(`^${error.name}: ${regexp(error.message)}`),
+        error.toString()
+      )
+    }
   }
-
-  return cast(NodeError)
 }
 
 export default createNodeError

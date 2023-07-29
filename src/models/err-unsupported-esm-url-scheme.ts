@@ -5,8 +5,9 @@
  */
 
 import { ErrorCode } from '#src/enums'
+import type { NodeErrorConstructor } from '#src/interfaces'
 import formatList from '#src/internal/format-list'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { MessageFn, NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
 import { DOT } from '@flex-development/tutils'
 import type { URL } from 'node:url'
@@ -24,11 +25,11 @@ import type { URL } from 'node:url'
  * @param {URL} url - URL containing unsupported scheme
  * @param {string[]} supported - Supported URL schemes
  * @param {boolean?} [windows=false] - Windows operating system?
- * @return {NodeError} `Error` instance
+ * @return {NodeError} New `Error` instance
  */
 const ERR_UNSUPPORTED_ESM_URL_SCHEME: NodeErrorConstructor<
-  ErrorConstructor,
-  [URL, string[], boolean?]
+  Error,
+  MessageFn<[URL, string[], boolean?]>
 > = createNodeError(
   ErrorCode.ERR_UNSUPPORTED_ESM_URL_SCHEME,
   Error,

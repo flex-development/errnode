@@ -4,7 +4,15 @@
  * @see https://github.com/nodejs/node/blob/v19.3.0/lib/internal/errors.js#L878-L896
  */
 
-import { cast } from '@flex-development/tutils'
+import {
+  cast,
+  isFunction,
+  isNull,
+  isObject,
+  isUndefined,
+  truncate,
+  type Fn
+} from '@flex-development/tutils'
 import { inspect } from 'node-inspect-extracted'
 
 /**
@@ -13,7 +21,7 @@ import { inspect } from 'node-inspect-extracted'
  * @param {unknown} value - Value to evaluate
  * @return {string} Specific type of `value`
  */
-function determineSpecificType(value: unknown): string {
+const determineSpecificType = (value: unknown): string => {
   /**
    * Specific type of `value`.
    *
@@ -22,15 +30,16 @@ function determineSpecificType(value: unknown): string {
   let type: string = ''
 
   switch (true) {
-    case typeof value === 'function':
-      type = `function ${cast<FunctionConstructor>(value).name}`
+    case isFunction(value):
+      type = `function ${cast<Fn>(value).name}`
       break
-    case typeof value === 'object':
+    case isObject(value):
+    case isNull(value):
       type = value?.constructor?.name
         ? `an instance of ${value.constructor.name}`
         : inspect(value, { depth: -1 })
       break
-    case typeof value === 'undefined':
+    case isUndefined(value):
       type = typeof value
       break
     default:
@@ -41,8 +50,8 @@ function determineSpecificType(value: unknown): string {
        */
       let inspected: string = inspect(value, { colors: false })
 
-      // trim string representation of value
-      if (inspected.length > 28) inspected = inspected.slice(0, 25) + '...'
+      // truncate inspected value
+      if (inspected.length > 28) inspected = truncate(inspected, 28)
 
       type = `type ${typeof value} (${inspected})`
       break

@@ -5,8 +5,10 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
+import type { Times } from '@flex-development/tutils'
 
 /**
  * `ERR_AMBIGUOUS_ARGUMENT` model.
@@ -20,11 +22,11 @@ import { createNodeError } from '#src/utils'
  *
  * @param {string} name - Name of ambiguous argument
  * @param {string} reason - Reason `name` is ambiguous
- * @return {NodeError<TypeError>} `TypeError` instance
+ * @return {NodeError<TypeError>} New `TypeError` instance
  */
 const ERR_AMBIGUOUS_ARGUMENT: NodeErrorConstructor<
-  TypeErrorConstructor,
-  [string, string]
+  TypeError,
+  Times<2, string>
 > = createNodeError(
   ErrorCode.ERR_AMBIGUOUS_ARGUMENT,
   TypeError,

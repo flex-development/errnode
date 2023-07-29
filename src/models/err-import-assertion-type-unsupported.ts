@@ -5,8 +5,10 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
+import type { Times } from '@flex-development/tutils'
 
 /**
  * `ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED` model.
@@ -18,11 +20,11 @@ import { createNodeError } from '#src/utils'
  * @class
  *
  * @param {string} type - Unsupported import assertion type
- * @return {NodeError<TypeError>} `TypeError` instance
+ * @return {NodeError<TypeError>} New `TypeError` instance
  */
 const ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED: NodeErrorConstructor<
-  TypeErrorConstructor,
-  [string]
+  TypeError,
+  Times<1, string>
 > = createNodeError(
   ErrorCode.ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED,
   TypeError,

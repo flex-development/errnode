@@ -5,8 +5,10 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
+import type { Times } from '@flex-development/tutils'
 
 /**
  * `ERR_IMPORT_ASSERTION_TYPE_FAILED` model.
@@ -20,11 +22,11 @@ import { createNodeError } from '#src/utils'
  *
  * @param {string} id - Id of module that cannot be imported
  * @param {string} type - Invalid import assertion type
- * @return {NodeError<TypeError>} `TypeError` instance
+ * @return {NodeError<TypeError>} New `TypeError` instance
  */
 const ERR_IMPORT_ASSERTION_TYPE_FAILED: NodeErrorConstructor<
-  TypeErrorConstructor,
-  [string, string]
+  TypeError,
+  Times<2, string>
 > = createNodeError(
   ErrorCode.ERR_IMPORT_ASSERTION_TYPE_FAILED,
   TypeError,

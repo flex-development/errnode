@@ -5,7 +5,8 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { MessageFn, NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
 
 /**
@@ -18,30 +19,32 @@ import { createNodeError } from '#src/utils'
  * @class
  *
  * @param {string?} [err=''] - Stringified error
- * @return {NodeError} `Error` instance
+ * @return {NodeError} New `Error` instance
  */
-const ERR_UNHANDLED_ERROR: NodeErrorConstructor<ErrorConstructor, [string?]> =
-  createNodeError(
-    ErrorCode.ERR_UNHANDLED_ERROR,
-    Error,
+const ERR_UNHANDLED_ERROR: NodeErrorConstructor<
+  Error,
+  MessageFn<[string?]>
+> = createNodeError(
+  ErrorCode.ERR_UNHANDLED_ERROR,
+  Error,
+  /**
+   * Creates an [`ERR_UNHANDLED_ERROR`][1] message.
+   *
+   * [1]: https://nodejs.org/api/errors.html#err_unhandled_error
+   *
+   * @param {string?} [err=''] - Stringified error
+   * @return {string} Error message
+   */
+  (err: string = ''): string => {
     /**
-     * Creates an [`ERR_UNHANDLED_ERROR`][1] message.
+     * Error message.
      *
-     * [1]: https://nodejs.org/api/errors.html#err_unhandled_error
-     *
-     * @param {string?} [err=''] - Stringified error
-     * @return {string} Error message
+     * @const {string} message
      */
-    (err: string = ''): string => {
-      /**
-       * Error message.
-       *
-       * @const {string} message
-       */
-      const message: string = 'Unhandled error.'
+    const message: string = 'Unhandled error.'
 
-      return err.length > 0 ? `${message} (${err})` : message
-    }
-  )
+    return err.length > 0 ? `${message} (${err})` : message
+  }
+)
 
 export default ERR_UNHANDLED_ERROR

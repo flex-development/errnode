@@ -5,8 +5,9 @@
  */
 
 import { ErrorCode } from '#src/enums'
+import type { NodeErrorConstructor } from '#src/interfaces'
 import formatList from '#src/internal/format-list'
-import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
+import type { MessageFn, NodeError } from '#src/types'
 import { createNodeError, determineSpecificType } from '#src/utils'
 import {
   DOT,
@@ -28,10 +29,10 @@ import {
  * @param {string} name - Name of invalid argument or property
  * @param {OneOrMany<string>} expected - Expected type(s)
  * @param {unknown} actual - Value supplied by user
- * @return {NodeError<TypeError>} `TypeError` instance
+ * @return {NodeError<TypeError>} New `TypeError` instance
  */
 const ERR_INVALID_ARG_TYPE: NodeErrorConstructor<
-  TypeErrorConstructor,
+  TypeError,
   MessageFn<[string, OneOrMany<string>, unknown]>
 > = createNodeError(
   ErrorCode.ERR_INVALID_ARG_TYPE,

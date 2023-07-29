@@ -4,18 +4,20 @@
  */
 
 import type { ErrorCode } from '#src/enums'
+import type { ErrInvalidUrl } from '#src/interfaces'
+import type { Assign, Get } from '@flex-development/tutils'
 import type TestSubject from '../node-error'
 
 describe('unit-d:types/NodeError', () => {
-  it('should have type param extend Error type', () => {
-    expectTypeOf<TestSubject>().toMatchTypeOf<Error>()
-    expectTypeOf<TestSubject<RangeError>>().toMatchTypeOf<RangeError>()
-    expectTypeOf<TestSubject<TypeError>>().toMatchTypeOf<TypeError>()
-  })
+  type Expect<T extends object> = Assign<T, { code: Get<T, 'code', ErrorCode> }>
 
-  it('should match [code: ErrorCode]', () => {
-    expectTypeOf<TestSubject>()
-      .toHaveProperty('code')
-      .toEqualTypeOf<ErrorCode>()
+  it('should equal Assign<T, { code: Get<T, "code", ErrorCode> }>', () => {
+    // Arrange
+    type T1 = ErrInvalidUrl
+    type T2 = RangeError
+
+    // Expect
+    expectTypeOf<TestSubject<T1>>().toEqualTypeOf<Expect<T1>>()
+    expectTypeOf<TestSubject<T2>>().toEqualTypeOf<Expect<T2>>()
   })
 })

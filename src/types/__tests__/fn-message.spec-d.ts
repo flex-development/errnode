@@ -3,15 +3,15 @@
  * @module errnode/types/tests/unit-d/MessageFn
  */
 
+import type { Fn } from '@flex-development/tutils'
 import type TestSubject from '../fn-message'
 
 describe('unit-d:types/MessageFn', () => {
-  it('should extract parameters from type parameter', () => {
-    expectTypeOf<TestSubject<[string]>>().parameter(0).toBeString()
-    expectTypeOf<TestSubject<[string, boolean]>>().parameter(1).toBeBoolean()
-  })
+  it('should equal Fn<A, string>', () => {
+    // Arrange
+    type A = readonly [string, boolean]
 
-  it('should return string', () => {
-    expectTypeOf<TestSubject>().returns.toBeString()
+    // Expect
+    expectTypeOf<TestSubject<A>>().toEqualTypeOf<Fn<A, string>>()
   })
 })

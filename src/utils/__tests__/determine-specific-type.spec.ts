@@ -38,7 +38,7 @@ describe('unit:utils/determineSpecificType', () => {
 
   it('should detect instance object', () => {
     // Arrange
-    const value: unknown = faker.datatype.datetime()
+    const value: unknown = new Date()
     const expected: string = 'an instance of Date'
 
     // Act + Expect

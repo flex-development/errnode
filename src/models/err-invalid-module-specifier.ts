@@ -5,7 +5,8 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { MessageFn, NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
 import { trimEnd } from '@flex-development/tutils'
 
@@ -22,10 +23,10 @@ import { trimEnd } from '@flex-development/tutils'
  * @param {string} request - Invalid module specifier
  * @param {string?} [reason=''] - Reason `request` is invalid
  * @param {string?} [base=''] - Id of module `request` was imported from
- * @return {NodeError<TypeError>} `TypeError` instance
+ * @return {NodeError<TypeError>} New `TypeError` instance
  */
 const ERR_INVALID_MODULE_SPECIFIER: NodeErrorConstructor<
-  TypeErrorConstructor,
+  TypeError,
   MessageFn<[string, string?, string?]>
 > = createNodeError(
   ErrorCode.ERR_INVALID_MODULE_SPECIFIER,

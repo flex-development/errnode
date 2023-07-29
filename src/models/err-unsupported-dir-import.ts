@@ -5,8 +5,10 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
+import type { Times } from '@flex-development/tutils'
 
 /**
  * `ERR_UNSUPPORTED_DIR_IMPORT` model.
@@ -19,11 +21,11 @@ import { createNodeError } from '#src/utils'
  *
  * @param {string} id - Module id of directory
  * @param {string} base - Id of module `id` was imported from
- * @return {NodeError} `Error` instance
+ * @return {NodeError} New `Error` instance
  */
 const ERR_UNSUPPORTED_DIR_IMPORT: NodeErrorConstructor<
-  ErrorConstructor,
-  [string, string]
+  Error,
+  Times<2, string>
 > = createNodeError(
   ErrorCode.ERR_UNSUPPORTED_DIR_IMPORT,
   Error,

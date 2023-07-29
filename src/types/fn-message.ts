@@ -3,14 +3,15 @@
  * @module errnode/types/MessageFn
  */
 
+import type { Fn } from '@flex-development/tutils'
+
 /**
- * Creates an error message.
+ * Error message generator.
  *
- * @template Args - Function parameters type
+ * @template A - Function parameters type
  *
- * @param {Args} args - Function parameters
  * @return {string} Error message
  */
-type MessageFn<Args extends any[] = any[]> = (...args: Args) => string
+type MessageFn<A extends readonly unknown[] = any[]> = Fn<A, string>
 
 export type { MessageFn as default }

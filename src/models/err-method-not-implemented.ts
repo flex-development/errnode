@@ -5,8 +5,10 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
+import type { Times } from '@flex-development/tutils'
 
 /**
  * `ERR_METHOD_NOT_IMPLEMENTED` model.
@@ -18,11 +20,11 @@ import { createNodeError } from '#src/utils'
  * @class
  *
  * @param {string} method - Method name
- * @return {NodeError} `Error` instance
+ * @return {NodeError} New `Error` instance
  */
 const ERR_METHOD_NOT_IMPLEMENTED: NodeErrorConstructor<
-  ErrorConstructor,
-  [string]
+  Error,
+  Times<1, string>
 > = createNodeError(
   ErrorCode.ERR_METHOD_NOT_IMPLEMENTED,
   Error,

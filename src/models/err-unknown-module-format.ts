@@ -5,8 +5,10 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
+import type { Times } from '@flex-development/tutils'
 
 /**
  * `ERR_UNKNOWN_MODULE_FORMAT` model.
@@ -20,11 +22,11 @@ import { createNodeError } from '#src/utils'
  *
  * @param {string} format - Unknown or unsupported format
  * @param {string} id - Id of module with `format`
- * @return {NodeError<RangeError>} `RangeError` instance
+ * @return {NodeError<RangeError>} New `RangeError` instance
  */
 const ERR_UNKNOWN_MODULE_FORMAT: NodeErrorConstructor<
-  RangeErrorConstructor,
-  [string, string]
+  RangeError,
+  Times<2, string>
 > = createNodeError(
   ErrorCode.ERR_UNKNOWN_MODULE_FORMAT,
   RangeError,

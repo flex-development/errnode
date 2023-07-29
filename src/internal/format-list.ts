@@ -4,7 +4,7 @@
  * @see https://github.com/nodejs/node/blob/0f69ec4dd74d446765639274728466baf5f13cdd/lib/internal/errors.js#L905-L908
  */
 
-import { join } from '@flex-development/tutils'
+import { at, join } from '@flex-development/tutils'
 
 /**
  * Creates a list string in the form `'A and B'` or `'A, B, ..., and Z`.
@@ -23,10 +23,10 @@ import { join } from '@flex-development/tutils'
  * @param {string?} [transition='and'] - Word to be inserted before last element
  * @return {string} List string
  */
-function formatList(arr: string[], transition: string = 'and'): string {
+const formatList = (arr: string[], transition: string = 'and'): string => {
   return arr.length < 3
     ? join(arr, ` ${transition} `)
-    : `${join(arr.slice(0, -1), ', ')}, ${transition} ${arr[arr.length - 1]}`
+    : join([`${join(arr.slice(0, -1), ', ')},`, transition, at(arr, -1)], ' ')
 }
 
 export default formatList

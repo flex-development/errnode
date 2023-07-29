@@ -5,7 +5,8 @@
  */
 
 import { ErrorCode } from '#src/enums'
-import type { MessageFn, NodeError, NodeErrorConstructor } from '#src/types'
+import type { NodeErrorConstructor } from '#src/interfaces'
+import type { MessageFn, NodeError } from '#src/types'
 import { createNodeError } from '#src/utils'
 import { DOT, ifelse } from '@flex-development/tutils'
 
@@ -27,10 +28,10 @@ import { DOT, ifelse } from '@flex-development/tutils'
  * @param {unknown} target - Invalid package target
  * @param {boolean?} [internal=false] - `target` is [`"imports"`][2]?
  * @param {string?} [base=''] - Id of module `package.json` was imported from
- * @return {NodeError} `Error` instance
+ * @return {NodeError} New `Error` instance
  */
 const ERR_INVALID_PACKAGE_TARGET: NodeErrorConstructor<
-  ErrorConstructor,
+  Error,
   MessageFn<[string, string, unknown, boolean?, string?]>
 > = createNodeError(
   ErrorCode.ERR_INVALID_PACKAGE_TARGET,

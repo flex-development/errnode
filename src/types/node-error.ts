@@ -4,6 +4,7 @@
  */
 
 import type { ErrorCode } from '#src/enums'
+import type { Assign, Get } from '@flex-development/tutils'
 
 /**
  * Node.js error.
@@ -12,11 +13,16 @@ import type { ErrorCode } from '#src/enums'
  *
  * @extends {T}
  */
-type NodeError<T extends Error = Error> = T & {
-  /**
-   * Error code.
-   */
-  code: ErrorCode
-}
+type NodeError<T extends Error & { code?: ErrorCode } = Error> = Assign<
+  T,
+  {
+    /**
+     * Node.js error code.
+     *
+     * @see {@linkcode ErrorCode}
+     */
+    code: Get<T, 'code', ErrorCode>
+  }
+>
 
 export type { NodeError as default }
