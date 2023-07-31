@@ -1124,6 +1124,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@flex-development/errnode@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@flex-development/errnode@npm:2.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Ferrnode%2F2.0.0%2F62f38769b2f92d753b3e526ce7e9a23369aaa1da"
+  dependencies:
+    "@flex-development/tutils": "npm:6.0.0-alpha.12"
+    node-inspect-extracted: "npm:2.0.2"
+  peerDependencies:
+    "@types/node": ">=16.18.23"
+  checksum: e358293f1cff1b0d56bb3f165981c7159a14d0a6ad6ab24e68400c8e0684f96fd3bfb2d3dd037a3c15e57d25da40c22851ae1db2b80fa2a4ce0c083b9ac01a63
+  languageName: node
+  linkType: hard
+
 "@flex-development/errnode@workspace:.":
   version: 0.0.0-use.local
   resolution: "@flex-development/errnode@workspace:."
@@ -1136,7 +1148,7 @@ __metadata:
     "@flex-development/esm-types": "npm:2.0.0"
     "@flex-development/mkbuild": "npm:1.0.0-alpha.20"
     "@flex-development/mlly": "npm:1.0.0-alpha.15"
-    "@flex-development/pathe": "npm:1.0.3"
+    "@flex-development/pathe": "npm:2.0.0"
     "@flex-development/pkg-types": "npm:3.0.0"
     "@flex-development/tsconfig-utils": "npm:1.1.2"
     "@flex-development/tutils": "npm:6.0.0-alpha.13"
@@ -1354,6 +1366,16 @@ __metadata:
     "@flex-development/errnode": "npm:1.2.0"
     "@flex-development/tutils": "npm:6.0.0-alpha.7"
   checksum: 8e5d5fac78de147469dad1ca5ba24426dc7fbe022974f02e79e35a65a4dbc3682794bdba16d4560370424bbe4d54077f46df0e980efde1115507bbc4f13d9693
+  languageName: node
+  linkType: hard
+
+"@flex-development/pathe@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@flex-development/pathe@npm:2.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fpathe%2F2.0.0%2F3333862074db1a5d797c2305f7bbb17593320d2f"
+  dependencies:
+    "@flex-development/errnode": "npm:2.0.0"
+    "@flex-development/tutils": "npm:6.0.0-alpha.12"
+  checksum: 189df750c7a55ce973fbbc688f9aae239f8f37287e983e2e142fe1d538f944539c416452dd618bbf1da54f8012841579ad45dc91f55126e0a76d25b2b525b269
   languageName: node
   linkType: hard
 
