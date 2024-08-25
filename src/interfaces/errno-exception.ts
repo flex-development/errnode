@@ -3,33 +3,30 @@
  * @module errnode/interfaces/ErrnoException
  */
 
-import type { SystemErrorCode } from '#src/enums'
-import type { Optional } from '@flex-development/tutils'
+import type { SystemCode } from '#src/types'
 
 /**
- * Node.js exception model.
+ * Node.js exception object model.
  *
+ * @see {@linkcode SystemCode}
  * @see https://github.com/nodejs/node/blob/v19.3.0/lib/internal/errors.js#L615-L619
+ * @see https://github.com/nodejs/node/blob/v22.7.0/lib/internal/errors.js#L716-L745
+ *
+ * @template {SystemCode} [T=SystemCode]
+ *  System error code
  *
  * @extends {Error}
  */
-interface ErrnoException extends Error {
+interface ErrnoException<T extends SystemCode = SystemCode> extends Error {
   /**
    * System error code.
-   *
-   * @see {@linkcode SystemErrorCode}
    */
-  code: SystemErrorCode
+  code: T
 
   /**
-   * Negative number which corresponds to an error code defined in [libuv Error
-   * handling][1].
+   * libuv error number.
    *
-   * On Windows, the error number provided by the system will be normalized by
-   * libuv.
-   *
-   * [1]: https://docs.libuv.org/en/v1.x/errors.html
-   * [2]: https://nodejs.org/api/util.html#utilgetsystemerrornameerr
+   * @see https://docs.libuv.org/en/v1.x/errors.html
    */
   errno: number
 
@@ -40,18 +37,18 @@ interface ErrnoException extends Error {
    *
    * @override
    */
-  message: Error['message']
+  message: string
 
   /**
    * Relevant invalid pathname (i.e. a file path when reporting a file system
    * error).
    */
-  path?: Optional<string>
+  path?: string | undefined
 
   /**
-   * Failed [syscall][1] description.
+   * Failed [syscall][] description.
    *
-   * [1]: https://man7.org/linux/man-pages/man2/syscalls.2.html
+   * [syscall]: https://man7.org/linux/man-pages/man2/syscalls.2.html
    */
   syscall: string
 }

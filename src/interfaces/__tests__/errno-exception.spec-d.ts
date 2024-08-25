@@ -3,7 +3,7 @@
  * @module errnode/interfaces/tests/unit-d/ErrnoException
  */
 
-import type { SystemErrorCode } from '#src/enums'
+import type { SystemCode } from '#src/types'
 import type TestSubject from '../errno-exception'
 
 describe('unit-d:interfaces/ErrnoException', () => {
@@ -11,10 +11,10 @@ describe('unit-d:interfaces/ErrnoException', () => {
     expectTypeOf<TestSubject>().toMatchTypeOf<Error>()
   })
 
-  it('should match [code: SystemErrorCode]', () => {
+  it('should match [code: SystemCode]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('code')
-      .toEqualTypeOf<SystemErrorCode>()
+      .toEqualTypeOf<SystemCode>()
   })
 
   it('should match [errno: number]', () => {
@@ -33,5 +33,9 @@ describe('unit-d:interfaces/ErrnoException', () => {
 
   it('should match [syscall: string]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('syscall').toBeString()
+  })
+
+  it('should match NodeJS.ErrnoException', () => {
+    expectTypeOf<TestSubject>().toMatchTypeOf<NodeJS.ErrnoException>()
   })
 })

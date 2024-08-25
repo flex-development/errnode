@@ -3,6 +3,8 @@
  * @module errnode/interfaces
  */
 
-export type { default as ErrInvalidUrl } from './err-invalid-url'
 export type { default as ErrnoException } from './errno-exception'
+export type { default as NodeError } from './node-error'
 export type { default as NodeErrorConstructor } from './node-error-constructor'
+export type { default as NodeErrorMap } from './node-error-map'
+export type { default as SystemErrorMap } from './system-error-map'

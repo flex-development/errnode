@@ -1,9 +1,9 @@
 /**
- * @file Entry Point - Type Definitions
+ * @file Entry Point - Type Aliases
  * @module errnode/types
  */
 
-export type { default as ErrnodeConstructor } from './errnode-constructor'
-export type { default as MessageFn } from './fn-message'
-export type { default as Message } from './message'
-export type { default as NodeError } from './node-error'
+export type { Fn } from '@flex-development/tutils'
+export type { default as Code } from './code'
+export type { default as MessageFn } from './message-fn'
+export type { default as SystemCode } from './system-code'

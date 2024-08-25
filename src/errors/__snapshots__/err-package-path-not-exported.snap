@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:errors/ERR_PACKAGE_PATH_NOT_EXPORTED > should build message from parameters (0) 1`] = `No 'exports' main defined in \${process.cwd()}/node_modules/@flex-development/pathe/package.json imported from \${process.cwd()}/src/errors/__tests__/err-package-path-not-exported.spec.ts`;
+
+exports[`unit:errors/ERR_PACKAGE_PATH_NOT_EXPORTED > should build message from parameters (1) 1`] = `Package subpath './package.json' is not defined by 'exports' in \${process.cwd()}/node_modules/@flex-development/pathe/package.json imported from \${process.cwd()}/src/errors/__tests__/err-package-path-not-exported.spec.ts`;

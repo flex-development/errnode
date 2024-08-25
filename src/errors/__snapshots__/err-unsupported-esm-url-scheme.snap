@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:errors/ERR_UNSUPPORTED_ESM_URL_SCHEME > should build message from parameters (0) 1`] = `"Only URLs with a scheme in: file are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'c:'"`;
+
+exports[`unit:errors/ERR_UNSUPPORTED_ESM_URL_SCHEME > should build message from parameters (1) 1`] = `"Only URLs with a scheme in: data, file, and node are supported by the default ESM loader. Received protocol 'https:'"`;

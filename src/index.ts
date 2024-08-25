@@ -3,9 +3,10 @@
  * @module errnode
  */
 
+export { default as E } from './e'
 export * from './enums'
-export * from './interfaces'
-export * from './models'
-export * as errors from './models'
-export * from './types'
+export * from './errors'
+export * as errors from './errors'
+export type * from './interfaces'
+export type * from './types'
 export * from './utils'

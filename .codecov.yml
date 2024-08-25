@@ -86,6 +86,7 @@ ignore:
   - '**/__tests__/**'
   - '**/index.ts'
   - src/interfaces/
+  - src/internal/stack-trace.browser.ts
   - src/types/
 
 profiling:

@@ -3,5 +3,5 @@
  * @module errnode/enums
  */
 
-export { default as ErrorCode } from './error-code'
-export { default as SystemErrorCode } from './error-code-system'
+export { default as codes } from './codes'
+export { default as syscodes } from './syscodes'

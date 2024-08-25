@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (0) 1`] = `"type string ("'hello world'")"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (1) 1`] = `"type string ('hello world👋🌎👋🌎👋🌎👋...')"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (2) 1`] = `"type number (-0)"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (3) 1`] = `"type number (0)"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (4) 1`] = `"type bigint (13n)"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (5) 1`] = `"type number (3)"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (6) 1`] = `"type number (-Infinity)"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (7) 1`] = `"type number (NaN)"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (8) 1`] = `"type number (Infinity)"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (9) 1`] = `"type boolean (false)"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (10) 1`] = `"type symbol (Symbol(kIsNodeError))"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (11) 1`] = `"an instance of Date"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (12) 1`] = `"null"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (13) 1`] = `"type boolean (true)"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (14) 1`] = `"undefined"`;
+
+exports[`unit:utils/determineSpecificType > should return specific type of \`value\` (15) 1`] = `"type function spy"`;

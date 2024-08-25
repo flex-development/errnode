@@ -1,63 +1,53 @@
 /**
  * @file Utilities - determineSpecificType
  * @module errnode/utils/determineSpecificType
- * @see https://github.com/nodejs/node/blob/v19.3.0/lib/internal/errors.js#L878-L896
+ * @see https://github.com/nodejs/node/blob/v22.7.0/lib/internal/errors.js#L988-L1041
  */
 
-import {
-  cast,
-  isFunction,
-  isNull,
-  isObject,
-  isUndefined,
-  truncate,
-  type Fn
-} from '@flex-development/tutils'
 import { inspect } from 'node-inspect-extracted'
 
 /**
- * Determines the specific type of a value for type-mismatch errors.
+ * Determine the specific type of a value for type-mismatch errors.
  *
- * @param {unknown} value - Value to evaluate
+ * @param {unknown} value - Value to check
  * @return {string} Specific type of `value`
  */
-const determineSpecificType = (value: unknown): string => {
+function determineSpecificType(value: unknown): string {
   /**
-   * Specific type of `value`.
+   * Type of {@linkcode value}.
    *
-   * @var {string} type
+   * @const {string} type
    */
-  let type: string = ''
+  const type: string = typeof value
 
-  switch (true) {
-    case isFunction(value):
-      type = `function ${cast<Fn>(value).name}`
-      break
-    case isObject(value):
-    case isNull(value):
-      type = value?.constructor?.name
+  /**
+   * Specific type.
+   *
+   * @var {string} specificType
+   */
+  let specificType: string = ''
+
+  switch (type) {
+    case 'object':
+    case 'undefined':
+      specificType = value?.constructor && 'name' in value.constructor
         ? `an instance of ${value.constructor.name}`
         : inspect(value, { depth: -1 })
       break
-    case isUndefined(value):
-      type = typeof value
+    case 'function':
+      specificType = `type ${type} ${(<(...args: any[]) => any>value).name}`
+      break
+    case 'string':
+      // @ts-expect-error `value` is a string (18046).
+      value.length > 28 && (value = `${(<string>value).slice(0, 25)}...`)
+      specificType = `type ${type} (${inspect(value)})`
       break
     default:
-      /**
-       * String representation of {@linkcode value}.
-       *
-       * @var {string} inspected
-       */
-      let inspected: string = inspect(value, { colors: false })
-
-      // truncate inspected value
-      if (inspected.length > 28) inspected = truncate(inspected, 28)
-
-      type = `type ${typeof value} (${inspected})`
+      specificType = `type ${type} (${inspect(value)})`
       break
   }
 
-  return type
+  return specificType
 }
 
 export default determineSpecificType

@@ -6,8 +6,10 @@
 /**
  * Node.js error symbol.
  *
- * @const {symbol} kIsNodeError
+ * @internal
+ *
+ * @const {typeof kIsNodeError} kIsNodeError
  */
-const kIsNodeError: symbol = Symbol('kIsNodeError')
+const kIsNodeError: unique symbol = Symbol('kIsNodeError')
 
 export default kIsNodeError

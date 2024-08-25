@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:utils/formatList > should return list string (0) 1`] = `""`;
+
+exports[`unit:utils/formatList > should return list string (1) 1`] = `"object"`;
+
+exports[`unit:utils/formatList > should return list string (2) 1`] = `"json"`;
+
+exports[`unit:utils/formatList > should return list string (3) 1`] = `"data and file"`;
+
+exports[`unit:utils/formatList > should return list string (4) 1`] = `"\`.cjs\`, \`.js\`, or \`.mjs\`"`;
+
+exports[`unit:utils/formatList > should return list string (5) 1`] = `"boolean, function, number, or string"`;

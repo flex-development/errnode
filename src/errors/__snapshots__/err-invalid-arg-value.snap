@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:errors/ERR_INVALID_ARG_VALUE > should build message from parameters (0) 1`] = `"The argument 'hints' is invalid. Received 3"`;
+
+exports[`unit:errors/ERR_INVALID_ARG_VALUE > should build message from parameters (1) 1`] = `"The property 'options.objectMode' is not supported. Received true"`;

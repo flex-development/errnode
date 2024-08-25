@@ -44,15 +44,18 @@ class Notifier implements Reporter {
   public start!: number
 
   /**
-   * Sends a notification.
+   * Send a notification.
    *
    * @protected
    *
    * @async
    *
-   * @param {File[]} [files=this.ctx.state.getFiles()] - File objects
-   * @param {unknown[]} [errors=this.ctx.state.getUnhandledErrors()] - Errors
-   * @return {Promise<void>} Nothing when complete
+   * @param {File[]} [files=this.ctx.state.getFiles()]
+   *  File objects
+   * @param {unknown[]} [errors=this.ctx.state.getUnhandledErrors()]
+   *  Errors
+   * @return {Promise<void>}
+   *  Nothing
    */
   protected async notify(
     files: File[] = this.ctx.state.getFiles(),
@@ -111,10 +114,10 @@ class Notifier implements Reporter {
 
       message = dedent`
         ${passes} tests passed in ${
-          time > 1000
-            ? `${(time / 1000).toFixed(2)}ms`
-            : `${Math.round(time)}ms`
-        }
+        time > 1000
+          ? `${(time / 1000).toFixed(2)}ms`
+          : `${Math.round(time)}ms`
+      }
       `
 
       title = '\u2705 Passed'
@@ -132,15 +135,18 @@ class Notifier implements Reporter {
   }
 
   /**
-   * Sends a notification after all tests have ran (in non ci/cd environments).
+   * Send a notification after all tests have ran (in non ci/cd environments).
    *
    * @public
    *
    * @async
    *
-   * @param {File[]} [files=this.ctx.state.getFiles()] - File objects
-   * @param {unknown[]} [errors=this.ctx.state.getUnhandledErrors()] - Errors
-   * @return {Promise<void>} Nothing when complete
+   * @param {File[]} [files=this.ctx.state.getFiles()]
+   *  File objects
+   * @param {unknown[]} [errors=this.ctx.state.getUnhandledErrors()]
+   *  Errors
+   * @return {Promise<void>}
+   *  Nothing
    */
   public async onFinished(
     files: File[] = this.ctx.state.getFiles(),
@@ -155,8 +161,10 @@ class Notifier implements Reporter {
    *
    * @public
    *
-   * @param {Vitest} context - Test reporter context
-   * @return {void} Nothing when complete
+   * @param {Vitest} context
+   *  Test reporter context
+   * @return {void}
+   *  Nothing
    */
   public onInit(context: Vitest): void {
     this.ctx = context
@@ -168,8 +176,10 @@ class Notifier implements Reporter {
    *
    * @protected
    *
-   * @param {OneOrMany<Task>} [tasks=[]] - Tasks to collect tests from
-   * @return {Test[]} `Test` object array
+   * @param {OneOrMany<Task>} [tasks=[]]
+   *  Tasks to collect tests from
+   * @return {Test[]}
+   *  `Test` object array
    */
   protected tests(tasks: OneOrMany<Task> = []): Test[] {
     return (isArray<Task>(tasks) ? tasks : [tasks]).flatMap(task => {

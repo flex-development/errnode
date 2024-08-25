@@ -6,7 +6,7 @@
     "alwaysStrict": false,
     "baseUrl": ".",
     "checkJs": false,
-    "customConditions": ["import", "node", "default"],
+    "customConditions": ["development", "import", "node"],
     "declaration": false,
     "declarationMap": false,
     "emitDecoratorMetadata": false,
@@ -14,7 +14,7 @@
     "exactOptionalPropertyTypes": true,
     "experimentalDecorators": false,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["es2022"],
+    "lib": ["es2023"],
     "module": "esnext",
     "moduleResolution": "bundler",
     "newLine": "lf",
@@ -29,8 +29,15 @@
     "noUnusedParameters": false,
     "outDir": "dist",
     "paths": {
-      "#src": ["src/index"],
+      "#e": ["src/e"],
+      "#format-message": ["src/internal/format-message.development"],
+      "#hide-stack-frames": ["src/internal/hide-stack-frames"],
+      "#k-is-node-error": ["src/internal/k-is-node-error"],
+      "#is-stack-trace-limit-writable": [
+        "src/internal/is-stack-trace-limit-writable"
+      ],
       "#src/*": ["src/*"],
+      "#stack-trace": ["src/internal/stack-trace"],
       "#tests/*": ["__tests__/*"]
     },
     "preserveConstEnums": true,
@@ -52,6 +59,21 @@
     "verbatimModuleSyntax": true
   },
   "exclude": ["**/coverage", "**/dist", "**/node_modules"],
-  "include": ["**/**.mjs", "**/**.mts", "**/**.ts"],
-  "references": [{ "path": "./tsconfig.cjs.json" }]
+  "include": [
+    "**/**/*.json",
+    "**/**/*.mjs",
+    "**/**/*.mts",
+    "**/**/*.ts",
+    "**/.*.json",
+    "**/.*.mjs",
+    "**/.*.mts",
+    "**/.*.ts"
+  ],
+  "mdx": {
+    "plugins": [
+      "remark-directive",
+      "remark-frontmatter",
+      "remark-gfm"
+    ]
+  }
 }

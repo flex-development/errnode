@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
+    "customConditions": [],
     "declaration": true,
     "noEmitOnError": true,
+    "paths": {
+      "#e": ["src/e"],
+      "#format-message": ["#format-message"],
+      "#k-is-node-error": ["#k-is-node-error"],
+      "#stack-trace": ["#stack-trace"],
+      "#src/*": ["src/*"]
+    },
     "skipLibCheck": false,
     "target": "es2022"
   },
-  "exclude": ["**/__mocks__", "**/__tests__"],
+  "exclude": [],
   "extends": "./tsconfig.json",
-  "files": [
-    "./typings/@types/node/http2.d.ts",
-    "./typings/node-inspect-extracted/index.d.mts"
-  ],
-  "include": ["./dist/*", "./src/*"]
+  "include": ["./dist/*"]
 }

@@ -5,7 +5,6 @@
  */
 
 import { defineBuildConfig, type Config } from '@flex-development/mkbuild'
-import pkg from './package.json' assert { type: 'json' }
 import tsconfig from './tsconfig.build.json' assert { type: 'json' }
 
 /**
@@ -16,18 +15,11 @@ import tsconfig from './tsconfig.build.json' assert { type: 'json' }
 const config: Config = defineBuildConfig({
   charset: 'utf8',
   entries: [
-    { dts: 'only' },
-    {
-      dts: false,
-      pattern: ['**/index.ts', 'enums/*', 'internal/*', 'models/*', 'utils/*'],
-      sourcemap: true,
-      sourcesContent: false
-    }
+    { dts: false, pattern: ['internal/*'] },
+    { dts: 'only', ignore: ['internal/*'] },
+    { dts: false, pattern: ['*.ts', 'enums/*', 'errors/*', 'utils/*'] }
   ],
-  target: [
-    pkg.engines.node.replace(/^\D+/, 'node'),
-    tsconfig.compilerOptions.target
-  ],
+  target: ['node18', tsconfig.compilerOptions.target],
   tsconfig: 'tsconfig.build.json'
 })
 

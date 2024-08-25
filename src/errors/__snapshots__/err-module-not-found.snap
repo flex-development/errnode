@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:errors/ERR_MODULE_NOT_FOUND > should build message from parameters (0) 1`] = `Cannot find module '\${process.cwd()}/missing-file' imported from \${process.cwd()}/src/errors/__tests__/err-module-not-found.spec.ts`;
+
+exports[`unit:errors/ERR_MODULE_NOT_FOUND > should build message from parameters (1) 1`] = `Cannot find package 'missing-package' imported from \${process.cwd()}/src/errors/__tests__/err-module-not-found.spec.ts`;
