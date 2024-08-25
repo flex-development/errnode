@@ -30,6 +30,7 @@ exports[`e2e:errnode > should expose public api 1`] = `
   "ERR_UNKNOWN_MODULE_FORMAT",
   "ERR_UNSUPPORTED_DIR_IMPORT",
   "ERR_UNSUPPORTED_ESM_URL_SCHEME",
+  "ERR_UNSUPPORTED_RESOLVE_REQUEST",
   "errors",
   "determineSpecificType",
   "formatList",

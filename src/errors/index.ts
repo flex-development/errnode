@@ -154,3 +154,9 @@ export {
   type ErrUnsupportedEsmUrlSchemeArgs,
   type ErrUnsupportedEsmUrlSchemeConstructor
 } from './err-unsupported-esm-url-scheme'
+export {
+  default as ERR_UNSUPPORTED_RESOLVE_REQUEST,
+  type ErrUnsupportedResolveRequest,
+  type ErrUnsupportedResolveRequestArgs,
+  type ErrUnsupportedResolveRequestConstructor
+} from './err-unsupported-resolve-request'

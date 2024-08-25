@@ -49,3 +49,5 @@ exports[`integration:errors > ERR_UNKNOWN_MODULE_FORMAT > #toString > should ret
 exports[`integration:errors > ERR_UNSUPPORTED_DIR_IMPORT > #toString > should return string representation of error 1`] = `Error [ERR_UNSUPPORTED_DIR_IMPORT]: Directory import '../errors' is not supported resolving ES modules imported from file://\${process.cwd()}/src/__tests__/errors.integration.spec.ts`;
 
 exports[`integration:errors > ERR_UNSUPPORTED_ESM_URL_SCHEME > #toString > should return string representation of error 1`] = `Error [ERR_UNSUPPORTED_ESM_URL_SCHEME]: Only URLs with a scheme in: data, file, and node are supported by the default ESM loader. Received protocol 'https:'`;
+
+exports[`integration:errors > ERR_UNSUPPORTED_RESOLVE_REQUEST > #toString > should return string representation of error 1`] = `TypeError [ERR_UNSUPPORTED_RESOLVE_REQUEST]: Failed to resolve module specifier "not-found" from "data:text/javascript,export default import.meta.resolve('not-found')": Invalid relative URL or base scheme is not hierarchical.`;

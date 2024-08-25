@@ -168,6 +168,7 @@ This package exports the following identifiers:
   - `ERR_UNKNOWN_MODULE_FORMAT`
   - `ERR_UNSUPPORTED_DIR_IMPORT`
   - `ERR_UNSUPPORTED_ESM_URL_SCHEME`
+  - `ERR_UNSUPPORTED_RESOLVE_REQUEST`
 - [`formatList`](#formatlistlist-type)
 - [`hideStackFrames`](#hidestackframesfn)
 - [`isNodeError`](#isnodeerrorvalue)

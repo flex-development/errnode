@@ -106,6 +106,12 @@ describe('integration:errors', () => {
       Error,
       new URL('unist-util-visit', 'https://esm.sh/@flex-development/'),
       ['data', 'file', 'node']
+    ],
+    [
+      codes.ERR_UNSUPPORTED_RESOLVE_REQUEST,
+      TypeError,
+      'not-found',
+      'data:text/javascript,export default import.meta.resolve(\'not-found\')'
     ]
   ])('%s', (code, Base, ...args) => {
     let subject: NodeError
