@@ -10,6 +10,8 @@ exports[`integration:errors > ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED > #toString 
 
 exports[`integration:errors > ERR_IMPORT_ATTRIBUTE_MISSING > #toString > should return string representation of error 1`] = `TypeError [ERR_IMPORT_ATTRIBUTE_MISSING]: Module "data:application/json,""" needs an import attribute of "type: json"`;
 
+exports[`integration:errors > ERR_IMPORT_ATTRIBUTE_TYPE_INCOMPATIBLE > #toString > should return string representation of error 1`] = `TypeError [ERR_IMPORT_ATTRIBUTE_TYPE_INCOMPATIBLE]: Module "data:text/javascript,export{}" is not of type "json"`;
+
 exports[`integration:errors > ERR_INCOMPATIBLE_OPTION_PAIR > #toString > should return string representation of error 1`] = `TypeError [ERR_INCOMPATIBLE_OPTION_PAIR]: Option 'N' cannot be used in combination with option 'cost'`;
 
 exports[`integration:errors > ERR_INVALID_ARG_TYPE > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_ARG_TYPE]: The 'ctor' argument must be of type function. Received null`;

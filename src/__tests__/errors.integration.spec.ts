@@ -3,6 +3,7 @@
  * @module errnode/tests/integration/errors
  */
 
+import JS_MODULE_DATA_URL from '#fixtures/js-module-data-url'
 import JSON_MODULE_DATA_URL from '#fixtures/json-module-data-url'
 import { codes, syscodes } from '#src/enums'
 import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
@@ -39,6 +40,12 @@ describe('integration:errors', () => {
       TypeError,
       JSON_MODULE_DATA_URL,
       'type',
+      'json'
+    ],
+    [
+      codes.ERR_IMPORT_ATTRIBUTE_TYPE_INCOMPATIBLE,
+      TypeError,
+      JS_MODULE_DATA_URL,
       'json'
     ],
     [codes.ERR_INCOMPATIBLE_OPTION_PAIR, TypeError, 'N', 'cost'],

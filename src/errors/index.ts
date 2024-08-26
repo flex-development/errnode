@@ -35,6 +35,12 @@ export {
   type ErrImportAttributeMissingConstructor
 } from './err-import-attribute-missing'
 export {
+  default as ERR_IMPORT_ATTRIBUTE_TYPE_INCOMPATIBLE,
+  type ErrImportAttributeTypeIncompatible,
+  type ErrImportAttributeTypeIncompatibleArgs,
+  type ErrImportAttributeTypeIncompatibleConstructor
+} from './err-import-attribute-type-incompatible'
+export {
   default as ERR_INCOMPATIBLE_OPTION_PAIR,
   type ErrIncompatibleOptionPair,
   type ErrIncompatibleOptionPairArgs,
