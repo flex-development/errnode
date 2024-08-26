@@ -1,3 +1,70 @@
+## [3.0.0](https://github.com/flex-development/errnode/compare/2.0.0...3.0.0) (2024-08-25)
+
+### ⚠ BREAKING CHANGES
+
+- project rewrite
+
+### :package: Build
+
+- [[`ffb9bc0`](https://github.com/flex-development/errnode/commit/ffb9bc0efc40ce1aca663abd48109cf311227510)] **deps-dev:** Bump @arethetypeswrong/cli from 0.7.0 to 0.7.1 ([#266](https://github.com/flex-development/errnode/issues/266))
+- [[`64e6c8a`](https://github.com/flex-development/errnode/commit/64e6c8aa0091fd581e4f049fe68c0ee32c88b602)] **deps-dev:** Bump @commitlint/cli from 17.6.7 to 17.7.1 ([#281](https://github.com/flex-development/errnode/issues/281))
+- [[`4c3233e`](https://github.com/flex-development/errnode/commit/4c3233e60fde5d9eb81faacf92f02d30cb71a2f4)] **deps-dev:** Bump @flex-development/decorator-regex from 1.0.0 to 2.0.0 ([#264](https://github.com/flex-development/errnode/issues/264))
+- [[`e1a7aa0`](https://github.com/flex-development/errnode/commit/e1a7aa0999d4e7760ea1c4233bb0317b704a7f5c)] **deps-dev:** Bump @flex-development/mkbuild from 1.0.0-alpha.20 to 1.0.0-alpha.21 ([#282](https://github.com/flex-development/errnode/issues/282))
+- [[`a22a939`](https://github.com/flex-development/errnode/commit/a22a9394811c649cb35f12474827c6cf0bd4870d)] **deps-dev:** Bump @flex-development/mlly from 1.0.0-alpha.15 to 1.0.0-alpha.16 ([#269](https://github.com/flex-development/errnode/issues/269))
+- [[`69ccfd2`](https://github.com/flex-development/errnode/commit/69ccfd2c43266a295a848d23416a932eaca0f757)] **deps-dev:** Bump @flex-development/mlly from 1.0.0-alpha.16 to 1.0.0-alpha.17 ([#277](https://github.com/flex-development/errnode/issues/277))
+- [[`2a5ea13`](https://github.com/flex-development/errnode/commit/2a5ea132f1f6269d47a7303c125fe93c640036dc)] **deps-dev:** Bump @flex-development/pathe from 1.0.3 to 2.0.0 ([#258](https://github.com/flex-development/errnode/issues/258))
+- [[`7a065cf`](https://github.com/flex-development/errnode/commit/7a065cfb93f12d22686592518863c244d9e207c2)] **deps-dev:** Bump @flex-development/tsconfig-utils from 1.1.2 to 2.0.1 ([#280](https://github.com/flex-development/errnode/issues/280))
+- [[`81074b5`](https://github.com/flex-development/errnode/commit/81074b5feba056b0c40c8ec4a99d6df237d89e51)] **deps-dev:** Bump esbuild from 0.18.17 to 0.18.19 ([#270](https://github.com/flex-development/errnode/issues/270))
+- [[`3fd12df`](https://github.com/flex-development/errnode/commit/3fd12df8f1962a12eca2562749b6391f5a6eea9d)] **deps-dev:** Bump esbuild from 0.18.19 to 0.18.20 ([#275](https://github.com/flex-development/errnode/issues/275))
+- [[`cf63f51`](https://github.com/flex-development/errnode/commit/cf63f517bb72f6e97656acbb0b89644ca61fe244)] **deps-dev:** Bump esbuild from 0.18.20 to 0.19.0 ([#278](https://github.com/flex-development/errnode/issues/278))
+- [[`dfaf339`](https://github.com/flex-development/errnode/commit/dfaf3398e930889abafe22ed34dd11cba0ecd5fd)] **deps-dev:** Bump eslint from 8.45.0 to 8.46.0 ([#259](https://github.com/flex-development/errnode/issues/259))
+- [[`c62a69c`](https://github.com/flex-development/errnode/commit/c62a69c5468ac6efcf4f570170ca918059591f30)] **deps-dev:** Bump eslint-config-prettier from 8.10.0 to 9.0.0 ([#271](https://github.com/flex-development/errnode/issues/271))
+- [[`811b8c5`](https://github.com/flex-development/errnode/commit/811b8c5f0b28198ff826bc05307b5560397ecd9f)] **deps-dev:** Bump eslint-config-prettier from 8.9.0 to 8.10.0 ([#268](https://github.com/flex-development/errnode/issues/268))
+- [[`75290ba`](https://github.com/flex-development/errnode/commit/75290ba1b33c790939ac455cec02822f0a0490e2)] **deps-dev:** Bump eslint-import-resolver-typescript from 3.5.5 to 3.6.0 ([#283](https://github.com/flex-development/errnode/issues/283))
+- [[`859f874`](https://github.com/flex-development/errnode/commit/859f874eae7303634b64a2c9875784abf5a378a8)] **deps-dev:** Bump eslint-plugin-markdown from 3.0.0 to 3.0.1 ([#257](https://github.com/flex-development/errnode/issues/257))
+- [[`2bb60e3`](https://github.com/flex-development/errnode/commit/2bb60e3dce050b71f0334f11644aadde8d49243e)] **deps-dev:** Bump graphql from 16.7.1 to 16.8.0 ([#290](https://github.com/flex-development/errnode/issues/290))
+- [[`52cdee1`](https://github.com/flex-development/errnode/commit/52cdee190e80e6dcfe137dfd71df4277d54bffd1)] **deps-dev:** Bump graphql from 16.8.0 to 16.8.1 ([#315](https://github.com/flex-development/errnode/issues/315))
+- [[`df743ea`](https://github.com/flex-development/errnode/commit/df743ea61b34744cb35b524c314a4c8ab8b1c6df)] **deps-dev:** Bump the typescript-eslint group with 2 updates ([#261](https://github.com/flex-development/errnode/issues/261))
+- [[`e12f30f`](https://github.com/flex-development/errnode/commit/e12f30faa9cc4b92ab2dcf72b5edbc38ba4b5016)] **deps-dev:** Bump the typescript-eslint group with 2 updates ([#273](https://github.com/flex-development/errnode/issues/273))
+- [[`6664e0c`](https://github.com/flex-development/errnode/commit/6664e0c4855f810631407b2d9db48ef9d3c511b6)] **deps-dev:** Bump the typescript-eslint group with 2 updates ([#289](https://github.com/flex-development/errnode/issues/289))
+- [[`3f324d1`](https://github.com/flex-development/errnode/commit/3f324d15863f9fe3a26be14e059b75cb8d82d475)] **deps-dev:** Bump the vitest group with 2 updates ([#263](https://github.com/flex-development/errnode/issues/263))
+- [[`dff3ef9`](https://github.com/flex-development/errnode/commit/dff3ef9f42666f5c53ccc92a153d5ec2f63dc178)] **deps-dev:** Bump vite from 4.4.7 to 4.4.8 ([#265](https://github.com/flex-development/errnode/issues/265))
+- [[`21222b8`](https://github.com/flex-development/errnode/commit/21222b87a335d44eb70c96f07ffa0dd17db2ff29)] **deps-dev:** Bump vite from 4.4.8 to 4.4.9 ([#279](https://github.com/flex-development/errnode/issues/279))
+- [[`934c5f0`](https://github.com/flex-development/errnode/commit/934c5f017333b7534928b3aa28b4989ececfefad)] **deps:** Bump @flex-development/tutils from 6.0.0-alpha.12 to 6.0.0-alpha.13 ([#260](https://github.com/flex-development/errnode/issues/260))
+- [[`6552f6e`](https://github.com/flex-development/errnode/commit/6552f6ebfffb7cae832801fa8417da4df45a8ae1)] **deps:** Bump @flex-development/tutils from 6.0.0-alpha.13 to 6.0.0-alpha.14 ([#262](https://github.com/flex-development/errnode/issues/262))
+- [[`e1f3815`](https://github.com/flex-development/errnode/commit/e1f3815f985f3b8f17c29c6b9fd800ff5ba385a0)] **deps:** Bump @flex-development/tutils from 6.0.0-alpha.14 to 6.0.0-alpha.16 ([#274](https://github.com/flex-development/errnode/issues/274))
+- [[`16505df`](https://github.com/flex-development/errnode/commit/16505df84f53d77479a0c555186f7bf178cee3f0)] **deps:** Bump @flex-development/tutils from 6.0.0-alpha.16 to 6.0.0-alpha.19 ([#284](https://github.com/flex-development/errnode/issues/284))
+- [[`4012bb1`](https://github.com/flex-development/errnode/commit/4012bb159dbafd3787d90c43a8d635bfd03258ae)] **deps:** Bump @flex-development/tutils from 6.0.0-alpha.19 to 6.0.0-alpha.20 ([#287](https://github.com/flex-development/errnode/issues/287))
+- [[`39e9d9a`](https://github.com/flex-development/errnode/commit/39e9d9a1afae3a38d05f7709bf90598f155d2183)] **deps:** Bump micromatch from 4.0.7 to 4.0.8 ([#337](https://github.com/flex-development/errnode/issues/337))
+- [[`4367a0c`](https://github.com/flex-development/errnode/commit/4367a0c82452eaaec9b68f908e11b80c24a2e469)] **deps:** Bump semver from 5.7.1 to 5.7.2 ([#338](https://github.com/flex-development/errnode/issues/338))
+- [[`be10dec`](https://github.com/flex-development/errnode/commit/be10dec35a958e5a2040dab0ca44771a5f66f31d)] **deps:** Bump tar from 6.1.13 to 6.2.1 ([#339](https://github.com/flex-development/errnode/issues/339))
+
+### :robot: Continuous Integration
+
+- [[`a4e05fc`](https://github.com/flex-development/errnode/commit/a4e05fc510cc12354c49c6b653ba7e819cf91cad)] **deps:** Bump actions/cache from 3.3.1 to 3.3.2 ([#307](https://github.com/flex-development/errnode/issues/307))
+- [[`ee2bbcb`](https://github.com/flex-development/errnode/commit/ee2bbcb49fe6a5597b72668f566f2e4b624ec078)] **deps:** Bump actions/checkout from 3.5.3 to 3.6.0 ([#297](https://github.com/flex-development/errnode/issues/297))
+- [[`dd53dc8`](https://github.com/flex-development/errnode/commit/dd53dc8490ea60b78949bd6ab9672d52648a5636)] **deps:** Bump actions/checkout from 3.6.0 to 4.1.0 ([#316](https://github.com/flex-development/errnode/issues/316))
+- [[`298a931`](https://github.com/flex-development/errnode/commit/298a93147202588d3cf88280565144f8e7a3c262)] **deps:** Bump actions/checkout from 4.1.0 to 4.1.1 ([#320](https://github.com/flex-development/errnode/issues/320))
+- [[`059f842`](https://github.com/flex-development/errnode/commit/059f8423d1270648eb448ee68cbbfe51108ee50f)] **deps:** Bump actions/setup-node from 3.7.0 to 3.8.0 ([#288](https://github.com/flex-development/errnode/issues/288))
+- [[`43ee2a8`](https://github.com/flex-development/errnode/commit/43ee2a83ae8cd6701cc872c9a00204a815228ddb)] **deps:** Bump actions/setup-node from 3.8.0 to 3.8.1 ([#293](https://github.com/flex-development/errnode/issues/293))
+- [[`35b91d2`](https://github.com/flex-development/errnode/commit/35b91d26a6b6a60cad3bdefc1f3f2f1300d85c5e)] **deps:** Bump actions/setup-node from 4.0.2 to 4.0.3 ([#336](https://github.com/flex-development/errnode/issues/336))
+- [[`6fc2306`](https://github.com/flex-development/errnode/commit/6fc230681563d841c15d64a934a51ecf301e2eab)] **deps:** Bump actions/upload-artifact from 3.1.2 to 3.1.3 ([#306](https://github.com/flex-development/errnode/issues/306))
+- [[`04a7577`](https://github.com/flex-development/errnode/commit/04a7577e2290d10b173614f4da5fc35e49866ad0)] **deps:** Bump actions/upload-artifact from 4.3.1 to 4.3.6 ([#335](https://github.com/flex-development/errnode/issues/335))
+- [[`95a26cb`](https://github.com/flex-development/errnode/commit/95a26cb145434d257c7ada4bb76574da33f50df8)] **deps:** Bump crazy-max/ghaction-import-gpg from 5.3.0 to 5.4.0 ([#304](https://github.com/flex-development/errnode/issues/304))
+- [[`1b42db7`](https://github.com/flex-development/errnode/commit/1b42db71c293630898395a54b8173eafeaad7703)] **deps:** Bump crazy-max/ghaction-import-gpg from 5.4.0 to 6.0.0 ([#309](https://github.com/flex-development/errnode/issues/309))
+
+### :sparkles: Features
+
+- [[`f33bef4`](https://github.com/flex-development/errnode/commit/f33bef4bb0dd59f890ba89dbe203dc2fb8cbb830)] **errors:** `ERR_ENCODING_NOT_SUPPORTED`
+- [[`cb549e9`](https://github.com/flex-development/errnode/commit/cb549e9ebbd56a043496ab72e9d1736760e1a461)] **errors:** `ERR_IMPORT_ATTRIBUTE_MISSING`
+- [[`c6305f8`](https://github.com/flex-development/errnode/commit/c6305f85b5542f407129915602f10eb45dc5837a)] **errors:** `ERR_IMPORT_ATTRIBUTE_TYPE_INCOMPATIBLE`
+- [[`db87bd6`](https://github.com/flex-development/errnode/commit/db87bd6b45799a966a42264d28731387838c05a2)] **errors:** `ERR_IMPORT_ATTRIBUTE_UNSUPPORTED`
+- [[`2302af2`](https://github.com/flex-development/errnode/commit/2302af21c0caea011aebde241baf69c959da59e0)] **errors:** `ERR_UNSUPPORTED_RESOLVE_REQUEST`
+
+### :mechanical_arm: Refactors
+
+- [[`df60bc8`](https://github.com/flex-development/errnode/commit/df60bc824afc2aaf179e88be3f518fc8543a650a)] project rewrite
+
 ## [2.0.0](https://github.com/flex-development/errnode/compare/1.5.0...2.0.0) (2023-07-29)
 
 ### ⚠ BREAKING CHANGES
@@ -381,4 +448,5 @@
 - [[`1e78899`](https://github.com/flex-development/errnode/commit/1e78899060e11ab339624952f63e8686d7c56b32)] **github:** add label `scope:lib`
 - [[`c66e156`](https://github.com/flex-development/errnode/commit/c66e156a37b859897cc4ae0fb1b32b54daa31eab)] **pkg:** add keyword `nodejs`
 - [[`3e52ba5`](https://github.com/flex-development/errnode/commit/3e52ba59843d086d67d389f76686f68ceec31a7e)] **tests:** codecov integration
+
 
