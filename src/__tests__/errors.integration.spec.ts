@@ -3,6 +3,7 @@
  * @module errnode/tests/integration/errors
  */
 
+import JSON_MODULE_DATA_URL from '#fixtures/json-module-data-url'
 import { codes, syscodes } from '#src/enums'
 import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
 import serializer from '#tests/serializers/node-error'
@@ -33,6 +34,13 @@ describe('integration:errors', () => {
       'json'
     ],
     [codes.ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED, TypeError, 'json5'],
+    [
+      codes.ERR_IMPORT_ATTRIBUTE_MISSING,
+      TypeError,
+      JSON_MODULE_DATA_URL,
+      'type',
+      'json'
+    ],
     [codes.ERR_INCOMPATIBLE_OPTION_PAIR, TypeError, 'N', 'cost'],
     [codes.ERR_INVALID_ARG_TYPE, TypeError, 'ctor', 'Function', null],
     [codes.ERR_INVALID_ARG_VALUE, TypeError, 'address', 1],

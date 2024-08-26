@@ -29,6 +29,12 @@ export {
   type ErrImportAssertionTypeUnsupportedConstructor
 } from './err-import-assertion-type-unsupported'
 export {
+  default as ERR_IMPORT_ATTRIBUTE_MISSING,
+  type ErrImportAttributeMissing,
+  type ErrImportAttributeMissingArgs,
+  type ErrImportAttributeMissingConstructor
+} from './err-import-attribute-missing'
+export {
   default as ERR_INCOMPATIBLE_OPTION_PAIR,
   type ErrIncompatibleOptionPair,
   type ErrIncompatibleOptionPairArgs,

@@ -30,6 +30,7 @@
     "outDir": "dist",
     "paths": {
       "#e": ["src/e"],
+      "#fixtures/*": ["__fixtures__/*"],
       "#format-message": ["src/internal/format-message.development"],
       "#hide-stack-frames": ["src/internal/hide-stack-frames"],
       "#k-is-node-error": ["src/internal/k-is-node-error"],
