@@ -143,6 +143,7 @@ This package exports the following identifiers:
 - [`codes`](#codes)
 - [`determineSpecificType`](#determinespecifictypevalue)
 - [`errors`](#errors)
+  - `ERR_ENCODING_NOT_SUPPORTED`
   - `ERR_IMPORT_ASSERTION_TYPE_FAILED`
   - `ERR_IMPORT_ASSERTION_TYPE_MISSING`
   - `ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED`

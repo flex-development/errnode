@@ -19,6 +19,7 @@ describe('integration:errors', () => {
   })
 
   describe.each<[keyof typeof testSubject, ErrorConstructor, ...unknown[]]>([
+    [codes.ERR_ENCODING_NOT_SUPPORTED, RangeError, null],
     [
       codes.ERR_IMPORT_ASSERTION_TYPE_FAILED,
       TypeError,

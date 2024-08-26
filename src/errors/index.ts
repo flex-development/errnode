@@ -5,6 +5,12 @@
  */
 
 export {
+  default as ERR_ENCODING_NOT_SUPPORTED,
+  type ErrEncodingNotSupported,
+  type ErrEncodingNotSupportedArgs,
+  type ErrEncodingNotSupportedConstructor
+} from './err-encoding-not-supported'
+export {
   default as ERR_IMPORT_ASSERTION_TYPE_FAILED,
   type ErrImportAssertionTypeFailed,
   type ErrImportAssertionTypeFailedArgs,

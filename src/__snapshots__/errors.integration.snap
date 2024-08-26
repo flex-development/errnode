@@ -1,5 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`integration:errors > ERR_ENCODING_NOT_SUPPORTED > #toString > should return string representation of error 1`] = `RangeError [ERR_ENCODING_NOT_SUPPORTED]: The "null" encoding is not supported`;
+
 exports[`integration:errors > ERR_IMPORT_ASSERTION_TYPE_FAILED > #toString > should return string representation of error 1`] = `TypeError [ERR_IMPORT_ASSERTION_TYPE_FAILED]: Module '\${process.cwd()}/build.config.ts' is not of type 'json'`;
 
 exports[`integration:errors > ERR_IMPORT_ASSERTION_TYPE_MISSING > #toString > should return string representation of error 1`] = `TypeError [ERR_IMPORT_ASSERTION_TYPE_MISSING]: Module '\${process.cwd()}/package.json' needs an import assertion of type 'json'`;

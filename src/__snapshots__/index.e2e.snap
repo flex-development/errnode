@@ -5,6 +5,7 @@ exports[`e2e:errnode > should expose public api 1`] = `
   "E",
   "codes",
   "syscodes",
+  "ERR_ENCODING_NOT_SUPPORTED",
   "ERR_IMPORT_ASSERTION_TYPE_FAILED",
   "ERR_IMPORT_ASSERTION_TYPE_MISSING",
   "ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED",
