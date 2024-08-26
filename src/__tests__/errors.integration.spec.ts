@@ -48,6 +48,7 @@ describe('integration:errors', () => {
       JS_MODULE_DATA_URL,
       'json'
     ],
+    [codes.ERR_IMPORT_ATTRIBUTE_UNSUPPORTED, TypeError, 'type', 'unsupported'],
     [codes.ERR_INCOMPATIBLE_OPTION_PAIR, TypeError, 'N', 'cost'],
     [codes.ERR_INVALID_ARG_TYPE, TypeError, 'ctor', 'Function', null],
     [codes.ERR_INVALID_ARG_VALUE, TypeError, 'address', 1],

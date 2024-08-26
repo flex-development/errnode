@@ -41,6 +41,12 @@ export {
   type ErrImportAttributeTypeIncompatibleConstructor
 } from './err-import-attribute-type-incompatible'
 export {
+  default as ERR_IMPORT_ATTRIBUTE_UNSUPPORTED,
+  type ErrImportAttributeUnsupported,
+  type ErrImportAttributeUnsupportedArgs,
+  type ErrImportAttributeUnsupportedConstructor
+} from './err-import-attribute-unsupported'
+export {
   default as ERR_INCOMPATIBLE_OPTION_PAIR,
   type ErrIncompatibleOptionPair,
   type ErrIncompatibleOptionPairArgs,
