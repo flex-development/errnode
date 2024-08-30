@@ -1530,7 +1530,7 @@ __metadata:
     "@flex-development/mkbuild": "npm:1.0.0-alpha.23"
     "@flex-development/mlly": "npm:1.0.0-alpha.18"
     "@flex-development/pathe": "npm:2.0.0"
-    "@flex-development/pkg-types": "npm:3.0.0"
+    "@flex-development/pkg-types": "npm:4.0.0"
     "@flex-development/tutils": "npm:6.0.0-alpha.25"
     "@stylistic/eslint-plugin": "npm:2.6.4"
     "@types/eslint": "npm:9.6.0"
@@ -1862,6 +1862,13 @@ __metadata:
   peerDependencies:
     "@flex-development/tutils": ">=6.0.0-alpha.7"
   checksum: 10/062f48ff66312b63d55f175f766fab81a56dd394b11631ef516c24a3faf4da2ec62b0aeb1bb686044d072a1a7c0158766b4ff4fceae4d1a02286bf0ce4c4731c
+  languageName: node
+  linkType: hard
+
+"@flex-development/pkg-types@npm:4.0.0":
+  version: 4.0.0
+  resolution: "@flex-development/pkg-types@npm:4.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fpkg-types%2F4.0.0%2Ff35da5b7f2d5777518eb274f73cddc067a3608c0"
+  checksum: 10/617374c652fc1c081d4fb2e97d689b36d95e769c238e0d1d95ec934e5bdf36e7af694014e8cae1fcee236094dc20f089caf8f9eba26a8c50eefcca1f97efbe52
   languageName: node
   linkType: hard
 
