@@ -137,6 +137,12 @@ export {
   type ErrMethodNotImplementedConstructor
 } from './err-method-not-implemented'
 export {
+  default as ERR_MISSING_ARGS,
+  type ErrMissingArgs,
+  type ErrMissingArgsArgs,
+  type ErrMissingArgsConstructor
+} from './err-missing-args'
+export {
   default as ERR_MISSING_OPTION,
   type ErrMissingOption,
   type ErrMissingOptionArgs,

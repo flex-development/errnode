@@ -44,6 +44,8 @@ exports[`integration:errors > ERR_INVALID_URL_SCHEME > #toString > should return
 
 exports[`integration:errors > ERR_METHOD_NOT_IMPLEMENTED > #toString > should return string representation of error 1`] = `Error [ERR_METHOD_NOT_IMPLEMENTED]: The _transform() method is not implemented`;
 
+exports[`integration:errors > ERR_MISSING_ARGS > #toString > should return string representation of error 1`] = `TypeError [ERR_MISSING_ARGS]: The "address", "port", and "callback" arguments must be specified`;
+
 exports[`integration:errors > ERR_MISSING_OPTION > #toString > should return string representation of error 1`] = `TypeError [ERR_MISSING_OPTION]: init.highWaterMark is required`;
 
 exports[`integration:errors > ERR_MODULE_NOT_FOUND > #toString > should return string representation of error 1`] = `Error [ERR_MODULE_NOT_FOUND]: Cannot find module '\${process.cwd()}/missing-file' imported from \${process.cwd()}/src/__tests__/errors.integration.spec.ts`;

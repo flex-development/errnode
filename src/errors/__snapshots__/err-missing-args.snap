@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:errors/ERR_MISSING_ARGS > should build message from parameters (0) 1`] = `"The "domain" argument must be specified"`;
+
+exports[`unit:errors/ERR_MISSING_ARGS > should build message from parameters (1) 1`] = `"The "name" and "value" arguments must be specified"`;

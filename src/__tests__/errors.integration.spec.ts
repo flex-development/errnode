@@ -88,6 +88,7 @@ describe('integration:errors', () => {
     [codes.ERR_INVALID_URL, TypeError, pathe.sep, 'http://[127.0.0.1]:8000'],
     [codes.ERR_INVALID_URL_SCHEME, TypeError, 'file'],
     [codes.ERR_METHOD_NOT_IMPLEMENTED, Error, '_transform()'],
+    [codes.ERR_MISSING_ARGS, TypeError, 'address', 'port', 'callback'],
     [codes.ERR_MISSING_OPTION, TypeError, 'init.highWaterMark'],
     [
       codes.ERR_MODULE_NOT_FOUND,
