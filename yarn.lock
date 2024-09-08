@@ -1524,11 +1524,8 @@ __metadata:
     "@commitlint/types": "npm:19.0.3"
     "@eslint/js": "npm:9.9.1"
     "@flex-development/commitlint-config": "npm:1.0.1"
-    "@flex-development/decorator-regex": "npm:2.0.0"
-    "@flex-development/esm-types": "npm:2.0.0"
     "@flex-development/grease": "npm:3.0.0-alpha.9"
     "@flex-development/mkbuild": "npm:1.0.0-alpha.23"
-    "@flex-development/mlly": "npm:1.0.0-alpha.18"
     "@flex-development/pathe": "npm:2.0.0"
     "@flex-development/pkg-types": "npm:4.0.0"
     "@flex-development/tutils": "npm:6.0.0-alpha.25"
@@ -1653,17 +1650,6 @@ __metadata:
     yaml-eslint-parser: "npm:1.2.3"
   languageName: unknown
   linkType: soft
-
-"@flex-development/esm-types@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@flex-development/esm-types@npm:2.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fesm-types%2F2.0.0%2Fbd7aef7a92e089250bd8a17e8c73b16bf8ae248c"
-  dependencies:
-    "@flex-development/tutils": "npm:6.0.0-alpha.11"
-  peerDependencies:
-    "@types/node": ">=16.18.23"
-  checksum: 10/5e9030a8528485a6098fea9d4babf1457803bb85b22690f986460c097f62572ae04fd9f37646c55f6a4e449732ec3129e6ed962d8710d6b8230cfeb3f6d562ec
-  languageName: node
-  linkType: hard
 
 "@flex-development/export-regex@npm:1.0.2":
   version: 1.0.2
@@ -1919,17 +1905,6 @@ __metadata:
   peerDependencies:
     typescript: ">=4.7"
   checksum: 10/2e1c7ff82974da361afbdfe763771c40371bf6fc6eb5dee38028452afcd39062161554315327e4922e7950cb78470b1e625f727967a1096a65ca5918be75e3b9
-  languageName: node
-  linkType: hard
-
-"@flex-development/tutils@npm:6.0.0-alpha.11":
-  version: 6.0.0-alpha.11
-  resolution: "@flex-development/tutils@npm:6.0.0-alpha.11::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Ftutils%2F6.0.0-alpha.11%2Fcd1832885d050e2b6403e471bae0b7f7ffc70680"
-  dependencies:
-    dequal: "npm:2.0.3"
-  peerDependencies:
-    typescript: ">=5.0.4"
-  checksum: 10/1a2f7a1a6c7b6a10cc70efe3b23df8007a86e1a55ad2a1fd9480e1453fc3c10da0ba8680e177b316c526c79871210b5c185ae27ff1a6b815f2d6c5673a413d50
   languageName: node
   linkType: hard
 

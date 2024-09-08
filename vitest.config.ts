@@ -42,6 +42,9 @@ const config: UserConfigExport = defineConfig((env: ConfigEnv): UserConfig => {
   return {
     define: {},
     plugins: [tsconfigPaths({ projects: [tsconfig] })],
+    resolve: {
+      conditions: ['vitest', 'ts-node']
+    },
     test: {
       allowOnly: !ci,
       benchmark: {

@@ -30,6 +30,8 @@ exports[`integration:errors > ERR_INVALID_RETURN_VALUE > #toString > should retu
 
 exports[`integration:errors > ERR_INVALID_URL > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_URL]: Invalid URL`;
 
+exports[`integration:errors > ERR_INVALID_URL_SCHEME > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_URL_SCHEME]: The URL must be of scheme file`;
+
 exports[`integration:errors > ERR_METHOD_NOT_IMPLEMENTED > #toString > should return string representation of error 1`] = `Error [ERR_METHOD_NOT_IMPLEMENTED]: The _transform() method is not implemented`;
 
 exports[`integration:errors > ERR_MISSING_OPTION > #toString > should return string representation of error 1`] = `TypeError [ERR_MISSING_OPTION]: init.highWaterMark is required`;

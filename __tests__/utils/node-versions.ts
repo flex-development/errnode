@@ -15,7 +15,8 @@ const NODE_VERSIONS: SemanticVersion[] = [
   '19.9.0',
   '20.17.0',
   '21.7.3',
-  '22.7.0'
+  '22.7.0',
+  '22.8.0'
 ]
 
 export default NODE_VERSIONS

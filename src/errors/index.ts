@@ -95,6 +95,12 @@ export {
   type ErrInvalidUrlConstructor
 } from './err-invalid-url'
 export {
+  default as ERR_INVALID_URL_SCHEME,
+  type ErrInvalidUrlScheme,
+  type ErrInvalidUrlSchemeArgs,
+  type ErrInvalidUrlSchemeConstructor
+} from './err-invalid-url-scheme'
+export {
   default as ERR_METHOD_NOT_IMPLEMENTED,
   type ErrMethodNotImplemented,
   type ErrMethodNotImplementedArgs,

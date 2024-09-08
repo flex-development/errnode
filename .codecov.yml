@@ -65,15 +65,19 @@ coverage:
         threshold: 0%
 
 flags:
+  node22:
+    carryforward: false
+    paths:
+      - src/
+  node20:
+    carryforward: false
+    paths:
+      - src/
   node19:
     carryforward: false
     paths:
       - src/
   node18:
-    carryforward: false
-    paths:
-      - src/
-  node16:
     carryforward: false
     paths:
       - src/
@@ -85,6 +89,7 @@ ignore:
   - '**/__mocks__/**'
   - '**/__tests__/**'
   - '**/index.ts'
+  - '!src/index.ts'
   - src/interfaces/
   - src/internal/stack-trace.browser.ts
   - src/types/

@@ -6,7 +6,7 @@
     "alwaysStrict": false,
     "baseUrl": ".",
     "checkJs": false,
-    "customConditions": ["development", "import", "node"],
+    "customConditions": ["development", "import", "node", "ts-node"],
     "declaration": false,
     "declarationMap": false,
     "emitDecoratorMetadata": false,
@@ -31,14 +31,7 @@
     "paths": {
       "#e": ["src/e"],
       "#fixtures/*": ["__fixtures__/*"],
-      "#format-message": ["src/internal/format-message.development"],
-      "#hide-stack-frames": ["src/internal/hide-stack-frames"],
-      "#k-is-node-error": ["src/internal/k-is-node-error"],
-      "#is-stack-trace-limit-writable": [
-        "src/internal/is-stack-trace-limit-writable"
-      ],
       "#src/*": ["src/*"],
-      "#stack-trace": ["src/internal/stack-trace"],
       "#tests/*": ["__tests__/*"]
     },
     "preserveConstEnums": true,

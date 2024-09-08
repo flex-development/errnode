@@ -5,13 +5,10 @@
     "noEmitOnError": true,
     "paths": {
       "#e": ["src/e"],
-      "#format-message": ["#format-message"],
-      "#k-is-node-error": ["#k-is-node-error"],
-      "#stack-trace": ["#stack-trace"],
       "#src/*": ["src/*"]
     },
     "skipLibCheck": false,
-    "target": "es2022"
+    "target": "es2023"
   },
   "exclude": [],
   "extends": "./tsconfig.json",
