@@ -54,6 +54,8 @@ exports[`integration:errors > ERR_NETWORK_IMPORT_DISALLOWED > #toString > should
 
 exports[`integration:errors > ERR_NO_CRYPTO > #toString > should return string representation of error 1`] = `Error [ERR_NO_CRYPTO]: Node.js is not compiled with OpenSSL crypto support`;
 
+exports[`integration:errors > ERR_NO_ICU > #toString > should return string representation of error 1`] = `TypeError [ERR_NO_ICU]: "fatal" option is not supported on Node.js compiled without ICU`;
+
 exports[`integration:errors > ERR_OPERATION_FAILED > #toString > should return string representation of error 1`] = `Error [ERR_OPERATION_FAILED]: Operation failed: Out of memory`;
 
 exports[`integration:errors > ERR_PACKAGE_IMPORT_NOT_DEFINED > #toString > should return string representation of error 1`] = `TypeError [ERR_PACKAGE_IMPORT_NOT_DEFINED]: Package import specifier '#src' is not defined in package \${process.cwd()}/package.json imported from file://\${process.cwd()}/src/__tests__/errors.integration.spec.ts`;

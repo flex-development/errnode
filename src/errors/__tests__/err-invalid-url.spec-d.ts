@@ -23,8 +23,7 @@ describe('unit-d:errors/ERR_INVALID_URL', () => {
     })
 
     it('should extend TypeError', () => {
-      expectTypeOf<TestSubject.ErrInvalidUrl>()
-        .toMatchTypeOf<TypeError>()
+      expectTypeOf<TestSubject.ErrInvalidUrl>().toMatchTypeOf<TypeError>()
     })
 
     it('should match [base?: URL | string | null | undefined]', () => {

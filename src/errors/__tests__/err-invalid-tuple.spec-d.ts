@@ -22,8 +22,7 @@ describe('unit-d:errors/ERR_INVALID_TUPLE', () => {
     })
 
     it('should extend TypeError', () => {
-      expectTypeOf<TestSubject.ErrInvalidTuple>()
-        .toMatchTypeOf<TypeError>()
+      expectTypeOf<TestSubject.ErrInvalidTuple>().toMatchTypeOf<TypeError>()
     })
   })
 

@@ -22,8 +22,7 @@ describe('unit-d:errors/ERR_MISSING_ARGS', () => {
     })
 
     it('should extend TypeError', () => {
-      expectTypeOf<TestSubject.ErrMissingArgs>()
-        .toMatchTypeOf<TypeError>()
+      expectTypeOf<TestSubject.ErrMissingArgs>().toMatchTypeOf<TypeError>()
     })
   })
 

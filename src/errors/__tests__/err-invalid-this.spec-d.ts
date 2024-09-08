@@ -22,8 +22,7 @@ describe('unit-d:errors/ERR_INVALID_THIS', () => {
     })
 
     it('should extend TypeError', () => {
-      expectTypeOf<TestSubject.ErrInvalidThis>()
-        .toMatchTypeOf<TypeError>()
+      expectTypeOf<TestSubject.ErrInvalidThis>().toMatchTypeOf<TypeError>()
     })
   })
 

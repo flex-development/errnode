@@ -167,6 +167,12 @@ export {
   type ErrNoCryptoConstructor
 } from './err-no-crypto'
 export {
+  default as ERR_NO_ICU,
+  type ErrNoIcu,
+  type ErrNoIcuArgs,
+  type ErrNoIcuConstructor
+} from './err-no-icu'
+export {
   default as ERR_OPERATION_FAILED,
   type ErrOperationFailed,
   type ErrOperationFailedArgs,
