@@ -55,6 +55,11 @@ describe('integration:errors', () => {
     [codes.ERR_INVALID_ARG_VALUE, TypeError, 'address', 1],
     [codes.ERR_INVALID_FILE_URL_HOST, TypeError, 'darwin'],
     [
+      codes.ERR_INVALID_FILE_URL_PATH,
+      TypeError,
+      'must not include encoded \\ or / characters'
+    ],
+    [
       codes.ERR_INVALID_MODULE_SPECIFIER,
       TypeError,
       '@flex-development%2Fpathe',

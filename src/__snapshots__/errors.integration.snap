@@ -24,6 +24,8 @@ exports[`integration:errors > ERR_INVALID_ARG_VALUE > #toString > should return 
 
 exports[`integration:errors > ERR_INVALID_FILE_URL_HOST > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_FILE_URL_HOST]: File URL host must be "localhost" or empty on darwin`;
 
+exports[`integration:errors > ERR_INVALID_FILE_URL_PATH > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded \\ or / characters`;
+
 exports[`integration:errors > ERR_INVALID_MODULE_SPECIFIER > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_MODULE_SPECIFIER]: Invalid module '@flex-development%2Fpathe' is not a valid package name imported from \${process.cwd()}/scratch.ts`;
 
 exports[`integration:errors > ERR_INVALID_PACKAGE_CONFIG > #toString > should return string representation of error 1`] = `Error [ERR_INVALID_PACKAGE_CONFIG]: Invalid package config \${process.cwd()}/node_modules/@flex-development/pathe/package.json while importing file://\${process.cwd()}/loader.mjs. "exports" cannot contain some keys starting with '.' and some not. The exports object must either be an object of package subpath keys or an object of main entry condition name keys only.`;
