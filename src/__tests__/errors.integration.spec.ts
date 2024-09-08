@@ -21,6 +21,7 @@ describe('integration:errors', () => {
   })
 
   describe.each<[keyof typeof testSubject, ErrorConstructor, ...unknown[]]>([
+    [codes.ERR_ARG_NOT_ITERABLE, TypeError, 'Query pairs'],
     [codes.ERR_ENCODING_NOT_SUPPORTED, RangeError, null],
     [
       codes.ERR_IMPORT_ASSERTION_TYPE_FAILED,

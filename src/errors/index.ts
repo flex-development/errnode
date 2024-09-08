@@ -5,6 +5,12 @@
  */
 
 export {
+  default as ERR_ARG_NOT_ITERABLE,
+  type ErrArgNotIterable,
+  type ErrArgNotIterableArgs,
+  type ErrArgNotIterableConstructor
+} from './err-arg-not-iterable'
+export {
   default as ERR_ENCODING_NOT_SUPPORTED,
   type ErrEncodingNotSupported,
   type ErrEncodingNotSupportedArgs,
