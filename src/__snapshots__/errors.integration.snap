@@ -36,6 +36,8 @@ exports[`integration:errors > ERR_INVALID_RETURN_VALUE > #toString > should retu
 
 exports[`integration:errors > ERR_INVALID_THIS > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_THIS]: Value of "this" must be of type URLSearchParams`;
 
+exports[`integration:errors > ERR_INVALID_TUPLE > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_TUPLE]: Each query pair must be an iterable [name, value] tuple`;
+
 exports[`integration:errors > ERR_INVALID_URL > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_URL]: Invalid URL`;
 
 exports[`integration:errors > ERR_INVALID_URL_SCHEME > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_URL_SCHEME]: The URL must be of scheme file`;

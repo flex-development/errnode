@@ -113,6 +113,12 @@ export {
   type ErrInvalidThisConstructor
 } from './err-invalid-this'
 export {
+  default as ERR_INVALID_TUPLE,
+  type ErrInvalidTuple,
+  type ErrInvalidTupleArgs,
+  type ErrInvalidTupleConstructor
+} from './err-invalid-tuple'
+export {
   default as ERR_INVALID_URL,
   type ErrInvalidUrl,
   type ErrInvalidUrlArgs,

@@ -84,6 +84,7 @@ describe('integration:errors', () => {
     ],
     [codes.ERR_INVALID_RETURN_VALUE, TypeError, 'null', 'body', 13],
     [codes.ERR_INVALID_THIS, TypeError, 'URLSearchParams'],
+    [codes.ERR_INVALID_TUPLE, TypeError, 'Each query pair', '[name, value]'],
     [codes.ERR_INVALID_URL, TypeError, pathe.sep, 'http://[127.0.0.1]:8000'],
     [codes.ERR_INVALID_URL_SCHEME, TypeError, 'file'],
     [codes.ERR_METHOD_NOT_IMPLEMENTED, Error, '_transform()'],
