@@ -34,6 +34,8 @@ exports[`integration:errors > ERR_INVALID_PACKAGE_TARGET > #toString > should re
 
 exports[`integration:errors > ERR_INVALID_RETURN_VALUE > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_RETURN_VALUE]: Expected null to be returned from the 'body' function but got type number (13).`;
 
+exports[`integration:errors > ERR_INVALID_THIS > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_THIS]: Value of "this" must be of type URLSearchParams`;
+
 exports[`integration:errors > ERR_INVALID_URL > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_URL]: Invalid URL`;
 
 exports[`integration:errors > ERR_INVALID_URL_SCHEME > #toString > should return string representation of error 1`] = `TypeError [ERR_INVALID_URL_SCHEME]: The URL must be of scheme file`;

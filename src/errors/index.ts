@@ -107,6 +107,12 @@ export {
   type ErrInvalidReturnValueConstructor
 } from './err-invalid-return-value'
 export {
+  default as ERR_INVALID_THIS,
+  type ErrInvalidThis,
+  type ErrInvalidThisArgs,
+  type ErrInvalidThisConstructor
+} from './err-invalid-this'
+export {
   default as ERR_INVALID_URL,
   type ErrInvalidUrl,
   type ErrInvalidUrlArgs,
