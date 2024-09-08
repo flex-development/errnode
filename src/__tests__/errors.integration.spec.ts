@@ -103,6 +103,7 @@ describe('integration:errors', () => {
       import.meta.url,
       'ES modules cannot be loaded by require() from the network'
     ],
+    [codes.ERR_NO_CRYPTO, Error],
     [codes.ERR_OPERATION_FAILED, Error, 'Out of memory'],
     [
       codes.ERR_PACKAGE_IMPORT_NOT_DEFINED,

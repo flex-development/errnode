@@ -50,6 +50,8 @@ exports[`integration:errors > ERR_MODULE_NOT_FOUND > #toString > should return s
 
 exports[`integration:errors > ERR_NETWORK_IMPORT_DISALLOWED > #toString > should return string representation of error 1`] = `Error [ERR_NETWORK_IMPORT_DISALLOWED]: import of 'https://esm.sh/@flex-development/unist-util-builder' by file://\${process.cwd()}/src/__tests__/errors.integration.spec.ts is not supported: ES modules cannot be loaded by require() from the network`;
 
+exports[`integration:errors > ERR_NO_CRYPTO > #toString > should return string representation of error 1`] = `Error [ERR_NO_CRYPTO]: Node.js is not compiled with OpenSSL crypto support`;
+
 exports[`integration:errors > ERR_OPERATION_FAILED > #toString > should return string representation of error 1`] = `Error [ERR_OPERATION_FAILED]: Operation failed: Out of memory`;
 
 exports[`integration:errors > ERR_PACKAGE_IMPORT_NOT_DEFINED > #toString > should return string representation of error 1`] = `TypeError [ERR_PACKAGE_IMPORT_NOT_DEFINED]: Package import specifier '#src' is not defined in package \${process.cwd()}/package.json imported from file://\${process.cwd()}/src/__tests__/errors.integration.spec.ts`;

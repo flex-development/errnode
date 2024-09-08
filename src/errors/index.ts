@@ -155,6 +155,12 @@ export {
   type ErrNetworkImportDisallowedConstructor
 } from './err-network-import-disallowed'
 export {
+  default as ERR_NO_CRYPTO,
+  type ErrNoCrypto,
+  type ErrNoCryptoArgs,
+  type ErrNoCryptoConstructor
+} from './err-no-crypto'
+export {
   default as ERR_OPERATION_FAILED,
   type ErrOperationFailed,
   type ErrOperationFailedArgs,
