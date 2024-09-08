@@ -71,6 +71,12 @@ export {
   type ErrInvalidArgValueConstructor
 } from './err-invalid-arg-value'
 export {
+  default as ERR_INVALID_FILE_URL_HOST,
+  type ErrInvalidFileUrlHost,
+  type ErrInvalidFileUrlHostArgs,
+  type ErrInvalidFileUrlHostConstructor
+} from './err-invalid-file-url-host'
+export {
   default as ERR_INVALID_MODULE_SPECIFIER,
   type ErrInvalidModuleSpecifier,
   type ErrInvalidModuleSpecifierArgs,

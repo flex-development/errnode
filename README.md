@@ -143,6 +143,7 @@ This package exports the following identifiers:
 - [`codes`](#codes)
 - [`determineSpecificType`](#determinespecifictypevalue)
 - [`errors`](#errors)
+  - `ERR_ARG_NOT_ITERABLE`
   - `ERR_ENCODING_NOT_SUPPORTED`
   - `ERR_IMPORT_ASSERTION_TYPE_FAILED`
   - `ERR_IMPORT_ASSERTION_TYPE_MISSING`
@@ -153,6 +154,7 @@ This package exports the following identifiers:
   - `ERR_INCOMPATIBLE_OPTION_PAIR`
   - `ERR_INVALID_ARG_TYPE`
   - `ERR_INVALID_ARG_VALUE`
+  - `ERR_INVALID_FILE_URL_HOST`
   - `ERR_INVALID_MODULE_SPECIFIER`
   - `ERR_INVALID_PACKAGE_CONFIG`
   - `ERR_INVALID_PACKAGE_TARGET`

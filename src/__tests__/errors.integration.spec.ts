@@ -53,6 +53,7 @@ describe('integration:errors', () => {
     [codes.ERR_INCOMPATIBLE_OPTION_PAIR, TypeError, 'N', 'cost'],
     [codes.ERR_INVALID_ARG_TYPE, TypeError, 'ctor', 'Function', null],
     [codes.ERR_INVALID_ARG_VALUE, TypeError, 'address', 1],
+    [codes.ERR_INVALID_FILE_URL_HOST, TypeError, 'darwin'],
     [
       codes.ERR_INVALID_MODULE_SPECIFIER,
       TypeError,
