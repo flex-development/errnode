@@ -1,3 +1,45 @@
+## [3.1.0](https://github.com/flex-development/errnode/compare/3.0.0...3.1.0) (2024-09-08)
+
+### :package: Build
+
+- [[`858d5d2`](https://github.com/flex-development/errnode/commit/858d5d282aa91b4909c7c2bd93d66422238d4295)] **deps-dev:** Bump @commitlint/cli from 19.4.0 to 19.4.1 in the commitlint group ([#351](https://github.com/flex-development/errnode/issues/351))
+- [[`33b469a`](https://github.com/flex-development/errnode/commit/33b469a00f4f68d369b1a8ed0ea2724b995f039b)] **deps-dev:** Bump @flex-development/pkg-types from 3.0.0 to 4.0.0 in the flex-development group ([#352](https://github.com/flex-development/errnode/issues/352))
+- [[`2edbe52`](https://github.com/flex-development/errnode/commit/2edbe52ce0938064a7f1bbd097a101f969e45237)] **deps-dev:** Bump @stylistic/eslint-plugin from 2.6.4 to 2.7.1 ([#353](https://github.com/flex-development/errnode/issues/353))
+- [[`5d363bb`](https://github.com/flex-development/errnode/commit/5d363bb83d072ec006b99e7f3d01367f651f923d)] **deps-dev:** Bump @stylistic/eslint-plugin from 2.7.1 to 2.7.2 ([#356](https://github.com/flex-development/errnode/issues/356))
+- [[`6d69803`](https://github.com/flex-development/errnode/commit/6d6980301d415185cafe847248a22eb752aa7e0f)] **deps-dev:** Bump eslint-import-resolver-typescript from 3.6.1 to 3.6.3 ([#349](https://github.com/flex-development/errnode/issues/349))
+- [[`ee4609f`](https://github.com/flex-development/errnode/commit/ee4609f3e700cd2dcd0eaf25fc160b0678458351)] **deps-dev:** Bump eslint-plugin-import from 2.29.1 to 2.30.0 ([#359](https://github.com/flex-development/errnode/issues/359))
+- [[`d5fb5e6`](https://github.com/flex-development/errnode/commit/d5fb5e64110b23f2fc8c4efed69bc89c5eb3b265)] **deps-dev:** Bump lint-staged from 15.2.9 to 15.2.10 ([#355](https://github.com/flex-development/errnode/issues/355))
+- [[`cb70436`](https://github.com/flex-development/errnode/commit/cb704366cef77b6774db9e6dac50123910acd7b0)] **deps-dev:** Bump the typescript-eslint group with 3 updates ([#348](https://github.com/flex-development/errnode/issues/348))
+- [[`85e0ee7`](https://github.com/flex-development/errnode/commit/85e0ee7d7f59fd02579334106efca1558498aed1)] **deps-dev:** Bump the typescript-eslint group with 3 updates ([#357](https://github.com/flex-development/errnode/issues/357))
+- [[`51aa390`](https://github.com/flex-development/errnode/commit/51aa39018354cc25cc8be4db78ac62dcfb5cfdf6)] **deps-dev:** Bump vfile from 6.0.2 to 6.0.3 ([#350](https://github.com/flex-development/errnode/issues/350))
+- [[`16a0aef`](https://github.com/flex-development/errnode/commit/16a0aef909b09a65571b4f7c2da92b547d9e17fb)] **pkg:** fix `exports` / `imports`
+
+### :robot: Continuous Integration
+
+- [[`f6f5c0a`](https://github.com/flex-development/errnode/commit/f6f5c0a1ee9b4d100453070d60964c1ad344c971)] **deps:** Bump actions/add-to-project from 0.6.1 to 1.0.2 ([#347](https://github.com/flex-development/errnode/issues/347))
+- [[`7a19df9`](https://github.com/flex-development/errnode/commit/7a19df9c48e37ee35b7d86437915c336ec1feda5)] **deps:** Bump actions/checkout from 4.1.2 to 4.1.7 ([#343](https://github.com/flex-development/errnode/issues/343))
+- [[`678a2cb`](https://github.com/flex-development/errnode/commit/678a2cbc4d995c666b4dff875650ad67d8ff7382)] **deps:** Bump actions/create-github-app-token from 1.10.3 to 1.10.4 ([#358](https://github.com/flex-development/errnode/issues/358))
+- [[`b5b506d`](https://github.com/flex-development/errnode/commit/b5b506dadc028695b6d44f8f69a94a5565c16c44)] **deps:** Bump actions/create-github-app-token from 1.9.0 to 1.10.3 ([#346](https://github.com/flex-development/errnode/issues/346))
+- [[`38238d8`](https://github.com/flex-development/errnode/commit/38238d8a170fbcead5f9b3c20870a60dfed8f0b3)] **deps:** Bump actions/upload-artifact from 4.3.6 to 4.4.0 ([#354](https://github.com/flex-development/errnode/issues/354))
+- [[`265e761`](https://github.com/flex-development/errnode/commit/265e761b0378f4fd0f099096ccdacbd5d94b6daa)] **deps:** Bump codecov/codecov-action from 4.1.0 to 4.5.0 ([#345](https://github.com/flex-development/errnode/issues/345))
+- [[`46c0c69`](https://github.com/flex-development/errnode/commit/46c0c69bcda25e304045e399044144883ffb1018)] **deps:** Bump octokit/graphql-action from 2.2.25 to 2.3.2 ([#344](https://github.com/flex-development/errnode/issues/344))
+
+### :sparkles: Features
+
+- [[`84330ce`](https://github.com/flex-development/errnode/commit/84330cee0b23f23b2e54ce6c7b7dcff801ee1f56)] **errors:** `ERR_ARG_NOT_ITERABLE`
+- [[`632c79a`](https://github.com/flex-development/errnode/commit/632c79a1676bee0dfe670d9f7ad0997173b18c52)] **errors:** `ERR_INVALID_FILE_URL_HOST`
+- [[`a48f6b0`](https://github.com/flex-development/errnode/commit/a48f6b0e3f101a02eaf58c38412ca37ec7da409d)] **errors:** `ERR_INVALID_FILE_URL_PATH`
+- [[`2cbf2bd`](https://github.com/flex-development/errnode/commit/2cbf2bd01ea97b7fad40ea9823923e08cb28ccc7)] **errors:** `ERR_INVALID_THIS`
+- [[`1054a1c`](https://github.com/flex-development/errnode/commit/1054a1c3a714516ccdb4f1dc6bba4453660e72da)] **errors:** `ERR_INVALID_TUPLE`
+- [[`4fff601`](https://github.com/flex-development/errnode/commit/4fff60139043e6a333fe299019b36fc849fba8ca)] **errors:** `ERR_INVALID_URL_SCHEME`
+- [[`eb50fa9`](https://github.com/flex-development/errnode/commit/eb50fa9c9f25d48d3518396a2bb2a67a193535fc)] **errors:** `ERR_MISSING_ARGS`
+- [[`8e9d9f6`](https://github.com/flex-development/errnode/commit/8e9d9f6248df4ec79aa1a09b7e55ed3ceeb95250)] **errors:** `ERR_NO_CRYPTO`
+- [[`8c4a555`](https://github.com/flex-development/errnode/commit/8c4a5550b2ec72f849053d33df8b6b1f50626717)] **errors:** `ERR_NO_ICU`
+
+### :mechanical_arm: Refactors
+
+- [[`50eb1e4`](https://github.com/flex-development/errnode/commit/50eb1e4aaf85a8800ea8697a96735dc7c5ba7a12)] stringifiable parameters
+
 ## [3.0.0](https://github.com/flex-development/errnode/compare/2.0.0...3.0.0) (2024-08-25)
 
 ### ⚠ BREAKING CHANGES
@@ -448,5 +490,6 @@
 - [[`1e78899`](https://github.com/flex-development/errnode/commit/1e78899060e11ab339624952f63e8686d7c56b32)] **github:** add label `scope:lib`
 - [[`c66e156`](https://github.com/flex-development/errnode/commit/c66e156a37b859897cc4ae0fb1b32b54daa31eab)] **pkg:** add keyword `nodejs`
 - [[`3e52ba5`](https://github.com/flex-development/errnode/commit/3e52ba59843d086d67d389f76686f68ceec31a7e)] **tests:** codecov integration
+
 
 
