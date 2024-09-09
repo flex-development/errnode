@@ -5,6 +5,9 @@
     "noEmitOnError": true,
     "paths": {
       "#e": ["src/e"],
+      "#format-message": ["#format-message"],
+      "#k-is-node-error": ["#k-is-node-error"],
+      "#stack-trace": ["#stack-trace"],
       "#src/*": ["src/*"]
     },
     "skipLibCheck": false,

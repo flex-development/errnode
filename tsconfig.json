@@ -31,7 +31,10 @@
     "paths": {
       "#e": ["src/e"],
       "#fixtures/*": ["__fixtures__/*"],
+      "#format-message": ["src/internal/format-message.development.ts"],
+      "#k-is-node-error": ["src/internal/k-is-node-error.ts"],
       "#src/*": ["src/*"],
+      "#stack-trace": ["src/internal/stack-trace.ts"],
       "#tests/*": ["__tests__/*"]
     },
     "preserveConstEnums": true,

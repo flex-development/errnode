@@ -38,29 +38,17 @@
     "dist"
   ],
   "exports": {
-    ".": {
-      "vitest": null,
-      "default": "./dist/index.mjs"
-    },
+    ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
   "imports": {
     "#format-message": {
-      "ts-node": "./src/internal/format-message.development.ts",
       "development": "./dist/internal/format-message.development.mjs",
       "production": "./dist/internal/format-message.mjs",
       "default": "./dist/internal/format-message.mjs"
     },
-    "#hide-stack-frames": {
-      "ts-node": "./src/internal/hide-stack-frames.ts",
-      "default": "./dist/internal/hide-stack-frames.mjs"
-    },
-    "#k-is-node-error": {
-      "ts-node": "./src/internal/k-is-node-error.ts",
-      "default": "./dist/internal/k-is-node-error.mjs"
-    },
+    "#k-is-node-error": "./dist/internal/k-is-node-error.mjs",
     "#stack-trace": {
-      "ts-node": "./src/internal/stack-trace.ts",
       "browser": "./dist/internal/stack-trace.browser.mjs",
       "node": "./dist/internal/stack-trace.mjs",
       "default": "./dist/internal/stack-trace.mjs"
