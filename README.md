@@ -34,6 +34,7 @@ Universal API for creating [Node.js errors][errors]
   - [`NodeErrorConstructor<[T][, Args]>`](#nodeerrorconstructort-args)
   - [`NodeErrorMap`](#nodeerrormap)
   - [`NodeError<[T]>`](#nodeerrort)
+  - [`Stringifiable`](#stringifiable)
   - [`SystemCode`](#systemcode)
   - [`SystemErrorMap`](#systemerrormap)
 - [Contribute](#contribute)
@@ -470,6 +471,15 @@ Node.js error object (TypeScript interface).
   — error code
 - `toString` (`() => string`)
   — get a string representation of the error
+
+### `Stringifiable`
+
+A value with a `toString` method (TypeScript interface).
+
+#### Properties
+
+- `toString` (`() => string`)
+  — get a string representation of the value
 
 ### `SystemCode`
 

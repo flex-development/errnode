@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 import { DOT } from '@flex-development/tutils'
 import { ok } from 'devlop'
 
@@ -23,8 +27,14 @@ interface ErrPackagePathNotExported
 
 /**
  * `ERR_PACKAGE_PATH_NOT_EXPORTED` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [dir: string, subpath: string, base?: string | null | undefined]
+type Args = [
+  dir: Stringifiable,
+  subpath: string,
+  base?: Stringifiable | null | undefined
+]
 
 /**
  * `ERR_PACKAGE_PATH_NOT_EXPORTED` constructor.
@@ -41,19 +51,20 @@ interface ErrPackagePathNotExportedConstructor
    * Create a new `ERR_PACKAGE_PATH_NOT_EXPORTED` error.
    *
    * @see {@linkcode ErrPackagePathNotExported}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} dir
-   *  Id of package directory
+   * @param {Stringifiable} dir
+   *  Package directory id
    * @param {string} subpath
    *  Requested subpath
-   * @param {string | null | undefined} [base]
-   *  Parent module path
+   * @param {Stringifiable | null | undefined} [base]
+   *  Parent module id
    * @return {ErrPackagePathNotExported}
    */
   new (
-    dir: string,
+    dir: Stringifiable,
     subpath: string,
-    base?: string | null | undefined
+    base?: Stringifiable | null | undefined
   ): ErrPackagePathNotExported
 }
 
@@ -75,19 +86,24 @@ const ERR_PACKAGE_PATH_NOT_EXPORTED: ErrPackagePathNotExportedConstructor = E(
   codes.ERR_PACKAGE_PATH_NOT_EXPORTED,
   Error,
   /**
-   * @param {string} dir
-   *  Id of package directory
+   * @param {Stringifiable} dir
+   *  Package directory id
    * @param {string} subpath
    *  Requested subpath
-   * @param {string | null | undefined} [base]
-   *  Parent module path
+   * @param {Stringifiable | null | undefined} [base]
+   *  Parent module id
    * @return {string} Error message
    */
   function message(
-    dir: string,
+    dir: Stringifiable,
     subpath: string,
-    base: string | null | undefined = null
+    base: Stringifiable | null | undefined = null
   ): string {
+    ok(
+      String(dir).endsWith('/'),
+      'expected `dir` to end with trailing slash ("/")'
+    )
+
     /**
      * Error message.
      *
@@ -97,9 +113,8 @@ const ERR_PACKAGE_PATH_NOT_EXPORTED: ErrPackagePathNotExportedConstructor = E(
       ? 'No \'exports\' main defined in'
       : `Package subpath '${subpath}' is not defined by 'exports' in`
 
-    ok(dir.endsWith('/'), 'expected `dir` to end with trailing slash ("/")')
-    message += ` ${dir}package.json`
-    if (base) message += ` imported from ${base}`
+    message += ` ${String(dir)}package.json`
+    if (base !== null) message += ` imported from ${String(base)}`
 
     return message
   }

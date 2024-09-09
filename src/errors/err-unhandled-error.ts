@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_UNHANDLED_ERROR` schema.
@@ -20,8 +24,10 @@ interface ErrUnhandledError extends NodeError<codes.ERR_UNHANDLED_ERROR> {}
 
 /**
  * `ERR_UNHANDLED_ERROR` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [err?: string | null | undefined]
+type Args = [err?: Stringifiable | null | undefined]
 
 /**
  * `ERR_UNHANDLED_ERROR` constructor.
@@ -38,12 +44,13 @@ interface ErrUnhandledErrorConstructor
    * Create a new `ERR_UNHANDLED_ERROR` error.
    *
    * @see {@linkcode ErrUnhandledError}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string | null | undefined} [err]
+   * @param {Stringifiable | null | undefined} [err]
    *  Stringified error
    * @return {ErrUnhandledError}
    */
-  new (err?: string | null | undefined): ErrUnhandledError
+  new (err?: Stringifiable | null | undefined): ErrUnhandledError
 }
 
 /**
@@ -61,11 +68,11 @@ const ERR_UNHANDLED_ERROR: ErrUnhandledErrorConstructor = E(
   codes.ERR_UNHANDLED_ERROR,
   Error,
   /**
-   * @param {string | null | undefined} [err]
+   * @param {Stringifiable | null | undefined} [err]
    *  Stringified error
    * @return {string} Error message
    */
-  function message(err: string | null | undefined = null): string {
+  function message(err: Stringifiable | null | undefined = null): string {
     /**
      * Error message.
      *
@@ -73,7 +80,9 @@ const ERR_UNHANDLED_ERROR: ErrUnhandledErrorConstructor = E(
      */
     const message: string = 'Unhandled error.'
 
-    return err && err.length > 0 ? `${message} (${err})` : message
+    return err && String(err).length > 0
+      ? `${message} (${String(err)})`
+      : message
   }
 )
 

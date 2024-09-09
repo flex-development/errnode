@@ -23,7 +23,7 @@ interface ErrImportAssertionTypeUnsupported
 /**
  * `ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED` message arguments.
  */
-type Args = [type: string]
+type Args = [type: unknown]
 
 /**
  * `ERR_IMPORT_ASSERTION_TYPE_UNSUPPORTED` constructor.
@@ -41,11 +41,11 @@ interface ErrImportAssertionTypeUnsupportedConstructor
    *
    * @see {@linkcode ErrImportAssertionTypeUnsupported}
    *
-   * @param {string} type
+   * @param {unknown} type
    *  Unsupported import assertion type
    * @return {ErrImportAssertionTypeUnsupported}
    */
-  new (type: string): ErrImportAssertionTypeUnsupported
+  new (type: unknown): ErrImportAssertionTypeUnsupported
 }
 
 /**

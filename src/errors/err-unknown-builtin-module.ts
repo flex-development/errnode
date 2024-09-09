@@ -22,7 +22,7 @@ interface ErrUnknownBuiltinModule
 /**
  * `ERR_UNKNOWN_BUILTIN_MODULE` message arguments.
  */
-type Args = [name: string]
+type Args = [builtin: unknown]
 
 /**
  * `ERR_UNKNOWN_BUILTIN_MODULE` constructor.
@@ -40,11 +40,11 @@ interface ErrUnknownBuiltinModuleConstructor
    *
    * @see {@linkcode ErrUnknownBuiltinModule}
    *
-   * @param {string} name
-   *  Name of unknown module
+   * @param {unknown} builtin
+   *  The unknown built-in module
    * @return {ErrUnknownBuiltinModule}
    */
-  new (name: string): ErrUnknownBuiltinModule
+  new (builtin: unknown): ErrUnknownBuiltinModule
 }
 
 /**

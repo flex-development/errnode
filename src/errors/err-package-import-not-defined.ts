@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 import { ok } from 'devlop'
 
 /**
@@ -23,11 +27,13 @@ interface ErrPackageImportNotDefined
 
 /**
  * `ERR_PACKAGE_IMPORT_NOT_DEFINED` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
 type Args = [
   specifier: string,
-  dir?: string | null | undefined,
-  base?: string | null | undefined
+  dir?: Stringifiable | null | undefined,
+  base?: Stringifiable | null | undefined
 ]
 
 /**
@@ -45,19 +51,20 @@ interface ErrPackageImportNotDefinedConstructor
    * Create a new `ERR_PACKAGE_IMPORT_NOT_DEFINED` error.
    *
    * @see {@linkcode ErrPackageImportNotDefined}
+   * @see {@linkcode Stringifiable}
    *
    * @param {string} specifier
    *  Invalid package import specifier
-   * @param {string | null | undefined} [dir]
-   *  Id of package directory
-   * @param {string | null | undefined} [base]
-   *  Parent module path
+   * @param {Stringifiable | null | undefined} [dir]
+   *  Package directory id
+   * @param {Stringifiable | null | undefined} [base]
+   *  Parent module id
    * @return {ErrPackageImportNotDefined}
    */
   new (
     specifier: string,
-    dir?: string | null | undefined,
-    base?: string | null | undefined
+    dir?: Stringifiable | null | undefined,
+    base?: Stringifiable | null | undefined
   ): ErrPackageImportNotDefined
 }
 
@@ -81,16 +88,16 @@ const ERR_PACKAGE_IMPORT_NOT_DEFINED: ErrPackageImportNotDefinedConstructor = E(
   /**
    * @param {string} specifier
    *  Invalid package import specifier
-   * @param {string | null | undefined} [dir]
-   *  Id of package directory
-   * @param {string | null | undefined} [base]
-   *  Parent module path
+   * @param {Stringifiable | null | undefined} [dir]
+   *  Package directory id
+   * @param {Stringifiable | null | undefined} [base]
+   *  Parent module id
    * @return {string} Error message
    */
   function message(
     specifier: string,
-    dir: string | null | undefined = null,
-    base: string | null | undefined = null
+    dir: Stringifiable | null | undefined = null,
+    base: Stringifiable | null | undefined = null
   ): string {
     /**
      * Error message.
@@ -101,12 +108,16 @@ const ERR_PACKAGE_IMPORT_NOT_DEFINED: ErrPackageImportNotDefinedConstructor = E(
 
     message += ' is not defined'
 
-    if (dir) {
-      ok(dir.endsWith('/'), 'expected `dir` to end with trailing slash ("/")')
-      message += ` in package ${dir}package.json`
+    if (dir !== null) {
+      ok(
+        String(dir).endsWith('/'),
+        'expected `dir` to end with trailing slash ("/")'
+      )
+
+      message += ` in package ${String(dir)}package.json`
     }
 
-    if (base) message += ` imported from ${base}`
+    if (base !== null) message += ` imported from ${String(base)}`
 
     return message
   }

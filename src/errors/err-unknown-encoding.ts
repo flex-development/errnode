@@ -23,7 +23,7 @@ interface ErrUnknownEncoding
 /**
  * `ERR_UNKNOWN_ENCODING` message arguments.
  */
-type Args = [encoding: string]
+type Args = [encoding: unknown]
 
 /**
  * `ERR_UNKNOWN_ENCODING` constructor.
@@ -41,11 +41,11 @@ interface ErrUnknownEncodingConstructor
    *
    * @see {@linkcode ErrUnknownEncoding}
    *
-   * @param {string} encoding
+   * @param {unknown} encoding
    *  Invalid or unknown encoding
    * @return {ErrUnknownEncoding}
    */
-  new (encoding: string): ErrUnknownEncoding
+  new (encoding: unknown): ErrUnknownEncoding
 }
 
 /**

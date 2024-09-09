@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_INVALID_TUPLE` schema.
@@ -22,8 +26,10 @@ interface ErrInvalidTuple
 
 /**
  * `ERR_INVALID_TUPLE` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [description: string, tuple: string]
+type Args = [description: Stringifiable, tuple: Stringifiable]
 
 /**
  * `ERR_INVALID_TUPLE` constructor.
@@ -39,14 +45,15 @@ interface ErrInvalidTupleConstructor
    * Create a new `ERR_INVALID_TUPLE` error.
    *
    * @see {@linkcode ErrInvalidTuple}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} description
+   * @param {Stringifiable} description
    *  Description of required tuple
-   * @param {string} tuple
+   * @param {Stringifiable} tuple
    *  String representation of tuple
    * @return {ErrInvalidTuple}
    */
-  new (description: string, tuple: string): ErrInvalidTuple
+  new (description: Stringifiable, tuple: Stringifiable): ErrInvalidTuple
 }
 
 /**

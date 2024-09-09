@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_INVALID_FILE_URL_HOST` schema.
@@ -22,8 +26,10 @@ interface ErrInvalidFileUrlHost
 
 /**
  * `ERR_INVALID_FILE_URL_HOST` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [platform: string]
+type Args = [platform: Stringifiable]
 
 /**
  * `ERR_INVALID_FILE_URL_HOST` constructor.
@@ -39,12 +45,13 @@ interface ErrInvalidFileUrlHostConstructor
    * Create a new `ERR_INVALID_FILE_URL_HOST` error.
    *
    * @see {@linkcode ErrInvalidFileUrlHost}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} platform
+   * @param {Stringifiable} platform
    *  Platform invalid host was encountered on
    * @return {ErrInvalidFileUrlHost}
    */
-  new (platform: string): ErrInvalidFileUrlHost
+  new (platform: Stringifiable): ErrInvalidFileUrlHost
 }
 
 /**

@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_UNKNOWN_MODULE_FORMAT` schema.
@@ -22,8 +26,10 @@ interface ErrUnknownModuleFormat
 
 /**
  * `ERR_UNKNOWN_MODULE_FORMAT` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [format: string, url: string]
+type Args = [format: unknown, url: Stringifiable]
 
 /**
  * `ERR_UNKNOWN_MODULE_FORMAT` constructor.
@@ -40,14 +46,15 @@ interface ErrUnknownModuleFormatConstructor
    * Create a new `ERR_UNKNOWN_MODULE_FORMAT` error.
    *
    * @see {@linkcode ErrUnknownModuleFormat}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} format
+   * @param {unknown} format
    *  Unknown or unsupported format
-   * @param {string} url
+   * @param {Stringifiable} url
    *  Module url
    * @return {ErrUnknownModuleFormat}
    */
-  new (format: string, url: string): ErrUnknownModuleFormat
+  new (format: string, url: Stringifiable): ErrUnknownModuleFormat
 }
 
 /**

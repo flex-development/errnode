@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_IMPORT_ATTRIBUTE_MISSING` schema.
@@ -22,8 +26,10 @@ interface ErrImportAttributeMissing
 
 /**
  * `ERR_IMPORT_ATTRIBUTE_MISSING` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [id: string, key: string, value: string]
+type Args = [id: Stringifiable, key: Stringifiable, value: Stringifiable]
 
 /**
  * `ERR_IMPORT_ATTRIBUTE_MISSING` constructor.
@@ -40,16 +46,21 @@ interface ErrImportAttributeMissingConstructor
    * Create a new `ERR_IMPORT_ATTRIBUTE_MISSING` error.
    *
    * @see {@linkcode ErrImportAttributeMissing}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} id
+   * @param {Stringifiable} id
    *  Module id
-   * @param {string} key
+   * @param {Stringifiable} key
    *  The required import attribute key
-   * @param {string} value
+   * @param {Stringifiable} value
    *  The required import attribute value
    * @return {ErrImportAttributeMissing}
    */
-  new (id: string, key: string, value: string): ErrImportAttributeMissing
+  new (
+    id: Stringifiable,
+    key: Stringifiable,
+    value: Stringifiable
+  ): ErrImportAttributeMissing
 }
 
 /**

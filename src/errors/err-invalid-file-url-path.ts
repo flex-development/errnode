@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_INVALID_FILE_URL_PATH` schema.
@@ -22,8 +26,10 @@ interface ErrInvalidFileUrlPath
 
 /**
  * `ERR_INVALID_FILE_URL_PATH` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [reason: string]
+type Args = [reason: Stringifiable]
 
 /**
  * `ERR_INVALID_FILE_URL_PATH` constructor.
@@ -39,12 +45,13 @@ interface ErrInvalidFileUrlPathConstructor
    * Create a new `ERR_INVALID_FILE_URL_PATH` error.
    *
    * @see {@linkcode ErrInvalidFileUrlPath}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} reason
+   * @param {Stringifiable} reason
    *  Reason for invalidity
    * @return {ErrInvalidFileUrlPath}
    */
-  new (reason: string): ErrInvalidFileUrlPath
+  new (reason: Stringifiable): ErrInvalidFileUrlPath
 }
 
 /**

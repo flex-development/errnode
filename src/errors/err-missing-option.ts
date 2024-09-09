@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_MISSING_OPTION` schema.
@@ -22,8 +26,10 @@ interface ErrMissingOption
 
 /**
  * `ERR_MISSING_OPTION` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [option: string]
+type Args = [option: Stringifiable]
 
 /**
  * `ERR_MISSING_OPTION` constructor.
@@ -40,12 +46,13 @@ interface ErrMissingOptionConstructor
    * Create a new `ERR_MISSING_OPTION` error.
    *
    * @see {@linkcode ErrMissingOption}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} option
+   * @param {Stringifiable} option
    *  Option name
    * @return {ErrMissingOption}
    */
-  new (option: string): ErrMissingOption
+  new (option: Stringifiable): ErrMissingOption
 }
 
 /**

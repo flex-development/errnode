@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_UNSUPPORTED_DIR_IMPORT` schema.
@@ -21,8 +25,10 @@ interface ErrUnsupportedDirImport
 
 /**
  * `ERR_UNSUPPORTED_DIR_IMPORT` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [id: string, base: string]
+type Args = [id: Stringifiable, base: Stringifiable]
 
 /**
  * `ERR_UNSUPPORTED_DIR_IMPORT` constructor.
@@ -39,14 +45,15 @@ interface ErrUnsupportedDirImportConstructor
    * Create a new `ERR_UNSUPPORTED_DIR_IMPORT` error.
    *
    * @see {@linkcode ErrUnsupportedDirImport}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} id
-   *  Module id of directory
-   * @param {string} base
-   *  Id of module `id` was imported from
+   * @param {Stringifiable} id
+   *  Directory id
+   * @param {Stringifiable} base
+   *  Parent module id
    * @return {ErrUnsupportedDirImport}
    */
-  new (id: string, base: string): ErrUnsupportedDirImport
+  new (id: Stringifiable, base: Stringifiable): ErrUnsupportedDirImport
 }
 
 /**

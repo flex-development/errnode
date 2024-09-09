@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_NO_ICU` schema.
@@ -21,8 +25,10 @@ interface ErrNoIcu extends NodeError<codes.ERR_NO_ICU>, TypeError {}
 
 /**
  * `ERR_NO_ICU` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [feature: string]
+type Args = [feature: Stringifiable]
 
 /**
  * `ERR_NO_ICU` constructor.
@@ -37,12 +43,13 @@ interface ErrNoIcuConstructor extends NodeErrorConstructor<ErrNoIcu, Args> {
    * Create a new `ERR_NO_ICU` error.
    *
    * @see {@linkcode ErrNoIcu}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} feature
+   * @param {Stringifiable} feature
    *  Description of feature that requires ICU
    * @return {ErrNoIcu}
    */
-  new (feature: string): ErrNoIcu
+  new (feature: Stringifiable): ErrNoIcu
 }
 
 /**

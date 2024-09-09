@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_UNSUPPORTED_RESOLVE_REQUEST` schema.
@@ -22,8 +26,10 @@ interface ErrUnsupportedResolveRequest
 
 /**
  * `ERR_UNSUPPORTED_RESOLVE_REQUEST` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [specifier: string, base: URL | string]
+type Args = [specifier: Stringifiable, base: Stringifiable]
 
 /**
  * `ERR_UNSUPPORTED_RESOLVE_REQUEST` constructor.
@@ -40,14 +46,18 @@ interface ErrUnsupportedResolveRequestConstructor
    * Create a new `ERR_UNSUPPORTED_RESOLVE_REQUEST` error.
    *
    * @see {@linkcode ErrUnsupportedResolveRequest}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} specifier
+   * @param {Stringifiable} specifier
    *  The module specifier that failed to resolve
-   * @param {URL | string} base
+   * @param {Stringifiable} base
    *  Parent module id
    * @return {ErrUnsupportedResolveRequest}
    */
-  new (specifier: string, base: URL | string): ErrUnsupportedResolveRequest
+  new (
+    specifier: Stringifiable,
+    base: Stringifiable
+  ): ErrUnsupportedResolveRequest
 }
 
 /**

@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_INVALID_THIS` schema.
@@ -21,8 +25,10 @@ interface ErrInvalidThis extends NodeError<codes.ERR_INVALID_THIS>, TypeError {}
 
 /**
  * `ERR_INVALID_THIS` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [expected: string]
+type Args = [expected: Stringifiable]
 
 /**
  * `ERR_INVALID_THIS` constructor.
@@ -38,12 +44,13 @@ interface ErrInvalidThisConstructor
    * Create a new `ERR_INVALID_THIS` error.
    *
    * @see {@linkcode ErrInvalidThis}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} expected
+   * @param {Stringifiable} expected
    *  Expected type of `this`
    * @return {ErrInvalidThis}
    */
-  new (expected: string): ErrInvalidThis
+  new (expected: Stringifiable): ErrInvalidThis
 }
 
 /**

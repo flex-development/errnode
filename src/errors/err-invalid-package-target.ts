@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 import { sep } from '@flex-development/pathe'
 import { DOT } from '@flex-development/tutils'
 import { ok } from 'devlop'
@@ -24,13 +28,15 @@ interface ErrInvalidPackageTarget
 
 /**
  * `ERR_INVALID_PACKAGE_TARGET` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
 type Args = [
-  dir: string,
+  dir: Stringifiable,
   subpath: string,
   target: unknown,
-  internal?: boolean | null | undefined,
-  base?: URL | string | null | undefined
+  isImports?: boolean | null | undefined,
+  base?: Stringifiable | null | undefined
 ]
 
 /**
@@ -48,25 +54,26 @@ interface ErrInvalidPackageTargetConstructor
    * Create a new `ERR_INVALID_PACKAGE_TARGET` error.
    *
    * @see {@linkcode ErrInvalidPackageTarget}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} dir
+   * @param {Stringifiable} dir
    *  Package directory module id
    * @param {string} subpath
    *  Package subpath
    * @param {unknown} target
    *  Invalid package target
-   * @param {boolean | null | undefined} [internal]
+   * @param {boolean | null | undefined} [isImports]
    *  Internal `subpath`?
-   * @param {URL | string | null | undefined} [base]
+   * @param {Stringifiable | null | undefined} [base]
    *  Parent module id
    * @return {ErrInvalidPackageTarget}
    */
   new (
-    dir: string,
+    dir: Stringifiable,
     subpath: string,
     target: unknown,
-    internal?: boolean | null | undefined,
-    base?: URL | string | null | undefined
+    isImports?: boolean | null | undefined,
+    base?: Stringifiable | null | undefined
   ): ErrInvalidPackageTarget
 }
 
@@ -89,27 +96,30 @@ const ERR_INVALID_PACKAGE_TARGET: ErrInvalidPackageTargetConstructor = E(
   codes.ERR_INVALID_PACKAGE_TARGET,
   Error,
   /**
-   * @param {string} dir
+   * @param {Stringifiable} dir
    *  Package directory module id
    * @param {string} subpath
    *  Package subpath
    * @param {unknown} target
    *  Invalid package target
-   * @param {boolean | null | undefined} [internal]
+   * @param {boolean | null | undefined} [isImports]
    *  Internal `subpath`?
-   * @param {URL | string | null | undefined} [base]
+   * @param {Stringifiable | null | undefined} [base]
    *  Parent module id
    * @return {string}
    *  Error message
    */
   function message(
-    dir: string,
+    dir: Stringifiable,
     subpath: string,
     target: unknown,
-    internal: boolean | null | undefined = false,
-    base: URL | string | null | undefined = null
+    isImports: boolean | null | undefined = false,
+    base: Stringifiable | null | undefined = null
   ): string {
-    ok(dir.endsWith('/'), 'expected `dir` to end with trailing slash ("/")')
+    ok(
+      String(dir).endsWith('/'),
+      'expected `dir` to end with trailing slash ("/")'
+    )
 
     /**
      * Relative error?
@@ -117,7 +127,7 @@ const ERR_INVALID_PACKAGE_TARGET: ErrInvalidPackageTargetConstructor = E(
      * @const {boolean} relativeError
      */
     const relativeError: boolean = typeof target === 'string' &&
-      internal !== true &&
+      isImports !== true &&
       target.length > 0 &&
       !target.startsWith(`${DOT}/`)
 
@@ -129,14 +139,14 @@ const ERR_INVALID_PACKAGE_TARGET: ErrInvalidPackageTargetConstructor = E(
     let message: string = ''
 
     if (subpath === DOT) {
-      ok(internal !== true, 'expected `internal` to not be `true`')
+      ok(isImports !== true, 'expected `internal` to not be `true`')
 
       message += `Invalid "exports" main target ${JSON.stringify(target)}` +
-        ` defined in the package config ${dir}package.json`
+        ` defined in the package config ${String(dir)}package.json`
     } else {
-      message = `Invalid "${internal ? 'imports' : 'exports'}" target` +
+      message = `Invalid "${isImports ? 'imports' : 'exports'}" target` +
         ` ${JSON.stringify(target)} defined for '${subpath}' in the package` +
-        ` config ${dir}package.json`
+        ` config ${String(dir)}package.json`
     }
 
     if (base !== null) message += ` imported from ${String(base)}`

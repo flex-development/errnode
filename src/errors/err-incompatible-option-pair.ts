@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_INCOMPATIBLE_OPTION_PAIR` schema.
@@ -22,8 +26,10 @@ interface ErrIncompatibleOptionPair
 
 /**
  * `ERR_INCOMPATIBLE_OPTION_PAIR` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [option1: string, option2: string]
+type Args = [option1: Stringifiable, option2: Stringifiable]
 
 /**
  * `ERR_INCOMPATIBLE_OPTION_PAIR` constructor.
@@ -40,14 +46,18 @@ interface ErrIncompatibleOptionPairConstructor
    * Create a new `ERR_INCOMPATIBLE_OPTION_PAIR` error.
    *
    * @see {@linkcode ErrIncompatibleOptionPair}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} option1
+   * @param {Stringifiable} option1
    *  Option that cannot be used
-   * @param {string} option2
+   * @param {Stringifiable} option2
    *  Option that is incompatible with `option1`
    * @return {ErrIncompatibleOptionPair}
    */
-  new (option1: string, option2: string): ErrIncompatibleOptionPair
+  new (
+    option1: Stringifiable,
+    option2: Stringifiable
+  ): ErrIncompatibleOptionPair
 }
 
 /**

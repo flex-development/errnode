@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 import { DOT } from '@flex-development/tutils'
 
 /**
@@ -22,10 +26,12 @@ interface ErrInvalidPackageConfig
 
 /**
  * `ERR_INVALID_PACKAGE_CONFIG` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
 type Args = [
-  id: string,
-  base?: URL | string | null | undefined,
+  id: Stringifiable,
+  base?: Stringifiable | null | undefined,
   reason?: string | null | undefined
 ]
 
@@ -44,18 +50,19 @@ interface ErrInvalidPackageConfigConstructor
    * Create a new `ERR_INVALID_PACKAGE_CONFIG` error.
    *
    * @see {@linkcode ErrInvalidPackageConfig}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} id
+   * @param {Stringifiable} id
    *  Location of invalid `package.json` file
-   * @param {URL | string | null | undefined} [base]
-   *  Base URL or base path to resolve
+   * @param {Stringifiable | null | undefined} [base]
+   *  Parent module id
    * @param {string | null | undefined} [reason]
    *  Reason for invalidity
    * @return {ErrInvalidPackageConfig}
    */
   new (
-    id: string,
-    base?: URL | string | null | undefined,
+    id: Stringifiable,
+    base?: Stringifiable | null | undefined,
     reason?: string | null | undefined
   ): ErrInvalidPackageConfig
 }
@@ -77,18 +84,18 @@ const ERR_INVALID_PACKAGE_CONFIG: ErrInvalidPackageConfigConstructor = E(
   codes.ERR_INVALID_PACKAGE_CONFIG,
   Error,
   /**
-   * @param {string} id
+   * @param {Stringifiable} id
    *  Location of invalid `package.json` file
-   * @param {URL | string | null | undefined} [base]
-   *  Base URL or base path to resolve
+   * @param {Stringifiable | null | undefined} [base]
+   *  Parent module id
    * @param {string | null | undefined} [reason]
    *  Reason for invalidity
    * @return {string}
    *  Error message
    */
   function message(
-    id: string,
-    base: URL | string | null | undefined = null,
+    id: Stringifiable,
+    base: Stringifiable | null | undefined = null,
     reason: string | null | undefined = null
   ): string {
     /**
@@ -96,7 +103,7 @@ const ERR_INVALID_PACKAGE_CONFIG: ErrInvalidPackageConfigConstructor = E(
      *
      * @var {string} message
      */
-    let message: string = `Invalid package config ${id}`
+    let message: string = `Invalid package config ${String(id)}`
 
     if (base !== null) message += ` while importing ${String(base)}`
     if (reason) message += `${DOT} ${reason}`

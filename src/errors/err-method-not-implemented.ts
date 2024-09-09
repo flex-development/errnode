@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_METHOD_NOT_IMPLEMENTED` schema.
@@ -21,8 +25,10 @@ interface ErrMethodNotImplemented
 
 /**
  * `ERR_METHOD_NOT_IMPLEMENTED` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [method: string]
+type Args = [method: Stringifiable]
 
 /**
  * `ERR_METHOD_NOT_IMPLEMENTED` constructor.
@@ -39,12 +45,13 @@ interface ErrMethodNotImplementedConstructor
    * Create a new `ERR_METHOD_NOT_IMPLEMENTED` error.
    *
    * @see {@linkcode ErrMethodNotImplemented}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} method
+   * @param {Stringifiable} method
    *  Method name
    * @return {ErrMethodNotImplemented}
    */
-  new (method: string): ErrMethodNotImplemented
+  new (method: Stringifiable): ErrMethodNotImplemented
 }
 
 /**

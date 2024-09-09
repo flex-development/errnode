@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_OPERATION_FAILED` schema.
@@ -20,8 +24,10 @@ interface ErrOperationFailed extends NodeError<codes.ERR_OPERATION_FAILED> {}
 
 /**
  * `ERR_OPERATION_FAILED` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [reason: string]
+type Args = [reason: Stringifiable]
 
 /**
  * `ERR_OPERATION_FAILED` constructor.
@@ -38,12 +44,13 @@ interface ErrOperationFailedConstructor
    * Create a new `ERR_OPERATION_FAILED` error.
    *
    * @see {@linkcode ErrOperationFailed}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} reason
+   * @param {Stringifiable} reason
    *  Reason for operation failure
    * @return {ErrOperationFailed}
    */
-  new (reason: string): ErrOperationFailed
+  new (reason: Stringifiable): ErrOperationFailed
 }
 
 /**

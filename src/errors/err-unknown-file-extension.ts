@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_UNKNOWN_FILE_EXTENSION` schema.
@@ -22,8 +26,10 @@ interface ErrUnknownFileExtension
 
 /**
  * `ERR_UNKNOWN_FILE_EXTENSION` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [ext: string, id: string]
+type Args = [ext: unknown, id: Stringifiable]
 
 /**
  * `ERR_UNKNOWN_FILE_EXTENSION` constructor.
@@ -40,14 +46,15 @@ interface ErrUnknownFileExtensionConstructor
    * Create a new `ERR_UNKNOWN_FILE_EXTENSION` error.
    *
    * @see {@linkcode ErrUnknownFileExtension}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} ext
+   * @param {unknown} ext
    *  Unknown or unsupported file extension
-   * @param {string} id
+   * @param {Stringifiable} id
    *  Id of module containing `ext`
    * @return {ErrUnknownFileExtension}
    */
-  new (ext: string, id: string): ErrUnknownFileExtension
+  new (ext: unknown, id: Stringifiable): ErrUnknownFileExtension
 }
 
 /**

@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_INVALID_MODULE_SPECIFIER` schema.
@@ -22,11 +26,13 @@ interface ErrInvalidModuleSpecifier
 
 /**
  * `ERR_INVALID_MODULE_SPECIFIER` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
 type Args = [
-  request: string,
+  request: Stringifiable,
   reason?: string | null | undefined,
-  base?: URL | string | null | undefined
+  base?: Stringifiable | null | undefined
 ]
 
 /**
@@ -44,19 +50,20 @@ interface ErrInvalidModuleSpecifierConstructor
    * Create a new `ERR_INVALID_MODULE_SPECIFIER` error.
    *
    * @see {@linkcode ErrInvalidModuleSpecifier}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} request
+   * @param {Stringifiable} request
    *  Invalid module specifier
    * @param {string | null | undefined} [reason]
    *  Reason `request` is invalid
-   * @param {URL | string | null | undefined} [base]
-   *  Id of module `request` was imported from
+   * @param {Stringifiable | null | undefined} [base]
+   *  Parent module id
    * @return {ErrInvalidModuleSpecifier}
    */
   new (
-    request: string,
+    request: Stringifiable,
     reason?: string | null | undefined,
-    base?: URL | string | null | undefined
+    base?: Stringifiable | null | undefined
   ): ErrInvalidModuleSpecifier
 }
 
@@ -76,26 +83,26 @@ const ERR_INVALID_MODULE_SPECIFIER: ErrInvalidModuleSpecifierConstructor = E(
   codes.ERR_INVALID_MODULE_SPECIFIER,
   TypeError,
   /**
-   * @param {string} request
+   * @param {Stringifiable} request
    *  Invalid module specifier
    * @param {string | null | undefined} [reason]
    *  Reason `request` is invalid
-   * @param {URL | string | null | undefined} [base]
-   *  Id of module `request` was imported from
+   * @param {Stringifiable | null | undefined} [base]
+   *  Parent module id
    * @return {string}
    *  Error message
    */
   function message(
-    request: string,
+    request: Stringifiable,
     reason: string | null | undefined = null,
-    base: URL | string | null | undefined = null
+    base: Stringifiable | null | undefined = null
   ): string {
     /**
      * Error message.
      *
      * @var {string} message
      */
-    let message: string = `Invalid module '${request}'`
+    let message: string = `Invalid module '${String(request)}'`
 
     if (reason) message += ' ' + reason
     if (base !== null) message += ` imported from ${String(base)}`

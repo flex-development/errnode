@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_IMPORT_ATTRIBUTE_TYPE_INCOMPATIBLE` schema.
@@ -22,8 +26,10 @@ interface ErrImportAttributeTypeIncompatible
 
 /**
  * `ERR_IMPORT_ATTRIBUTE_TYPE_INCOMPATIBLE` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [id: string, type: string]
+type Args = [id: Stringifiable, type: Stringifiable]
 
 /**
  * `ERR_IMPORT_ATTRIBUTE_TYPE_INCOMPATIBLE` constructor.
@@ -40,14 +46,18 @@ interface ErrImportAttributeTypeIncompatibleConstructor
    * Create a new `ERR_IMPORT_ATTRIBUTE_TYPE_INCOMPATIBLE` error.
    *
    * @see {@linkcode ErrImportAttributeTypeIncompatible}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} id
+   * @param {Stringifiable} id
    *  Module id
-   * @param {string} type
+   * @param {Stringifiable} type
    *  Specified type
    * @return {ErrImportAttributeTypeIncompatible}
    */
-  new (id: string, type: string): ErrImportAttributeTypeIncompatible
+  new (
+    id: Stringifiable,
+    type: Stringifiable
+  ): ErrImportAttributeTypeIncompatible
 }
 
 /**

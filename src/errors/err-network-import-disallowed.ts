@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_NETWORK_IMPORT_DISALLOWED` schema.
@@ -21,8 +25,10 @@ interface ErrNetworkImportDisallowed
 
 /**
  * `ERR_NETWORK_IMPORT_DISALLOWED` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [specifier: string, base: string, reason: string]
+type Args = [specifier: Stringifiable, base: Stringifiable, reason: string]
 
 /**
  * `ERR_NETWORK_IMPORT_DISALLOWED` constructor.
@@ -39,18 +45,19 @@ interface ErrNetworkImportDisallowedConstructor
    * Create a new `ERR_NETWORK_IMPORT_DISALLOWED` error.
    *
    * @see {@linkcode ErrNetworkImportDisallowed}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} specifier
-   *  Invalid module specifier
-   * @param {string} base
-   *  Id of module `specifier` was imported from
+   * @param {Stringifiable} specifier
+   *  The invalid module specifier
+   * @param {Stringifiable} base
+   *  Parent module id
    * @param {string} reason
    *  Reason for error
    * @return {ErrNetworkImportDisallowed}
    */
   new (
-    specifier: string,
-    base: string,
+    specifier: Stringifiable,
+    base: Stringifiable,
     reason: string
   ): ErrNetworkImportDisallowed
 }

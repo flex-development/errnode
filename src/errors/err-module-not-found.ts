@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_MODULE_NOT_FOUND` schema.
@@ -25,10 +29,12 @@ interface ErrModuleNotFound extends NodeError<codes.ERR_MODULE_NOT_FOUND> {
 
 /**
  * `ERR_MODULE_NOT_FOUND` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
 type Args = [
-  id: string,
-  base?: URL | string | null | undefined,
+  id: Stringifiable,
+  base?: Stringifiable | null | undefined,
   url?: URL | string | null | undefined
 ]
 
@@ -50,18 +56,19 @@ interface ErrModuleNotFoundConstructor
    * `undefined`.
    *
    * @see {@linkcode ErrModuleNotFound}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} id
+   * @param {Stringifiable} id
    *  Id of missing module
-   * @param {URL | string | null | undefined} [base]
+   * @param {Stringifiable | null | undefined} [base]
    *  Parent module id
    * @param {URL | string | null | undefined} [url]
    *  Module URL
    * @return {ErrModuleNotFound}
    */
   new (
-    id: string,
-    base?: URL | string | null | undefined,
+    id: Stringifiable,
+    base?: Stringifiable | null | undefined,
     url?: URL | string | null | undefined
   ): ErrModuleNotFound
 }
@@ -84,9 +91,9 @@ const ERR_MODULE_NOT_FOUND: ErrModuleNotFoundConstructor = E(
   /**
    * @this {ErrModuleNotFound}
    *
-   * @param {string} id
+   * @param {Stringifiable} id
    *  Id of missing module
-   * @param {URL | string | null | undefined} [base]
+   * @param {Stringifiable | null | undefined} [base]
    *  Parent module id
    * @param {URL | string | null | undefined} [url]
    *  Module URL
@@ -95,8 +102,8 @@ const ERR_MODULE_NOT_FOUND: ErrModuleNotFoundConstructor = E(
    */
   function message(
     this: ErrModuleNotFound,
-    id: string,
-    base: URL | string | null | undefined = null,
+    id: Stringifiable,
+    base: Stringifiable | null | undefined = null,
     url: URL | string | null | undefined = null
   ): string {
     if (url !== null) this.url = String(url)
@@ -108,7 +115,7 @@ const ERR_MODULE_NOT_FOUND: ErrModuleNotFoundConstructor = E(
      */
     let message: string = `Cannot find ${this.url ? 'module' : 'package'}`
 
-    message += ` '${id}'`
+    message += ` '${String(id)}'`
     if (base !== null) message += ` imported from ${String(base)}`
 
     return message

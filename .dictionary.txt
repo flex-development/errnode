@@ -39,6 +39,7 @@ pathe
 pkgs
 preid
 shfmt
+stringifiable
 syscall
 syscodes
 unstub

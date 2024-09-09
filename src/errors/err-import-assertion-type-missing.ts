@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_IMPORT_ASSERTION_TYPE_MISSING` schema.
@@ -22,8 +26,10 @@ interface ErrImportAssertionTypeMissing
 
 /**
  * `ERR_IMPORT_ASSERTION_TYPE_MISSING` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [id: string, type: string]
+type Args = [id: Stringifiable, type: Stringifiable]
 
 /**
  * `ERR_IMPORT_ASSERTION_TYPE_MISSING` constructor.
@@ -40,14 +46,15 @@ interface ErrImportAssertionTypeMissingConstructor
    * Create a new `ERR_IMPORT_ASSERTION_TYPE_MISSING` error.
    *
    * @see {@linkcode ErrImportAssertionTypeMissing}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} id
-   *  Id of module that cannot be imported
-   * @param {string} type
+   * @param {Stringifiable} id
+   *  Module id
+   * @param {Stringifiable} type
    *  Required import assertion type
    * @return {ErrImportAssertionTypeMissing}
    */
-  new (id: string, type: string): ErrImportAssertionTypeMissing
+  new (id: Stringifiable, type: Stringifiable): ErrImportAssertionTypeMissing
 }
 
 /**

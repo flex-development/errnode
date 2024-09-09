@@ -6,7 +6,11 @@
 
 import E from '#e'
 import { codes } from '#src/enums'
-import type { NodeError, NodeErrorConstructor } from '#src/interfaces'
+import type {
+  NodeError,
+  NodeErrorConstructor,
+  Stringifiable
+} from '#src/interfaces'
 
 /**
  * `ERR_IMPORT_ATTRIBUTE_UNSUPPORTED` schema.
@@ -22,8 +26,10 @@ interface ErrImportAttributeUnsupported
 
 /**
  * `ERR_IMPORT_ATTRIBUTE_UNSUPPORTED` message arguments.
+ *
+ * @see {@linkcode Stringifiable}
  */
-type Args = [key: string, value: string]
+type Args = [key: Stringifiable, value: unknown]
 
 /**
  * `ERR_IMPORT_ATTRIBUTE_UNSUPPORTED` constructor.
@@ -40,14 +46,15 @@ interface ErrImportAttributeUnsupportedConstructor
    * Create a new `ERR_IMPORT_ATTRIBUTE_UNSUPPORTED` error.
    *
    * @see {@linkcode ErrImportAttributeUnsupported}
+   * @see {@linkcode Stringifiable}
    *
-   * @param {string} key
+   * @param {Stringifiable} key
    *  Import attribute key
-   * @param {string} value
+   * @param {unknown} value
    *  Import attribute value
    * @return {ErrImportAttributeUnsupported}
    */
-  new (key: string, value: string): ErrImportAttributeUnsupported
+  new (key: Stringifiable, value: unknown): ErrImportAttributeUnsupported
 }
 
 /**
