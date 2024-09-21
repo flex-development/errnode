@@ -1,3 +1,33 @@
+## [3.1.1](https://github.com/flex-development/errnode/compare/3.1.0...3.1.1) (2024-09-21)
+
+### :package: Build
+
+- [[`c0b6dfd`](https://github.com/flex-development/errnode/commit/c0b6dfd61dd474514b43102463aca577c31f84e3)] **deps-dev:** Bump @arethetypeswrong/cli from 0.15.4 to 0.16.1 ([#363](https://github.com/flex-development/errnode/issues/363))
+- [[`efcaba4`](https://github.com/flex-development/errnode/commit/efcaba400531167adab57c977a04d6efa6c98e32)] **deps-dev:** Bump @arethetypeswrong/cli from 0.16.1 to 0.16.2 ([#366](https://github.com/flex-development/errnode/issues/366))
+- [[`def46ea`](https://github.com/flex-development/errnode/commit/def46ea5c506f2032e1f7d5081fb4be9f4ac3462)] **deps-dev:** Bump @arethetypeswrong/cli from 0.16.2 to 0.16.4 ([#375](https://github.com/flex-development/errnode/issues/375))
+- [[`c6efef3`](https://github.com/flex-development/errnode/commit/c6efef376c53dc8d25aa4075c2c6eeb885bc42b9)] **deps-dev:** Bump @stylistic/eslint-plugin from 2.7.2 to 2.8.0 ([#365](https://github.com/flex-development/errnode/issues/365))
+- [[`d998e79`](https://github.com/flex-development/errnode/commit/d998e7929a66bc0999442d68bafb267e375f8a9b)] **deps-dev:** Bump cspell from 8.14.2 to 8.14.4 ([#377](https://github.com/flex-development/errnode/issues/377))
+- [[`fc275ab`](https://github.com/flex-development/errnode/commit/fc275ab878e912339a641e934e82a5bbf2b66c3e)] **deps-dev:** Bump eslint-plugin-jsdoc from 50.2.2 to 50.2.3 ([#373](https://github.com/flex-development/errnode/issues/373))
+- [[`2c5e27e`](https://github.com/flex-development/errnode/commit/2c5e27e8791c728b12ac6c6325c3beeba1bdba36)] **deps-dev:** Bump eslint-plugin-jsdoc from 50.2.3 to 50.2.4 ([#379](https://github.com/flex-development/errnode/issues/379))
+- [[`e3218a4`](https://github.com/flex-development/errnode/commit/e3218a460e258075a0b56427ebde00d14b8095fe)] **deps-dev:** Bump eslint-plugin-n from 17.10.2 to 17.10.3 ([#378](https://github.com/flex-development/errnode/issues/378))
+- [[`f219c90`](https://github.com/flex-development/errnode/commit/f219c90e0f2f83fc0d07219e6187b97a482f0daf)] **deps-dev:** Bump husky from 9.1.5 to 9.1.6 ([#369](https://github.com/flex-development/errnode/issues/369))
+- [[`51854dd`](https://github.com/flex-development/errnode/commit/51854ddc615456c8d7abff8b179731b3124c1644)] **deps-dev:** Bump the commitlint group with 2 updates ([#368](https://github.com/flex-development/errnode/issues/368))
+- [[`327cb9a`](https://github.com/flex-development/errnode/commit/327cb9a1810a91b5d2e2b28c532d31830d0545b4)] **deps-dev:** Bump the eslint group with 2 updates ([#362](https://github.com/flex-development/errnode/issues/362))
+- [[`6c68c56`](https://github.com/flex-development/errnode/commit/6c68c56c042854fd484ac12b4e86ea55f3944793)] **deps-dev:** Bump the typescript-eslint group with 3 updates ([#364](https://github.com/flex-development/errnode/issues/364))
+- [[`f403218`](https://github.com/flex-development/errnode/commit/f403218152615e5d1f45b2aaff233f61ed3de0af)] **deps-dev:** Bump the typescript-eslint group with 3 updates ([#374](https://github.com/flex-development/errnode/issues/374))
+- [[`2e50160`](https://github.com/flex-development/errnode/commit/2e5016062006f555f94d5840fa5df7fb9bdba118)] **deps-dev:** Bump the vitest group with 3 updates ([#371](https://github.com/flex-development/errnode/issues/371))
+- [[`38944d3`](https://github.com/flex-development/errnode/commit/38944d380aa4fe3931ad25224381edae104e5845)] **deps-dev:** Bump the vitest group with 3 updates ([#372](https://github.com/flex-development/errnode/issues/372))
+- [[`6f2ec3f`](https://github.com/flex-development/errnode/commit/6f2ec3fec5b383e26057c8a82fd1fe4fa5c0eda6)] **deps:** Bump vite from 5.4.1 to 5.4.6 ([#376](https://github.com/flex-development/errnode/issues/376))
+
+### :robot: Continuous Integration
+
+- [[`a424294`](https://github.com/flex-development/errnode/commit/a42429450c9cd14695e2368048654f82f271bc68)] **deps:** Bump actions/create-github-app-token from 1.10.4 to 1.11.0 ([#370](https://github.com/flex-development/errnode/issues/370))
+- [[`5bc5098`](https://github.com/flex-development/errnode/commit/5bc5098eff632e59bb88994cadaa5c20cf2e3c6c)] **deps:** Bump actions/setup-node from 4.0.3 to 4.0.4 ([#380](https://github.com/flex-development/errnode/issues/380))
+
+### :bug: Fixes
+
+- [[`78f0c70`](https://github.com/flex-development/errnode/commit/78f0c702cf095fd5cec3e2e7840bbb42837b1df4)] **errors:** `Cannot find module "@flex-development/pathe"`
+
 ## [3.1.0](https://github.com/flex-development/errnode/compare/3.0.0...3.1.0) (2024-09-08)
 
 ### :package: Build
@@ -490,6 +520,7 @@
 - [[`1e78899`](https://github.com/flex-development/errnode/commit/1e78899060e11ab339624952f63e8686d7c56b32)] **github:** add label `scope:lib`
 - [[`c66e156`](https://github.com/flex-development/errnode/commit/c66e156a37b859897cc4ae0fb1b32b54daa31eab)] **pkg:** add keyword `nodejs`
 - [[`3e52ba5`](https://github.com/flex-development/errnode/commit/3e52ba59843d086d67d389f76686f68ceec31a7e)] **tests:** codecov integration
+
 
 
 
