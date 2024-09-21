@@ -11,7 +11,6 @@ import type {
   NodeErrorConstructor,
   Stringifiable
 } from '#src/interfaces'
-import { sep } from '@flex-development/pathe'
 import { DOT } from '@flex-development/tutils'
 import { ok } from 'devlop'
 
@@ -150,7 +149,7 @@ const ERR_INVALID_PACKAGE_TARGET: ErrInvalidPackageTargetConstructor = E(
     }
 
     if (base !== null) message += ` imported from ${String(base)}`
-    if (relativeError) message += `; targets must start with "${DOT}${sep}"`
+    if (relativeError) message += `; targets must start with "${DOT}/"`
 
     return message
   }
